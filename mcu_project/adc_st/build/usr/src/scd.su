@@ -1,0 +1,15 @@
+../usr/src/scd.c:781:17:SCO_get	24	static
+../usr/src/scd.c:886:17:SCO_VAR	24	static
+../usr/src/scd.c:1001:17:SCO_DEBUG	0	static
+../usr/src/scd.c:1018:17:SCO_DUMP	32	static
+../usr/src/scd.c:1162:17:SCO_PRINT	12	static
+../usr/src/scd.c:323:17:_cz_strtoxl.constprop	20	static
+../usr/src/scd.c:463:16:cz_atol	0	static
+../usr/src/scd.c:580:13:SCD_CMD_CONF	16	static
+../usr/src/scd.c:597:13:SCD_CMD_CHG	8	static
+../usr/src/scd.c:611:13:SCD_CMD_DUMP	8	static
+../usr/src/scd.c:629:13:SCD_CMD_CALL	16	static
+../usr/src/scd.c:546:13:SCD_CMD_SET	64	static
+../usr/src/scd.c:724:6:SCD_Rev1Byte	40	static
+../usr/src/scd.c:1208:10:scd_send1Byte	16	static
+../usr/src/scd.c:1232:10:scd_print	8	static

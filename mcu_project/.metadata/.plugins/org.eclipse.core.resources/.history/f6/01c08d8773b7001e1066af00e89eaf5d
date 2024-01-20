@@ -1,0 +1,877 @@
+
+adc_st.elf:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000348  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000010  20000000  00000348  00020000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000004  20000010  00000358  00020010  2**2
+                  ALLOC
+  3 .heap         00000200  20000018  20000018  00020010  2**3
+                  CONTENTS, READONLY
+  4 .stack_dummy  00000400  20000018  20000018  00020210  2**3
+                  CONTENTS, READONLY
+  5 .ARM.attributes 00000029  00000000  00000000  00020610  2**0
+                  CONTENTS, READONLY
+  6 .comment      00000043  00000000  00000000  00020639  2**0
+                  CONTENTS, READONLY
+  7 .debug_info   00000e5f  00000000  00000000  0002067c  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+  8 .debug_abbrev 00000485  00000000  00000000  000214db  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+  9 .debug_loclists 00000124  00000000  00000000  00021960  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 10 .debug_aranges 00000270  00000000  00000000  00021a88  2**3
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 11 .debug_rnglists 000001a9  00000000  00000000  00021cf8  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 12 .debug_macro  0000117f  00000000  00000000  00021ea1  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 13 .debug_line   00001e81  00000000  00000000  00023020  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 14 .debug_str    00008d35  00000000  00000000  00024ea1  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 15 .debug_frame  000005dc  00000000  00000000  0002dbd8  2**2
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 16 .debug_line_str 0000003f  00000000  00000000  0002e1b4  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+
+Disassembly of section .text:
+
+00000000 <__isr_vector>:
+  * @return none
+  * @brief Outputs the specified value on the desired port using the user defined mask to perform Masked access.
+  */
+void GPIO_MaskedWrite(GPIO_TypeDef* GPIOx,uint32_t value,uint32_t mask)
+{
+  GPIOx->MASKLOWBYTE[0x00FF & mask] = value;
+   0:	20004000 	.word	0x20004000
+   4:	00000271 	.word	0x00000271
+   8:	0000019f 	.word	0x0000019f
+  GPIOx->MASKHIGHBYTE[((0xFF00 & mask) >> 8)] = value;
+   c:	000001a1 	.word	0x000001a1
+  10:	000001a3 	.word	0x000001a3
+  14:	000001a5 	.word	0x000001a5
+{
+  SystemCoreClock = __SYSTEM_CLOCK;
+  PCLK1 = SystemCoreClock;
+  PCLK2 = SystemCoreClock;
+  HCLK = SystemCoreClock;
+}
+  18:	000001a7 	.word	0x000001a7
+	...
+  2c:	000001a9 	.word	0x000001a9
+  30:	000001ab 	.word	0x000001ab
+  34:	00000000 	.word	0x00000000
+  38:	000001ad 	.word	0x000001ad
+  3c:	000001af 	.word	0x000001af
+  40:	000001bd 	.word	0x000001bd
+  44:	000001b1 	.word	0x000001b1
+  48:	000001bf 	.word	0x000001bf
+  4c:	000001b3 	.word	0x000001b3
+  50:	000001b5 	.word	0x000001b5
+  54:	000001c7 	.word	0x000001c7
+  58:	000002bf 	.word	0x000002bf
+  5c:	000001b7 	.word	0x000001b7
+  60:	000001c1 	.word	0x000001c1
+  64:	000001c3 	.word	0x000001c3
+  68:	00000000 	.word	0x00000000
+  6c:	000001c5 	.word	0x000001c5
+  70:	000002c9 	.word	0x000002c9
+  74:	000001b9 	.word	0x000001b9
+  78:	000001bb 	.word	0x000001bb
+  7c:	000002cf 	.word	0x000002cf
+  80:	000001c9 	.word	0x000001c9
+  84:	000001cb 	.word	0x000001cb
+  88:	000001cd 	.word	0x000001cd
+  8c:	000001cf 	.word	0x000001cf
+  90:	000001d1 	.word	0x000001d1
+  94:	000001d3 	.word	0x000001d3
+  98:	000001d5 	.word	0x000001d5
+  9c:	000001d7 	.word	0x000001d7
+  a0:	000001d9 	.word	0x000001d9
+  a4:	000001db 	.word	0x000001db
+  a8:	000001dd 	.word	0x000001dd
+  ac:	000001df 	.word	0x000001df
+  b0:	000001e1 	.word	0x000001e1
+  b4:	000001e3 	.word	0x000001e3
+  b8:	000001e5 	.word	0x000001e5
+  bc:	000001e7 	.word	0x000001e7
+
+000000c0 <GPIO_Init>:
+{
+  c0:	b430      	push	{r4, r5}
+  uint32_t GPIO_Pin = GPIO_InitStruct->GPIO_Pin;
+  c2:	680c      	ldr	r4, [r1, #0]
+  GPIOMode_TypeDef GPIO_Mode = GPIO_InitStruct->GPIO_Mode;
+  c4:	790d      	ldrb	r5, [r1, #4]
+  GPIOInt_TypeDef GPIO_Int = GPIO_InitStruct->GPIO_Int;
+  c6:	f891 c005 	ldrb.w	ip, [r1, #5]
+  GPIOx->DATA = 0;
+  ca:	2300      	movs	r3, #0
+  cc:	6003      	str	r3, [r0, #0]
+  GPIOx->DATAOUT = 0;
+  ce:	6043      	str	r3, [r0, #4]
+  GPIOx->OUTENSET = 0;
+  d0:	6103      	str	r3, [r0, #16]
+  GPIOx->OUTENCLR = 0;
+  d2:	6143      	str	r3, [r0, #20]
+  GPIOx->ALTFUNCSET = 0;
+  d4:	6183      	str	r3, [r0, #24]
+  GPIOx->ALTFUNCCLR = 0;
+  d6:	61c3      	str	r3, [r0, #28]
+  GPIOx->INTENSET = 0;
+  d8:	6203      	str	r3, [r0, #32]
+  GPIOx->INTENCLR = 0;
+  da:	6243      	str	r3, [r0, #36]	; 0x24
+  GPIOx->INTTYPESET = 0;
+  dc:	6283      	str	r3, [r0, #40]	; 0x28
+  GPIOx->INTTYPECLR = 0;
+  de:	62c3      	str	r3, [r0, #44]	; 0x2c
+  GPIOx->INTPOLSET = 0;
+  e0:	6303      	str	r3, [r0, #48]	; 0x30
+  GPIOx->INTPOLCLR = 0;
+  e2:	6343      	str	r3, [r0, #52]	; 0x34
+  GPIOx->INTCLEAR = 0;
+  e4:	6383      	str	r3, [r0, #56]	; 0x38
+  for(pos = 0;pos < 256;pos++)
+  e6:	e009      	b.n	fc <GPIO_Init+0x3c>
+   GPIOx->MASKLOWBYTE[pos] = 0;
+  e8:	f503 7180 	add.w	r1, r3, #256	; 0x100
+  ec:	2200      	movs	r2, #0
+  ee:	f840 2021 	str.w	r2, [r0, r1, lsl #2]
+   GPIOx->MASKHIGHBYTE[pos] = 0;
+  f2:	f503 7100 	add.w	r1, r3, #512	; 0x200
+  f6:	f840 2021 	str.w	r2, [r0, r1, lsl #2]
+  for(pos = 0;pos < 256;pos++)
+  fa:	3301      	adds	r3, #1
+  fc:	2bff      	cmp	r3, #255	; 0xff
+  fe:	d9f3      	bls.n	e8 <GPIO_Init+0x28>
+  if(GPIO_Mode == GPIO_Mode_IN)
+ 100:	b9cd      	cbnz	r5, 136 <GPIO_Init+0x76>
+    GPIOx->OUTENSET &= (~GPIO_Pin);//Clear Out Enable
+ 102:	6903      	ldr	r3, [r0, #16]
+ 104:	ea23 0304 	bic.w	r3, r3, r4
+ 108:	6103      	str	r3, [r0, #16]
+  if(GPIO_Int == GPIO_Int_Low_Level)
+ 10a:	f1bc 0f01 	cmp.w	ip, #1
+ 10e:	d01e      	beq.n	14e <GPIO_Init+0x8e>
+  else if(GPIO_Int == GPIO_Int_High_Level)
+ 110:	f1bc 0f02 	cmp.w	ip, #2
+ 114:	d026      	beq.n	164 <GPIO_Init+0xa4>
+  else if(GPIO_Int == GPIO_Int_Falling_Edge)
+ 116:	f1bc 0f03 	cmp.w	ip, #3
+ 11a:	d02d      	beq.n	178 <GPIO_Init+0xb8>
+  else if(GPIO_Int == GPIO_Int_Rising_Edge)
+ 11c:	f1bc 0f04 	cmp.w	ip, #4
+ 120:	d11e      	bne.n	160 <GPIO_Init+0xa0>
+    GPIOx->INTENSET |= GPIO_Pin;
+ 122:	6a03      	ldr	r3, [r0, #32]
+ 124:	4323      	orrs	r3, r4
+ 126:	6203      	str	r3, [r0, #32]
+    GPIOx->INTPOLSET |= GPIO_Pin;
+ 128:	6b03      	ldr	r3, [r0, #48]	; 0x30
+ 12a:	4323      	orrs	r3, r4
+ 12c:	6303      	str	r3, [r0, #48]	; 0x30
+    GPIOx->INTTYPESET |= GPIO_Pin;
+ 12e:	6a83      	ldr	r3, [r0, #40]	; 0x28
+ 130:	4323      	orrs	r3, r4
+ 132:	6283      	str	r3, [r0, #40]	; 0x28
+}
+ 134:	e014      	b.n	160 <GPIO_Init+0xa0>
+  else if(GPIO_Mode == GPIO_Mode_OUT)
+ 136:	2d01      	cmp	r5, #1
+ 138:	d005      	beq.n	146 <GPIO_Init+0x86>
+  else if(GPIO_Mode == GPIO_Mode_AF)
+ 13a:	2d02      	cmp	r5, #2
+ 13c:	d1e5      	bne.n	10a <GPIO_Init+0x4a>
+    GPIOx->ALTFUNCSET |= GPIO_Pin;
+ 13e:	6983      	ldr	r3, [r0, #24]
+ 140:	4323      	orrs	r3, r4
+ 142:	6183      	str	r3, [r0, #24]
+ 144:	e7e1      	b.n	10a <GPIO_Init+0x4a>
+    GPIOx->OUTENSET |= GPIO_Pin;//Set Out Enable
+ 146:	6903      	ldr	r3, [r0, #16]
+ 148:	4323      	orrs	r3, r4
+ 14a:	6103      	str	r3, [r0, #16]
+ 14c:	e7dd      	b.n	10a <GPIO_Init+0x4a>
+    GPIOx->INTENSET |= GPIO_Pin;
+ 14e:	6a03      	ldr	r3, [r0, #32]
+ 150:	4323      	orrs	r3, r4
+ 152:	6203      	str	r3, [r0, #32]
+    GPIOx->INTTYPECLR |= GPIO_Pin;
+ 154:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
+ 156:	4323      	orrs	r3, r4
+ 158:	62c3      	str	r3, [r0, #44]	; 0x2c
+    GPIOx->INTPOLCLR |= GPIO_Pin;
+ 15a:	6b43      	ldr	r3, [r0, #52]	; 0x34
+ 15c:	4323      	orrs	r3, r4
+ 15e:	6343      	str	r3, [r0, #52]	; 0x34
+}
+ 160:	bc30      	pop	{r4, r5}
+ 162:	4770      	bx	lr
+    GPIOx->INTENSET |= GPIO_Pin;
+ 164:	6a03      	ldr	r3, [r0, #32]
+ 166:	4323      	orrs	r3, r4
+ 168:	6203      	str	r3, [r0, #32]
+    GPIOx->INTTYPECLR |= GPIO_Pin;
+ 16a:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
+ 16c:	4323      	orrs	r3, r4
+ 16e:	62c3      	str	r3, [r0, #44]	; 0x2c
+    GPIOx->INTPOLSET |= GPIO_Pin;
+ 170:	6b03      	ldr	r3, [r0, #48]	; 0x30
+ 172:	4323      	orrs	r3, r4
+ 174:	6303      	str	r3, [r0, #48]	; 0x30
+ 176:	e7f3      	b.n	160 <GPIO_Init+0xa0>
+    GPIOx->INTENSET |= GPIO_Pin;
+ 178:	6a03      	ldr	r3, [r0, #32]
+ 17a:	4323      	orrs	r3, r4
+ 17c:	6203      	str	r3, [r0, #32]
+    GPIOx->INTTYPESET |= GPIO_Pin;
+ 17e:	6a83      	ldr	r3, [r0, #40]	; 0x28
+ 180:	4323      	orrs	r3, r4
+ 182:	6283      	str	r3, [r0, #40]	; 0x28
+    GPIOx->INTPOLCLR |= GPIO_Pin;
+ 184:	6b43      	ldr	r3, [r0, #52]	; 0x34
+ 186:	4323      	orrs	r3, r4
+ 188:	6343      	str	r3, [r0, #52]	; 0x34
+ 18a:	e7e9      	b.n	160 <GPIO_Init+0xa0>
+
+0000018c <GPIO_SetBit>:
+  GPIOx->DATAOUT |= GPIO_Pin;
+ 18c:	6843      	ldr	r3, [r0, #4]
+ 18e:	430b      	orrs	r3, r1
+ 190:	6043      	str	r3, [r0, #4]
+}
+ 192:	4770      	bx	lr
+
+00000194 <GPIO_ResetBit>:
+  GPIOx->DATAOUT &= ~GPIO_Pin;
+ 194:	6843      	ldr	r3, [r0, #4]
+ 196:	ea23 0301 	bic.w	r3, r3, r1
+ 19a:	6043      	str	r3, [r0, #4]
+}
+ 19c:	4770      	bx	lr
+
+0000019e <NMI_Handler>:
+  * @param  none
+  * @retval none
+  */
+void NMI_Handler(void)
+{
+}
+ 19e:	4770      	bx	lr
+
+000001a0 <HardFault_Handler>:
+  * @retval none
+  */
+void HardFault_Handler(void)
+{
+  /* Go to infinite loop when Hard Fault exception occurs */
+  while (1)
+ 1a0:	e7fe      	b.n	1a0 <HardFault_Handler>
+
+000001a2 <MemManage_Handler>:
+  * @retval none
+  */
+void MemManage_Handler(void)
+{
+  /* Go to infinite loop when Memory Manage exception occurs */
+  while (1)
+ 1a2:	e7fe      	b.n	1a2 <MemManage_Handler>
+
+000001a4 <BusFault_Handler>:
+  * @retval none
+  */
+void BusFault_Handler(void)
+{
+  /* Go to infinite loop when Bus Fault exception occurs */
+  while (1)
+ 1a4:	e7fe      	b.n	1a4 <BusFault_Handler>
+
+000001a6 <UsageFault_Handler>:
+  * @retval none
+  */
+void UsageFault_Handler(void)
+{
+  /* Go to infinite loop when Usage Fault exception occurs */
+  while (1)
+ 1a6:	e7fe      	b.n	1a6 <UsageFault_Handler>
+
+000001a8 <SVC_Handler>:
+  * @param  none
+  * @retval none
+  */
+void SVC_Handler(void)
+{
+}
+ 1a8:	4770      	bx	lr
+
+000001aa <DebugMon_Handler>:
+  * @param  none
+  * @retval none
+  */
+void DebugMon_Handler(void)
+{
+}
+ 1aa:	4770      	bx	lr
+
+000001ac <PendSV_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PendSV_Handler(void)
+{
+}
+ 1ac:	4770      	bx	lr
+
+000001ae <SysTick_Handler>:
+  * @param  none
+  * @retval none
+  */
+void SysTick_Handler(void)
+{
+}
+ 1ae:	4770      	bx	lr
+
+000001b0 <USER_INT0_Handler>:
+  * @param  none
+  * @retval none
+  */
+void USER_INT0_Handler(void)
+{
+}
+ 1b0:	4770      	bx	lr
+
+000001b2 <USER_INT1_Handler>:
+  * @param  none
+  * @retval none
+  */
+void USER_INT1_Handler(void)
+{
+}
+ 1b2:	4770      	bx	lr
+
+000001b4 <USER_INT2_Handler>:
+  * @param  none
+  * @retval none
+  */
+void USER_INT2_Handler(void)
+{
+}
+ 1b4:	4770      	bx	lr
+
+000001b6 <USER_INT3_Handler>:
+  * @param  none
+  * @retval none
+  */
+void USER_INT3_Handler(void)
+{
+}
+ 1b6:	4770      	bx	lr
+
+000001b8 <USER_INT4_Handler>:
+  * @param  none
+  * @retval none
+  */
+void USER_INT4_Handler(void)
+{
+}
+ 1b8:	4770      	bx	lr
+
+000001ba <USER_INT5_Handler>:
+  * @param  none
+  * @retval none
+  */
+void USER_INT5_Handler(void)
+{
+}
+ 1ba:	4770      	bx	lr
+
+000001bc <UART0_Handler>:
+  * @param  none
+  * @retval none
+  */
+void UART0_Handler(void)
+{
+}
+ 1bc:	4770      	bx	lr
+
+000001be <UART1_Handler>:
+  * @param  none
+  * @retval none
+  */
+void UART1_Handler(void)
+{
+}
+ 1be:	4770      	bx	lr
+
+000001c0 <TIMER0_Handler>:
+  * @param  none
+  * @retval none
+  */
+void TIMER0_Handler(void)
+{
+}
+ 1c0:	4770      	bx	lr
+
+000001c2 <TIMER1_Handler>:
+  * @param  none
+  * @retval none
+  */
+void TIMER1_Handler(void)
+{
+}
+ 1c2:	4770      	bx	lr
+
+000001c4 <I2C_Handler>:
+  * @param  none
+  * @retval none
+  */
+void I2C_Handler(void)
+{
+}
+ 1c4:	4770      	bx	lr
+
+000001c6 <RTC_Handler>:
+  * @param  none
+  * @retval none
+  */
+void RTC_Handler(void)
+{
+}
+ 1c6:	4770      	bx	lr
+
+000001c8 <PORT0_0_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_0_Handler(void)
+{
+}
+ 1c8:	4770      	bx	lr
+
+000001ca <PORT0_1_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_1_Handler(void)
+{
+}
+ 1ca:	4770      	bx	lr
+
+000001cc <PORT0_2_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_2_Handler(void)
+{
+}
+ 1cc:	4770      	bx	lr
+
+000001ce <PORT0_3_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_3_Handler(void)
+{
+}
+ 1ce:	4770      	bx	lr
+
+000001d0 <PORT0_4_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_4_Handler(void)
+{
+}
+ 1d0:	4770      	bx	lr
+
+000001d2 <PORT0_5_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_5_Handler(void)
+{
+}
+ 1d2:	4770      	bx	lr
+
+000001d4 <PORT0_6_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_6_Handler(void)
+{
+}
+ 1d4:	4770      	bx	lr
+
+000001d6 <PORT0_7_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_7_Handler(void)
+{
+}
+ 1d6:	4770      	bx	lr
+
+000001d8 <PORT0_8_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_8_Handler(void)
+{
+}
+ 1d8:	4770      	bx	lr
+
+000001da <PORT0_9_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_9_Handler(void)
+{
+}
+ 1da:	4770      	bx	lr
+
+000001dc <PORT0_10_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_10_Handler(void)
+{
+}
+ 1dc:	4770      	bx	lr
+
+000001de <PORT0_11_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_11_Handler(void)
+{
+}
+ 1de:	4770      	bx	lr
+
+000001e0 <PORT0_12_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_12_Handler(void)
+{
+}
+ 1e0:	4770      	bx	lr
+
+000001e2 <PORT0_13_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_13_Handler(void)
+{
+}
+ 1e2:	4770      	bx	lr
+
+000001e4 <PORT0_14_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_14_Handler(void)
+{
+}
+ 1e4:	4770      	bx	lr
+
+000001e6 <PORT0_15_Handler>:
+  * @param  none
+  * @retval none
+  */
+void PORT0_15_Handler(void)
+{
+}
+ 1e6:	4770      	bx	lr
+
+000001e8 <GPIOInit>:
+  }
+}
+
+//Initializes GPIO
+void GPIOInit(void)
+{
+ 1e8:	b530      	push	{r4, r5, lr}
+ 1ea:	b083      	sub	sp, #12
+	GPIO_InitTypeDef GPIO_InitType;
+	
+	GPIO_InitType.GPIO_Pin = GPIO_Pin_0;
+ 1ec:	2401      	movs	r4, #1
+ 1ee:	9400      	str	r4, [sp, #0]
+	GPIO_InitType.GPIO_Mode = GPIO_Mode_OUT;
+ 1f0:	f88d 4004 	strb.w	r4, [sp, #4]
+	GPIO_InitType.GPIO_Int = GPIO_Int_Disable;
+ 1f4:	2300      	movs	r3, #0
+ 1f6:	f88d 3005 	strb.w	r3, [sp, #5]
+
+	GPIO_Init(GPIO0,&GPIO_InitType);
+ 1fa:	4d05      	ldr	r5, [pc, #20]	; (210 <Heap_Size+0x10>)
+ 1fc:	4669      	mov	r1, sp
+ 1fe:	4628      	mov	r0, r5
+ 200:	f7ff ff5e 	bl	c0 <GPIO_Init>
+
+  GPIO_SetBit(GPIO0,GPIO_Pin_0);
+ 204:	4621      	mov	r1, r4
+ 206:	4628      	mov	r0, r5
+ 208:	f7ff ffc0 	bl	18c <GPIO_SetBit>
+}
+ 20c:	b003      	add	sp, #12
+ 20e:	bd30      	pop	{r4, r5, pc}
+ 210:	40010000 	.word	0x40010000
+
+00000214 <delay_ms>:
+
+//delay ms
+void delay_ms(__IO uint32_t delay_ms)
+{
+ 214:	b082      	sub	sp, #8
+ 216:	9001      	str	r0, [sp, #4]
+	for(delay_ms=(SystemCoreClock>>13)*delay_ms; delay_ms != 0; delay_ms--);
+ 218:	4b07      	ldr	r3, [pc, #28]	; (238 <delay_ms+0x24>)
+ 21a:	681b      	ldr	r3, [r3, #0]
+ 21c:	0b5b      	lsrs	r3, r3, #13
+ 21e:	9a01      	ldr	r2, [sp, #4]
+ 220:	fb02 f303 	mul.w	r3, r2, r3
+ 224:	9301      	str	r3, [sp, #4]
+ 226:	e002      	b.n	22e <delay_ms+0x1a>
+ 228:	9b01      	ldr	r3, [sp, #4]
+ 22a:	3b01      	subs	r3, #1
+ 22c:	9301      	str	r3, [sp, #4]
+ 22e:	9b01      	ldr	r3, [sp, #4]
+ 230:	2b00      	cmp	r3, #0
+ 232:	d1f9      	bne.n	228 <delay_ms+0x14>
+}
+ 234:	b002      	add	sp, #8
+ 236:	4770      	bx	lr
+ 238:	2000000c 	.word	0x2000000c
+
+0000023c <main>:
+{
+ 23c:	b508      	push	{r3, lr}
+	SystemInit();	//Initializes system
+ 23e:	f000 f857 	bl	2f0 <SystemInit>
+	GPIOInit();		//Initializes GPIO
+ 242:	f7ff ffd1 	bl	1e8 <GPIOInit>
+    GPIO_ResetBit(GPIO0,GPIO_Pin_0);	//LED1 on
+ 246:	4c09      	ldr	r4, [pc, #36]	; (26c <main+0x30>)
+ 248:	2101      	movs	r1, #1
+ 24a:	4620      	mov	r0, r4
+ 24c:	f7ff ffa2 	bl	194 <GPIO_ResetBit>
+		delay_ms(500);
+ 250:	f44f 70fa 	mov.w	r0, #500	; 0x1f4
+ 254:	f7ff ffde 	bl	214 <delay_ms>
+    GPIO_SetBit(GPIO0,GPIO_Pin_0);		//LED1 off
+ 258:	2101      	movs	r1, #1
+ 25a:	4620      	mov	r0, r4
+ 25c:	f7ff ff96 	bl	18c <GPIO_SetBit>
+		delay_ms(500);
+ 260:	f44f 70fa 	mov.w	r0, #500	; 0x1f4
+ 264:	f7ff ffd6 	bl	214 <delay_ms>
+  while(1)
+ 268:	e7ed      	b.n	246 <main+0xa>
+ 26a:	bf00      	nop
+ 26c:	40010000 	.word	0x40010000
+
+00000270 <Reset_Handler>:
+//      linker script.
+//      __etext: End of code section, i.e., begin of data sections to copy from.
+//      __data_start__/__data_end__: RAM address range that data should be
+//      copied to. Both must be aligned to 4 bytes boundary.
+
+    ldr    r1, =__etext
+ 270:	4907      	ldr	r1, [pc, #28]	; (290 <Reset_Handler+0x20>)
+    ldr    r2, =__data_start__
+ 272:	4a08      	ldr	r2, [pc, #32]	; (294 <Reset_Handler+0x24>)
+    ldr    r3, =__data_end__
+ 274:	4b08      	ldr	r3, [pc, #32]	; (298 <Reset_Handler+0x28>)
+
+    subs    r3, r2
+ 276:	1a9b      	subs	r3, r3, r2
+    ble    .LC1
+ 278:	dd03      	ble.n	282 <Reset_Handler+0x12>
+.LC0:
+    subs    r3, #4
+ 27a:	3b04      	subs	r3, #4
+    ldr    r0, [r1, r3]
+ 27c:	58c8      	ldr	r0, [r1, r3]
+    str    r0, [r2, r3]
+ 27e:	50d0      	str	r0, [r2, r3]
+    bgt    .LC0
+ 280:	dcfb      	bgt.n	27a <Reset_Handler+0xa>
+    blt    .LC2
+#endif //__STARTUP_CLEAR_BSS
+
+#ifndef __NO_SYSTEM_INIT
+    // bl    SystemInit
+    ldr     r0,=SystemInit
+ 282:	4806      	ldr	r0, [pc, #24]	; (29c <Reset_Handler+0x2c>)
+    blx     r0
+ 284:	4780      	blx	r0
+#endif
+
+    bl    main
+ 286:	f7ff ffd9 	bl	23c <main>
+    bl    exit
+ 28a:	f000 f845 	bl	318 <exit>
+ 28e:	0000      	.short	0x0000
+    ldr    r1, =__etext
+ 290:	00000348 	.word	0x00000348
+    ldr    r2, =__data_start__
+ 294:	20000000 	.word	0x20000000
+    ldr    r3, =__data_end__
+ 298:	20000010 	.word	0x20000010
+    ldr     r0,=SystemInit
+ 29c:	000002f1 	.word	0x000002f1
+    .size    \handler_name, . - \handler_name
+    .endm
+
+// System Exception Handlers
+
+    def_default_handler    NMI_Handler
+ 2a0:	e7fe      	b.n	2a0 <Reset_Handler+0x30>
+    def_default_handler    HardFault_Handler
+ 2a2:	e7fe      	b.n	2a2 <Reset_Handler+0x32>
+    def_default_handler    MemManage_Handler
+ 2a4:	e7fe      	b.n	2a4 <Reset_Handler+0x34>
+    def_default_handler    BusFault_Handler
+ 2a6:	e7fe      	b.n	2a6 <Reset_Handler+0x36>
+    def_default_handler    UsageFault_Handler
+ 2a8:	e7fe      	b.n	2a8 <Reset_Handler+0x38>
+    def_default_handler    SVC_Handler
+ 2aa:	e7fe      	b.n	2aa <Reset_Handler+0x3a>
+    def_default_handler    DebugMon_Handler
+ 2ac:	e7fe      	b.n	2ac <Reset_Handler+0x3c>
+    def_default_handler    PendSV_Handler
+ 2ae:	e7fe      	b.n	2ae <Reset_Handler+0x3e>
+    def_default_handler    SysTick_Handler
+ 2b0:	e7fe      	b.n	2b0 <Reset_Handler+0x40>
+
+// IRQ Handlers
+
+    def_default_handler    UART0_Handler
+ 2b2:	e7fe      	b.n	2b2 <Reset_Handler+0x42>
+    def_default_handler    USER_INT0_Handler
+ 2b4:	e7fe      	b.n	2b4 <Reset_Handler+0x44>
+    def_default_handler    UART1_Handler
+ 2b6:	e7fe      	b.n	2b6 <Reset_Handler+0x46>
+    def_default_handler    USER_INT1_Handler
+ 2b8:	e7fe      	b.n	2b8 <Reset_Handler+0x48>
+    def_default_handler    USER_INT2_Handler
+ 2ba:	e7fe      	b.n	2ba <Reset_Handler+0x4a>
+	def_default_handler    RTC_Handler
+ 2bc:	e7fe      	b.n	2bc <Reset_Handler+0x4c>
+
+000002be <PORT0_COMB_Handler>:
+    def_default_handler    PORT0_COMB_Handler
+ 2be:	e7fe      	b.n	2be <PORT0_COMB_Handler>
+    def_default_handler    USER_INT3_Handler
+ 2c0:	e7fe      	b.n	2c0 <PORT0_COMB_Handler+0x2>
+    def_default_handler    TIMER0_Handler
+ 2c2:	e7fe      	b.n	2c2 <PORT0_COMB_Handler+0x4>
+    def_default_handler    TIMER1_Handler
+ 2c4:	e7fe      	b.n	2c4 <PORT0_COMB_Handler+0x6>
+    def_default_handler    I2C_Handler
+ 2c6:	e7fe      	b.n	2c6 <PORT0_COMB_Handler+0x8>
+
+000002c8 <UARTOVF_Handler>:
+    def_default_handler    UARTOVF_Handler
+ 2c8:	e7fe      	b.n	2c8 <UARTOVF_Handler>
+    def_default_handler    USER_INT4_Handler
+ 2ca:	e7fe      	b.n	2ca <UARTOVF_Handler+0x2>
+    def_default_handler    USER_INT5_Handler
+ 2cc:	e7fe      	b.n	2cc <UARTOVF_Handler+0x4>
+
+000002ce <Spare15_Handler>:
+    def_default_handler    Spare15_Handler
+ 2ce:	e7fe      	b.n	2ce <Spare15_Handler>
+    def_default_handler    PORT0_0_Handler
+ 2d0:	e7fe      	b.n	2d0 <Spare15_Handler+0x2>
+    def_default_handler    PORT0_1_Handler
+ 2d2:	e7fe      	b.n	2d2 <Spare15_Handler+0x4>
+    def_default_handler    PORT0_2_Handler
+ 2d4:	e7fe      	b.n	2d4 <Spare15_Handler+0x6>
+    def_default_handler    PORT0_3_Handler
+ 2d6:	e7fe      	b.n	2d6 <Spare15_Handler+0x8>
+    def_default_handler    PORT0_4_Handler
+ 2d8:	e7fe      	b.n	2d8 <Spare15_Handler+0xa>
+    def_default_handler    PORT0_5_Handler
+ 2da:	e7fe      	b.n	2da <Spare15_Handler+0xc>
+    def_default_handler    PORT0_6_Handler
+ 2dc:	e7fe      	b.n	2dc <Spare15_Handler+0xe>
+    def_default_handler    PORT0_7_Handler
+ 2de:	e7fe      	b.n	2de <Spare15_Handler+0x10>
+    def_default_handler    PORT0_8_Handler
+ 2e0:	e7fe      	b.n	2e0 <Spare15_Handler+0x12>
+    def_default_handler    PORT0_9_Handler
+ 2e2:	e7fe      	b.n	2e2 <Spare15_Handler+0x14>
+    def_default_handler    PORT0_10_Handler
+ 2e4:	e7fe      	b.n	2e4 <Spare15_Handler+0x16>
+    def_default_handler    PORT0_11_Handler
+ 2e6:	e7fe      	b.n	2e6 <Spare15_Handler+0x18>
+    def_default_handler    PORT0_12_Handler
+ 2e8:	e7fe      	b.n	2e8 <Spare15_Handler+0x1a>
+    def_default_handler    PORT0_13_Handler
+ 2ea:	e7fe      	b.n	2ea <Spare15_Handler+0x1c>
+    def_default_handler    PORT0_14_Handler
+ 2ec:	e7fe      	b.n	2ec <Spare15_Handler+0x1e>
+    def_default_handler    PORT0_15_Handler
+ 2ee:	e7fe      	b.n	2ee <Spare15_Handler+0x20>
+
+000002f0 <SystemInit>:
+{
+#ifdef UNALIGNED_SUPPORT_DISABLE
+  SCB->CCR |= SCB_CCR_UNALIGN_TRP_Msk;
+#endif
+
+  SystemCoreClock = __SYSTEM_CLOCK;
+ 2f0:	4b04      	ldr	r3, [pc, #16]	; (304 <SystemInit+0x14>)
+ 2f2:	4a05      	ldr	r2, [pc, #20]	; (308 <SystemInit+0x18>)
+ 2f4:	6013      	str	r3, [r2, #0]
+  PCLK1 = SystemCoreClock;
+ 2f6:	4a05      	ldr	r2, [pc, #20]	; (30c <SystemInit+0x1c>)
+ 2f8:	6013      	str	r3, [r2, #0]
+  PCLK2 = SystemCoreClock;
+ 2fa:	4a05      	ldr	r2, [pc, #20]	; (310 <SystemInit+0x20>)
+ 2fc:	6013      	str	r3, [r2, #0]
+  HCLK = SystemCoreClock;
+ 2fe:	4a05      	ldr	r2, [pc, #20]	; (314 <SystemInit+0x24>)
+ 300:	6013      	str	r3, [r2, #0]
+}
+ 302:	4770      	bx	lr
+ 304:	04c4b400 	.word	0x04c4b400
+ 308:	2000000c 	.word	0x2000000c
+ 30c:	20000004 	.word	0x20000004
+ 310:	20000008 	.word	0x20000008
+ 314:	20000000 	.word	0x20000000
+
+00000318 <exit>:
+ 318:	b508      	push	{r3, lr}
+ 31a:	4b06      	ldr	r3, [pc, #24]	; (334 <exit+0x1c>)
+ 31c:	4604      	mov	r4, r0
+ 31e:	b113      	cbz	r3, 326 <exit+0xe>
+ 320:	2100      	movs	r1, #0
+ 322:	f3af 8000 	nop.w
+ 326:	4b04      	ldr	r3, [pc, #16]	; (338 <exit+0x20>)
+ 328:	681b      	ldr	r3, [r3, #0]
+ 32a:	b103      	cbz	r3, 32e <exit+0x16>
+ 32c:	4798      	blx	r3
+ 32e:	4620      	mov	r0, r4
+ 330:	f000 f804 	bl	33c <_exit>
+ 334:	00000000 	.word	0x00000000
+ 338:	20000010 	.word	0x20000010
+
+0000033c <_exit>:
+ 33c:	e7fe      	b.n	33c <_exit>
+	...
+
+00000340 <_init>:
+ 340:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 342:	bf00      	nop
+
+00000344 <_fini>:
+ 344:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 346:	bf00      	nop

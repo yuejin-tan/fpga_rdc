@@ -1,0 +1,13 @@
+../drivers/peripheral/gw1ns4c_i2c.c:22:6:I2C_UnEnable	1
+../drivers/peripheral/gw1ns4c_i2c.c:32:6:I2C_Enable	1
+../drivers/peripheral/gw1ns4c_i2c.c:43:10:I2C_Rate_Set	1
+../drivers/peripheral/gw1ns4c_i2c.c:58:6:Delay_ms_i2c	2
+../drivers/peripheral/gw1ns4c_i2c.c:69:13:I2C_Init	3
+../drivers/peripheral/gw1ns4c_i2c.c:95:6:I2C_SendByte	8
+../drivers/peripheral/gw1ns4c_i2c.c:125:6:I2C_SendData	10
+../drivers/peripheral/gw1ns4c_i2c.c:166:9:I2C_ReceiveByte	8
+../drivers/peripheral/gw1ns4c_i2c.c:201:6:I2C_ReceiveData	11
+../drivers/peripheral/gw1ns4c_i2c.c:246:6:I2C_SendBytes	2
+../drivers/peripheral/gw1ns4c_i2c.c:265:6:I2C_ReadBytes	2
+../drivers/peripheral/gw1ns4c_i2c.c:279:6:I2C_InterruptOpen	1
+../drivers/peripheral/gw1ns4c_i2c.c:288:6:I2C_InterruptClose	1

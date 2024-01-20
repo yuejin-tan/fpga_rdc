@@ -1,0 +1,2 @@
+../usr/sys/system_gw1ns4c.c:65:6:SystemInit	0	static
+../usr/sys/system_gw1ns4c.c:51:6:SystemCoreClockUpdate	0	static

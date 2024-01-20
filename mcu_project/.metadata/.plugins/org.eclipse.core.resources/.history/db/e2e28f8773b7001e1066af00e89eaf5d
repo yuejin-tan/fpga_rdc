@@ -1,0 +1,4 @@
+../drivers/peripheral/gw1ns4c_misc.c:74:6:NVIC_PriorityGroupConfig	1
+../drivers/peripheral/gw1ns4c_misc.c:85:6:NVIC_Init	2
+../drivers/peripheral/gw1ns4c_misc.c:122:6:NVIC_SetVectorTable	1
+../drivers/peripheral/gw1ns4c_misc.c:132:6:SysTick_CLKSourceConfig	1

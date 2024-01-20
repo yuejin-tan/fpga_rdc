@@ -1,0 +1,6 @@
+../usr/src/main.c:7:6:GPIOInit	24	static
+../usr/src/main.c:22:6:delay_ms	0	static
+../usr/src/main.c:35:6:UartInit	24	static
+../usr/src/main.c:51:6:nvicInit	16	static
+../usr/src/main.c:73:6:SPIInit	16	static
+../usr/src/main.c:91:5:main	8	static

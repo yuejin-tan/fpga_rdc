@@ -1,0 +1,13 @@
+../drivers/peripheral/gw1ns4c_timer.c:67:6:TIMER_Init	0	static
+../drivers/peripheral/gw1ns4c_timer.c:115:6:TIMER_StartTimer	0	static
+../drivers/peripheral/gw1ns4c_timer.c:125:6:TIMER_StopTimer	0	static
+../drivers/peripheral/gw1ns4c_timer.c:137:10:TIMER_GetIRQStatus	0	static
+../drivers/peripheral/gw1ns4c_timer.c:147:6:TIMER_ClearIRQ	0	static
+../drivers/peripheral/gw1ns4c_timer.c:158:10:TIMER_GetReload	0	static
+../drivers/peripheral/gw1ns4c_timer.c:170:6:TIMER_SetReload	0	static
+../drivers/peripheral/gw1ns4c_timer.c:180:10:TIMER_GetValue	0	static
+../drivers/peripheral/gw1ns4c_timer.c:191:6:TIMER_SetValue	0	static
+../drivers/peripheral/gw1ns4c_timer.c:201:6:TIMER_EnableIRQ	0	static
+../drivers/peripheral/gw1ns4c_timer.c:211:6:TIMER_DisableIRQ	0	static
+../drivers/peripheral/gw1ns4c_timer.c:221:6:TIMER_SelExtEnable	0	static
+../drivers/peripheral/gw1ns4c_timer.c:232:6:TIMER_SelExtClock	0	static

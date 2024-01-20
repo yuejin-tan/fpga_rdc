@@ -1,0 +1,3387 @@
+
+adc_st.elf:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000017f0  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000020  20000000  000017f0  00020000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          000000f4  20000020  00001810  00020020  2**2
+                  ALLOC
+  3 .heap         00000200  20000118  20000118  00020020  2**3
+                  CONTENTS, READONLY
+  4 .stack_dummy  00000800  20000118  20000118  00020220  2**3
+                  CONTENTS, READONLY
+  5 .ARM.attributes 00000029  00000000  00000000  00020a20  2**0
+                  CONTENTS, READONLY
+  6 .comment      00000043  00000000  00000000  00020a49  2**0
+                  CONTENTS, READONLY
+  7 .debug_info   00004260  00000000  00000000  00020a8c  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+  8 .debug_abbrev 00001167  00000000  00000000  00024cec  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+  9 .debug_loclists 00001200  00000000  00000000  00025e53  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 10 .debug_aranges 00000508  00000000  00000000  00027058  2**3
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 11 .debug_rnglists 000004b4  00000000  00000000  00027560  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 12 .debug_macro  00001bc8  00000000  00000000  00027a14  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 13 .debug_line   00005399  00000000  00000000  000295dc  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 14 .debug_str    0000e565  00000000  00000000  0002e975  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 15 .debug_frame  00000bec  00000000  00000000  0003cedc  2**2
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 16 .debug_line_str 0000003f  00000000  00000000  0003dac8  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+
+Disassembly of section .text:
+
+00000000 <__isr_vector>:
+  * @return none
+  * @brief Outputs the specified value on the desired port using the user defined mask to perform Masked access.
+  */
+void GPIO_MaskedWrite(GPIO_TypeDef* GPIOx,uint32_t value,uint32_t mask)
+{
+  GPIOx->MASKLOWBYTE[0x00FF & mask] = value;
+       0:	20004000 	.word	0x20004000
+  GPIOx->MASKHIGHBYTE[((0xFF00 & mask) >> 8)] = value;
+       4:	00000f25 	.word	0x00000f25
+  GPIOx->MASKLOWBYTE[0x00FF & mask] = value;
+       8:	000002b7 	.word	0x000002b7
+  GPIOx->MASKHIGHBYTE[((0xFF00 & mask) >> 8)] = value;
+       c:	000002b9 	.word	0x000002b9
+  GPIOx->MASKLOWBYTE[0x00FF & mask] = value;
+      10:	000002bb 	.word	0x000002bb
+  GPIOx->MASKHIGHBYTE[((0xFF00 & mask) >> 8)] = value;
+      14:	000002bd 	.word	0x000002bd
+  */
+void SPI_SetClkSel(uint32_t clksel)
+{
+  SPI->CTRL &= ~SPI_CR_CLKSEL;
+  SPI->CTRL |= ((clksel&SPI_CR_CLKSEL_Mask)<<SPI_CR_CLKSEL_Pos);
+}
+      18:	000002bf 	.word	0x000002bf
+	...
+      2c:	000002c1 	.word	0x000002c1
+      30:	000002c3 	.word	0x000002c3
+      34:	00000000 	.word	0x00000000
+      38:	000002c5 	.word	0x000002c5
+      3c:	000002c9 	.word	0x000002c9
+      40:	00000335 	.word	0x00000335
+      44:	00000329 	.word	0x00000329
+      48:	0000035d 	.word	0x0000035d
+      4c:	0000032b 	.word	0x0000032b
+      50:	0000032d 	.word	0x0000032d
+      54:	00000365 	.word	0x00000365
+      58:	00000f73 	.word	0x00000f73
+      5c:	0000032f 	.word	0x0000032f
+      60:	0000035f 	.word	0x0000035f
+      64:	00000361 	.word	0x00000361
+      68:	00000000 	.word	0x00000000
+      6c:	00000363 	.word	0x00000363
+      70:	00000f7d 	.word	0x00000f7d
+      74:	00000331 	.word	0x00000331
+      78:	00000333 	.word	0x00000333
+      7c:	00000f83 	.word	0x00000f83
+      80:	00000367 	.word	0x00000367
+      84:	00000369 	.word	0x00000369
+      88:	0000036b 	.word	0x0000036b
+      8c:	0000036d 	.word	0x0000036d
+      90:	0000036f 	.word	0x0000036f
+      94:	00000371 	.word	0x00000371
+      98:	00000373 	.word	0x00000373
+      9c:	00000375 	.word	0x00000375
+      a0:	00000377 	.word	0x00000377
+      a4:	00000379 	.word	0x00000379
+      a8:	0000037b 	.word	0x0000037b
+      ac:	0000037d 	.word	0x0000037d
+      b0:	0000037f 	.word	0x0000037f
+      b4:	00000381 	.word	0x00000381
+      b8:	00000383 	.word	0x00000383
+      bc:	00000385 	.word	0x00000385
+
+000000c0 <GPIO_Init>:
+  GPIOx->DATA = 0;
+      c0:	2300      	movs	r3, #0
+{
+      c2:	b570      	push	{r4, r5, r6, lr}
+   GPIOx->MASKLOWBYTE[pos] = 0;
+      c4:	461e      	mov	r6, r3
+  uint32_t GPIO_Pin = GPIO_InitStruct->GPIO_Pin;
+      c6:	680a      	ldr	r2, [r1, #0]
+  GPIOMode_TypeDef GPIO_Mode = GPIO_InitStruct->GPIO_Mode;
+      c8:	790c      	ldrb	r4, [r1, #4]
+  GPIOInt_TypeDef GPIO_Int = GPIO_InitStruct->GPIO_Int;
+      ca:	7949      	ldrb	r1, [r1, #5]
+  GPIOx->DATA = 0;
+      cc:	6003      	str	r3, [r0, #0]
+  GPIOx->DATAOUT = 0;
+      ce:	6043      	str	r3, [r0, #4]
+  GPIOx->OUTENSET = 0;
+      d0:	6103      	str	r3, [r0, #16]
+  GPIOx->OUTENCLR = 0;
+      d2:	6143      	str	r3, [r0, #20]
+  GPIOx->ALTFUNCSET = 0;
+      d4:	6183      	str	r3, [r0, #24]
+  GPIOx->ALTFUNCCLR = 0;
+      d6:	61c3      	str	r3, [r0, #28]
+  GPIOx->INTENSET = 0;
+      d8:	6203      	str	r3, [r0, #32]
+  GPIOx->INTENCLR = 0;
+      da:	6243      	str	r3, [r0, #36]	; 0x24
+  GPIOx->INTTYPESET = 0;
+      dc:	6283      	str	r3, [r0, #40]	; 0x28
+  GPIOx->INTTYPECLR = 0;
+      de:	62c3      	str	r3, [r0, #44]	; 0x2c
+  GPIOx->INTPOLSET = 0;
+      e0:	6303      	str	r3, [r0, #48]	; 0x30
+  GPIOx->INTPOLCLR = 0;
+      e2:	6343      	str	r3, [r0, #52]	; 0x34
+  GPIOx->INTCLEAR = 0;
+      e4:	6383      	str	r3, [r0, #56]	; 0x38
+   GPIOx->MASKLOWBYTE[pos] = 0;
+      e6:	eb00 0583 	add.w	r5, r0, r3, lsl #2
+  for(pos = 0;pos < 256;pos++)
+      ea:	3301      	adds	r3, #1
+      ec:	f5b3 7f80 	cmp.w	r3, #256	; 0x100
+   GPIOx->MASKLOWBYTE[pos] = 0;
+      f0:	f8c5 6400 	str.w	r6, [r5, #1024]	; 0x400
+   GPIOx->MASKHIGHBYTE[pos] = 0;
+      f4:	f8c5 6800 	str.w	r6, [r5, #2048]	; 0x800
+  for(pos = 0;pos < 256;pos++)
+      f8:	d1f5      	bne.n	e6 <GPIO_Init+0x26>
+  if(GPIO_Mode == GPIO_Mode_IN)
+      fa:	b97c      	cbnz	r4, 11c <GPIO_Init+0x5c>
+    GPIOx->OUTENSET &= (~GPIO_Pin);//Clear Out Enable
+      fc:	6903      	ldr	r3, [r0, #16]
+      fe:	ea23 0302 	bic.w	r3, r3, r2
+    GPIOx->OUTENSET |= GPIO_Pin;//Set Out Enable
+     102:	6103      	str	r3, [r0, #16]
+  if(GPIO_Int == GPIO_Int_Low_Level)
+     104:	2901      	cmp	r1, #1
+     106:	d114      	bne.n	132 <GPIO_Init+0x72>
+    GPIOx->INTENSET |= GPIO_Pin;
+     108:	6a03      	ldr	r3, [r0, #32]
+     10a:	4313      	orrs	r3, r2
+     10c:	6203      	str	r3, [r0, #32]
+    GPIOx->INTTYPECLR |= GPIO_Pin;
+     10e:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
+     110:	4313      	orrs	r3, r2
+     112:	62c3      	str	r3, [r0, #44]	; 0x2c
+    GPIOx->INTPOLCLR |= GPIO_Pin;
+     114:	6b43      	ldr	r3, [r0, #52]	; 0x34
+     116:	4313      	orrs	r3, r2
+     118:	6343      	str	r3, [r0, #52]	; 0x34
+     11a:	e015      	b.n	148 <GPIO_Init+0x88>
+  else if(GPIO_Mode == GPIO_Mode_OUT)
+     11c:	2c01      	cmp	r4, #1
+     11e:	d102      	bne.n	126 <GPIO_Init+0x66>
+    GPIOx->OUTENSET |= GPIO_Pin;//Set Out Enable
+     120:	6903      	ldr	r3, [r0, #16]
+     122:	4313      	orrs	r3, r2
+     124:	e7ed      	b.n	102 <GPIO_Init+0x42>
+  else if(GPIO_Mode == GPIO_Mode_AF)
+     126:	2c02      	cmp	r4, #2
+    GPIOx->ALTFUNCSET |= GPIO_Pin;
+     128:	bf02      	ittt	eq
+     12a:	6983      	ldreq	r3, [r0, #24]
+     12c:	4313      	orreq	r3, r2
+     12e:	6183      	streq	r3, [r0, #24]
+     130:	e7e8      	b.n	104 <GPIO_Init+0x44>
+  else if(GPIO_Int == GPIO_Int_High_Level)
+     132:	2902      	cmp	r1, #2
+     134:	d109      	bne.n	14a <GPIO_Init+0x8a>
+    GPIOx->INTENSET |= GPIO_Pin;
+     136:	6a03      	ldr	r3, [r0, #32]
+     138:	4313      	orrs	r3, r2
+     13a:	6203      	str	r3, [r0, #32]
+    GPIOx->INTTYPECLR |= GPIO_Pin;
+     13c:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
+     13e:	4313      	orrs	r3, r2
+     140:	62c3      	str	r3, [r0, #44]	; 0x2c
+    GPIOx->INTPOLSET |= GPIO_Pin;
+     142:	6b03      	ldr	r3, [r0, #48]	; 0x30
+     144:	4313      	orrs	r3, r2
+     146:	6303      	str	r3, [r0, #48]	; 0x30
+}
+     148:	bd70      	pop	{r4, r5, r6, pc}
+  else if(GPIO_Int == GPIO_Int_Falling_Edge)
+     14a:	2903      	cmp	r1, #3
+     14c:	d106      	bne.n	15c <GPIO_Init+0x9c>
+    GPIOx->INTENSET |= GPIO_Pin;
+     14e:	6a03      	ldr	r3, [r0, #32]
+     150:	4313      	orrs	r3, r2
+     152:	6203      	str	r3, [r0, #32]
+    GPIOx->INTTYPESET |= GPIO_Pin;
+     154:	6a83      	ldr	r3, [r0, #40]	; 0x28
+     156:	4313      	orrs	r3, r2
+     158:	6283      	str	r3, [r0, #40]	; 0x28
+     15a:	e7db      	b.n	114 <GPIO_Init+0x54>
+  else if(GPIO_Int == GPIO_Int_Rising_Edge)
+     15c:	2904      	cmp	r1, #4
+     15e:	d1f3      	bne.n	148 <GPIO_Init+0x88>
+    GPIOx->INTENSET |= GPIO_Pin;
+     160:	6a03      	ldr	r3, [r0, #32]
+     162:	4313      	orrs	r3, r2
+     164:	6203      	str	r3, [r0, #32]
+    GPIOx->INTPOLSET |= GPIO_Pin;
+     166:	6b03      	ldr	r3, [r0, #48]	; 0x30
+     168:	4313      	orrs	r3, r2
+     16a:	6303      	str	r3, [r0, #48]	; 0x30
+    GPIOx->INTTYPESET |= GPIO_Pin;
+     16c:	6a83      	ldr	r3, [r0, #40]	; 0x28
+     16e:	4313      	orrs	r3, r2
+     170:	6283      	str	r3, [r0, #40]	; 0x28
+}
+     172:	e7e9      	b.n	148 <GPIO_Init+0x88>
+
+00000174 <GPIO_SetBit>:
+  GPIOx->DATAOUT |= GPIO_Pin;
+     174:	6843      	ldr	r3, [r0, #4]
+     176:	430b      	orrs	r3, r1
+     178:	6043      	str	r3, [r0, #4]
+}
+     17a:	4770      	bx	lr
+
+0000017c <GPIO_ResetBit>:
+  GPIOx->DATAOUT &= ~GPIO_Pin;
+     17c:	6843      	ldr	r3, [r0, #4]
+     17e:	ea23 0301 	bic.w	r3, r3, r1
+     182:	6043      	str	r3, [r0, #4]
+}
+     184:	4770      	bx	lr
+	...
+
+00000188 <NVIC_Init>:
+  * @param NVIC_InitTypeDef Pointer
+  * @return none
+  * @brief Initial interrupt priority.
+  */
+void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct)
+{
+     188:	b570      	push	{r4, r5, r6, lr}
+
+    NVIC->IP[NVIC_InitStruct->NVIC_IRQChannel] = tmppriority;
+
+    /* Enable the Selected IRQ Channels */
+    NVIC->ISER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+      (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+     18a:	2501      	movs	r5, #1
+    NVIC->IP[NVIC_InitStruct->NVIC_IRQChannel] = tmppriority;
+     18c:	7801      	ldrb	r1, [r0, #0]
+      (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+     18e:	f001 031f 	and.w	r3, r1, #31
+     192:	409d      	lsls	r5, r3
+  if (NVIC_InitStruct->NVIC_IRQChannelCmd != DISABLE)
+     194:	78c3      	ldrb	r3, [r0, #3]
+    NVIC->ISER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+     196:	094c      	lsrs	r4, r1, #5
+  if (NVIC_InitStruct->NVIC_IRQChannelCmd != DISABLE)
+     198:	b1bb      	cbz	r3, 1ca <NVIC_Init+0x42>
+    tmppriority = (0x700 - ((SCB->AIRCR) & (uint32_t)0x700)) >> 0x08;
+     19a:	4b0e      	ldr	r3, [pc, #56]	; (1d4 <NVIC_Init+0x4c>)
+    tmppriority = (uint32_t)NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority << tmppre;
+     19c:	7846      	ldrb	r6, [r0, #1]
+    tmppriority = (0x700 - ((SCB->AIRCR) & (uint32_t)0x700)) >> 0x08;
+     19e:	68da      	ldr	r2, [r3, #12]
+     1a0:	43d2      	mvns	r2, r2
+     1a2:	f3c2 2202 	ubfx	r2, r2, #8, #3
+    tmppre = (0x4 - tmppriority);
+     1a6:	f1c2 0304 	rsb	r3, r2, #4
+    tmppriority = (uint32_t)NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority << tmppre;
+     1aa:	409e      	lsls	r6, r3
+    tmppriority |= NVIC_InitStruct->NVIC_IRQChannelSubPriority & tmpsub;
+     1ac:	7883      	ldrb	r3, [r0, #2]
+    tmpsub = tmpsub >> tmppriority;
+     1ae:	200f      	movs	r0, #15
+     1b0:	fa20 f202 	lsr.w	r2, r0, r2
+    tmppriority |= NVIC_InitStruct->NVIC_IRQChannelSubPriority & tmpsub;
+     1b4:	4013      	ands	r3, r2
+     1b6:	4333      	orrs	r3, r6
+    NVIC->IP[NVIC_InitStruct->NVIC_IRQChannel] = tmppriority;
+     1b8:	4a07      	ldr	r2, [pc, #28]	; (1d8 <NVIC_Init+0x50>)
+    tmppriority = tmppriority << 0x04;
+     1ba:	011b      	lsls	r3, r3, #4
+    NVIC->IP[NVIC_InitStruct->NVIC_IRQChannel] = tmppriority;
+     1bc:	b2db      	uxtb	r3, r3
+     1be:	4411      	add	r1, r2
+     1c0:	f881 3300 	strb.w	r3, [r1, #768]	; 0x300
+    NVIC->ISER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+     1c4:	f842 5024 	str.w	r5, [r2, r4, lsl #2]
+  {
+    /* Disable the Selected IRQ Channels */
+    NVIC->ICER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+      (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+  }
+}
+     1c8:	bd70      	pop	{r4, r5, r6, pc}
+    NVIC->ICER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+     1ca:	4b03      	ldr	r3, [pc, #12]	; (1d8 <NVIC_Init+0x50>)
+     1cc:	3420      	adds	r4, #32
+     1ce:	f843 5024 	str.w	r5, [r3, r4, lsl #2]
+}
+     1d2:	e7f9      	b.n	1c8 <NVIC_Init+0x40>
+     1d4:	e000ed00 	.word	0xe000ed00
+     1d8:	e000e100 	.word	0xe000e100
+
+000001dc <SPI_Init>:
+  SPI->CTRL = 0;
+     1dc:	2300      	movs	r3, #0
+     1de:	4a0b      	ldr	r2, [pc, #44]	; (20c <Heap_Size+0xc>)
+     1e0:	6113      	str	r3, [r2, #16]
+  SPI->STATUS = 0;
+     1e2:	6093      	str	r3, [r2, #8]
+  if(SPI_InitStruct->DIRECTION == 1)
+     1e4:	7803      	ldrb	r3, [r0, #0]
+     1e6:	1e59      	subs	r1, r3, #1
+     1e8:	424b      	negs	r3, r1
+     1ea:	414b      	adcs	r3, r1
+  if(SPI_InitStruct->PHASE == 1)
+     1ec:	7841      	ldrb	r1, [r0, #1]
+     1ee:	2901      	cmp	r1, #1
+  if(SPI_InitStruct->POLARITY == 1)
+     1f0:	7881      	ldrb	r1, [r0, #2]
+    new_ctrl |= SPI_CR_PHASE;
+     1f2:	bf08      	it	eq
+     1f4:	f043 0302 	orreq.w	r3, r3, #2
+  if(SPI_InitStruct->POLARITY == 1)
+     1f8:	2901      	cmp	r1, #1
+  new_ctrl |= (SPI_InitStruct->CLKSEL << SPI_CR_CLKSEL_Pos);
+     1fa:	78c1      	ldrb	r1, [r0, #3]
+    new_ctrl |= SPI_CR_POLARITY;
+     1fc:	bf08      	it	eq
+     1fe:	f043 0304 	orreq.w	r3, r3, #4
+  new_ctrl |= (SPI_InitStruct->CLKSEL << SPI_CR_CLKSEL_Pos);
+     202:	ea43 03c1 	orr.w	r3, r3, r1, lsl #3
+  SPI->CTRL = new_ctrl;
+     206:	6113      	str	r3, [r2, #16]
+}
+     208:	4770      	bx	lr
+     20a:	bf00      	nop
+     20c:	40002200 	.word	0x40002200
+
+00000210 <SPI_ReadWriteByte>:
+  */
+uint8_t SPI_ReadWriteByte(uint8_t cmd)
+{
+  uint32_t master_rx_data;
+
+  while (!(SPI->STATUS & (1UL << 5)));
+     210:	4b05      	ldr	r3, [pc, #20]	; (228 <SPI_ReadWriteByte+0x18>)
+     212:	689a      	ldr	r2, [r3, #8]
+     214:	0691      	lsls	r1, r2, #26
+     216:	d5fc      	bpl.n	212 <SPI_ReadWriteByte+0x2>
+  SPI->WDATA = cmd;
+     218:	6058      	str	r0, [r3, #4]
+  while (!(SPI->STATUS & (1UL << 6)));
+     21a:	689a      	ldr	r2, [r3, #8]
+     21c:	0652      	lsls	r2, r2, #25
+     21e:	d5fc      	bpl.n	21a <SPI_ReadWriteByte+0xa>
+  master_rx_data = SPI->RDATA;
+     220:	6818      	ldr	r0, [r3, #0]
+
+  return master_rx_data & 0xff;
+}
+     222:	b2c0      	uxtb	r0, r0
+     224:	4770      	bx	lr
+     226:	bf00      	nop
+     228:	40002200 	.word	0x40002200
+
+0000022c <SPI_Select_Slave>:
+  * @return none
+  * @brief Select Slave
+  */
+void SPI_Select_Slave(uint32_t Slave_address)
+{
+  SPI->SSMASK = Slave_address;
+     22c:	4b01      	ldr	r3, [pc, #4]	; (234 <SPI_Select_Slave+0x8>)
+     22e:	60d8      	str	r0, [r3, #12]
+}
+     230:	4770      	bx	lr
+     232:	bf00      	nop
+     234:	40002200 	.word	0x40002200
+
+00000238 <UART_Init>:
+ErrorStatus UART_Init(UART_TypeDef* UARTx, UART_InitTypeDef* UART_InitStruct)
+{
+  uint32_t new_ctrl = 0;
+
+  /* Initial all register to zero */
+  UARTx->DATA = 0;
+     238:	2300      	movs	r3, #0
+     23a:	6003      	str	r3, [r0, #0]
+  UARTx->STATE = 0;
+     23c:	6043      	str	r3, [r0, #4]
+  UARTx->CTRL = 0;
+     23e:	6083      	str	r3, [r0, #8]
+  UARTx->INTCLEAR = 0;
+     240:	60c3      	str	r3, [r0, #12]
+  UARTx->BAUDDIV = 0;
+     242:	6103      	str	r3, [r0, #16]
+
+  /* Config CTRL register */
+  /* Tx Enable */
+  if(UART_InitStruct->UART_Mode.UARTMode_Tx == ENABLE)
+     244:	790b      	ldrb	r3, [r1, #4]
+     246:	1e5a      	subs	r2, r3, #1
+     248:	4253      	negs	r3, r2
+     24a:	4153      	adcs	r3, r2
+  {
+    new_ctrl |= UART_CTRL_TXEN;
+  }
+
+  /* Rx Enable */
+  if(UART_InitStruct->UART_Mode.UARTMode_Rx == ENABLE)
+     24c:	794a      	ldrb	r2, [r1, #5]
+     24e:	2a01      	cmp	r2, #1
+  {
+    new_ctrl |= UART_CTRL_RXEN;
+  }
+
+  /* Tx Interrupt Enable */
+  if(UART_InitStruct->UART_Int.UARTInt_Tx == ENABLE)
+     250:	798a      	ldrb	r2, [r1, #6]
+    new_ctrl |= UART_CTRL_RXEN;
+     252:	bf08      	it	eq
+     254:	f043 0302 	orreq.w	r3, r3, #2
+  if(UART_InitStruct->UART_Int.UARTInt_Tx == ENABLE)
+     258:	2a01      	cmp	r2, #1
+  {
+    new_ctrl |= UART_CTRL_TXIRQEN;
+  }
+
+  /* Rx Interrupt Enable */
+  if(UART_InitStruct->UART_Int.UARTInt_Rx == ENABLE)
+     25a:	79ca      	ldrb	r2, [r1, #7]
+    new_ctrl |= UART_CTRL_TXIRQEN;
+     25c:	bf08      	it	eq
+     25e:	f043 0304 	orreq.w	r3, r3, #4
+  if(UART_InitStruct->UART_Int.UARTInt_Rx == ENABLE)
+     262:	2a01      	cmp	r2, #1
+  {
+    new_ctrl |= UART_CTRL_RXIRQEN;
+  }
+
+  /* Tx Overrun Enable */
+  if(UART_InitStruct->UART_Ovr.UARTOvr_Tx == ENABLE)
+     264:	7a0a      	ldrb	r2, [r1, #8]
+    new_ctrl |= UART_CTRL_RXIRQEN;
+     266:	bf08      	it	eq
+     268:	f043 0308 	orreq.w	r3, r3, #8
+  if(UART_InitStruct->UART_Ovr.UARTOvr_Tx == ENABLE)
+     26c:	2a01      	cmp	r2, #1
+  {
+    new_ctrl |= UART_CTRL_TXORIRQEN;
+  }
+
+  /* Rx Overrun Enable */
+  if(UART_InitStruct->UART_Ovr.UARTOvr_Rx == ENABLE)
+     26e:	7a4a      	ldrb	r2, [r1, #9]
+    new_ctrl |= UART_CTRL_TXORIRQEN;
+     270:	bf08      	it	eq
+     272:	f043 0310 	orreq.w	r3, r3, #16
+  if(UART_InitStruct->UART_Ovr.UARTOvr_Rx == ENABLE)
+     276:	2a01      	cmp	r2, #1
+  {
+    new_ctrl |= UART_CTRL_RXORIRQEN;
+  }
+
+  /* High Speed Test Mode Enable */
+  if(UART_InitStruct->UART_Hstm == ENABLE)
+     278:	7a8a      	ldrb	r2, [r1, #10]
+    new_ctrl |= UART_CTRL_RXORIRQEN;
+     27a:	bf08      	it	eq
+     27c:	f043 0320 	orreq.w	r3, r3, #32
+  if(UART_InitStruct->UART_Hstm == ENABLE)
+     280:	2a01      	cmp	r2, #1
+  {
+    new_ctrl |= UART_CTRL_HSTM;
+  }
+
+  UARTx->CTRL = 0;         /* Disable UART when changing configuration */
+     282:	f04f 0200 	mov.w	r2, #0
+    new_ctrl |= UART_CTRL_HSTM;
+     286:	bf08      	it	eq
+     288:	f043 0340 	orreq.w	r3, r3, #64	; 0x40
+  UARTx->CTRL = 0;         /* Disable UART when changing configuration */
+     28c:	6082      	str	r2, [r0, #8]
+  UARTx->CTRL = new_ctrl;  /* Update CTRL register to new value */
+     28e:	6083      	str	r3, [r0, #8]
+
+  /* Config baud divider */
+  UARTx->BAUDDIV = PCLK1 / UART_InitStruct->UART_BaudRate;
+     290:	4b06      	ldr	r3, [pc, #24]	; (2ac <UART_Init+0x74>)
+     292:	680a      	ldr	r2, [r1, #0]
+     294:	681b      	ldr	r3, [r3, #0]
+     296:	fbb3 f3f2 	udiv	r3, r3, r2
+     29a:	6103      	str	r3, [r0, #16]
+
+  if((UARTx->STATE & (UART_STATE_RXOR | UART_STATE_TXOR)))
+     29c:	6843      	ldr	r3, [r0, #4]
+     29e:	f013 0f0c 	tst.w	r3, #12
+  }
+  else
+  { 
+    return SUCCESS;
+  }
+}
+     2a2:	bf0c      	ite	eq
+     2a4:	2001      	moveq	r0, #1
+     2a6:	2000      	movne	r0, #0
+     2a8:	4770      	bx	lr
+     2aa:	bf00      	nop
+     2ac:	20000014 	.word	0x20000014
+
+000002b0 <UART_ClearRxIRQ>:
+  * @return none
+  * @brief  Clears the RX interrupt status.
+  */
+void UART_ClearRxIRQ(UART_TypeDef* UARTx)
+{
+  UARTx->INTCLEAR = UART_INTCLEAR_RXIRQ;
+     2b0:	2302      	movs	r3, #2
+     2b2:	60c3      	str	r3, [r0, #12]
+}
+     2b4:	4770      	bx	lr
+
+000002b6 <NMI_Handler>:
+#include "main.h"
+#include "scd_inc.h"
+
+void NMI_Handler(void)
+{
+    while (1)
+     2b6:	e7fe      	b.n	2b6 <NMI_Handler>
+
+000002b8 <HardFault_Handler>:
+    }
+}
+
+void HardFault_Handler(void)
+{
+    while (1)
+     2b8:	e7fe      	b.n	2b8 <HardFault_Handler>
+
+000002ba <MemManage_Handler>:
+    }
+}
+
+void MemManage_Handler(void)
+{
+    while (1)
+     2ba:	e7fe      	b.n	2ba <MemManage_Handler>
+
+000002bc <BusFault_Handler>:
+    }
+}
+
+void BusFault_Handler(void)
+{
+    while (1)
+     2bc:	e7fe      	b.n	2bc <BusFault_Handler>
+
+000002be <UsageFault_Handler>:
+    }
+}
+
+void UsageFault_Handler(void)
+{
+    while (1)
+     2be:	e7fe      	b.n	2be <UsageFault_Handler>
+
+000002c0 <SVC_Handler>:
+    }
+}
+
+void SVC_Handler(void)
+{
+    while (1)
+     2c0:	e7fe      	b.n	2c0 <SVC_Handler>
+
+000002c2 <DebugMon_Handler>:
+    }
+}
+
+void DebugMon_Handler(void)
+{
+    while (1)
+     2c2:	e7fe      	b.n	2c2 <DebugMon_Handler>
+
+000002c4 <PendSV_Handler>:
+    }
+}
+
+void PendSV_Handler(void)
+{
+    while (1)
+     2c4:	e7fe      	b.n	2c4 <PendSV_Handler>
+	...
+
+000002c8 <SysTick_Handler>:
+    }
+}
+
+void SysTick_Handler(void)
+{
+    ms_cnt++;
+     2c8:	4a12      	ldr	r2, [pc, #72]	; (314 <SysTick_Handler+0x4c>)
+{
+     2ca:	b510      	push	{r4, lr}
+    ms_cnt++;
+     2cc:	6813      	ldr	r3, [r2, #0]
+     2ce:	3301      	adds	r3, #1
+     2d0:	6013      	str	r3, [r2, #0]
+    if (initOk)
+     2d2:	4b11      	ldr	r3, [pc, #68]	; (318 <SysTick_Handler+0x50>)
+     2d4:	881b      	ldrh	r3, [r3, #0]
+     2d6:	b1db      	cbz	r3, 310 <SysTick_Handler+0x48>
+    {
+        SPI_Select_Slave(1);
+     2d8:	2001      	movs	r0, #1
+     2da:	f7ff ffa7 	bl	22c <SPI_Select_Slave>
+        adcRawData = SPI_ReadWriteByte(0) << 8;
+     2de:	2000      	movs	r0, #0
+     2e0:	f7ff ff96 	bl	210 <SPI_ReadWriteByte>
+     2e4:	4c0d      	ldr	r4, [pc, #52]	; (31c <SysTick_Handler+0x54>)
+     2e6:	0200      	lsls	r0, r0, #8
+     2e8:	8020      	strh	r0, [r4, #0]
+        adcRawData |= SPI_ReadWriteByte(0);
+     2ea:	2000      	movs	r0, #0
+     2ec:	f7ff ff90 	bl	210 <SPI_ReadWriteByte>
+     2f0:	8823      	ldrh	r3, [r4, #0]
+     2f2:	4318      	orrs	r0, r3
+     2f4:	8020      	strh	r0, [r4, #0]
+        SPI_Select_Slave(0);
+     2f6:	2000      	movs	r0, #0
+     2f8:	f7ff ff98 	bl	22c <SPI_Select_Slave>
+        voltAns = ((int32_t)adcRawData - (int32_t)0x8000) * 375e-6f;
+     2fc:	8820      	ldrh	r0, [r4, #0]
+     2fe:	f5a0 4000 	sub.w	r0, r0, #32768	; 0x8000
+     302:	f000 ffe3 	bl	12cc <__aeabi_i2f>
+     306:	4906      	ldr	r1, [pc, #24]	; (320 <SysTick_Handler+0x58>)
+     308:	f000 fe72 	bl	ff0 <__aeabi_fmul>
+     30c:	4b05      	ldr	r3, [pc, #20]	; (324 <SysTick_Handler+0x5c>)
+     30e:	6018      	str	r0, [r3, #0]
+    }
+}
+     310:	bd10      	pop	{r4, pc}
+     312:	bf00      	nop
+     314:	20000024 	.word	0x20000024
+     318:	20000022 	.word	0x20000022
+     31c:	20000020 	.word	0x20000020
+     320:	39c49ba6 	.word	0x39c49ba6
+     324:	20000028 	.word	0x20000028
+
+00000328 <USER_INT0_Handler>:
+/*  file (startup_gw1ns4c.s).                                                 */
+/******************************************************************************/
+
+void USER_INT0_Handler(void)
+{
+    while (1)
+     328:	e7fe      	b.n	328 <USER_INT0_Handler>
+
+0000032a <USER_INT1_Handler>:
+    }
+}
+
+void USER_INT1_Handler(void)
+{
+    while (1)
+     32a:	e7fe      	b.n	32a <USER_INT1_Handler>
+
+0000032c <USER_INT2_Handler>:
+    }
+}
+
+void USER_INT2_Handler(void)
+{
+    while (1)
+     32c:	e7fe      	b.n	32c <USER_INT2_Handler>
+
+0000032e <USER_INT3_Handler>:
+    }
+}
+
+void USER_INT3_Handler(void)
+{
+    while (1)
+     32e:	e7fe      	b.n	32e <USER_INT3_Handler>
+
+00000330 <USER_INT4_Handler>:
+    }
+}
+
+void USER_INT4_Handler(void)
+{
+    while (1)
+     330:	e7fe      	b.n	330 <USER_INT4_Handler>
+
+00000332 <USER_INT5_Handler>:
+    }
+}
+
+void USER_INT5_Handler(void)
+{
+    while (1)
+     332:	e7fe      	b.n	332 <USER_INT5_Handler>
+
+00000334 <UART0_Handler>:
+    {
+    }
+}
+
+void UART0_Handler(void)
+{
+     334:	b508      	push	{r3, lr}
+    if (UART0->STATE & UART_STATE_RXBF)
+     336:	f04f 2340 	mov.w	r3, #1073758208	; 0x40004000
+     33a:	685a      	ldr	r2, [r3, #4]
+     33c:	0792      	lsls	r2, r2, #30
+     33e:	d504      	bpl.n	34a <UART0_Handler+0x16>
+    {
+        SCD_Rev1Byte(&scd_1, (UART0->DATA));
+     340:	6819      	ldr	r1, [r3, #0]
+     342:	4805      	ldr	r0, [pc, #20]	; (358 <UART0_Handler+0x24>)
+     344:	b289      	uxth	r1, r1
+     346:	f000 fcbf 	bl	cc8 <SCD_Rev1Byte>
+    }
+    UART_ClearRxIRQ(UART0);
+}
+     34a:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+    UART_ClearRxIRQ(UART0);
+     34e:	f04f 2040 	mov.w	r0, #1073758208	; 0x40004000
+     352:	f7ff bfad 	b.w	2b0 <UART_ClearRxIRQ>
+     356:	bf00      	nop
+     358:	200000a8 	.word	0x200000a8
+
+0000035c <UART1_Handler>:
+
+void UART1_Handler(void)
+{
+    while (1)
+     35c:	e7fe      	b.n	35c <UART1_Handler>
+
+0000035e <TIMER0_Handler>:
+    }
+}
+
+void TIMER0_Handler(void)
+{
+    while (1)
+     35e:	e7fe      	b.n	35e <TIMER0_Handler>
+
+00000360 <TIMER1_Handler>:
+    }
+}
+
+void TIMER1_Handler(void)
+{
+    while (1)
+     360:	e7fe      	b.n	360 <TIMER1_Handler>
+
+00000362 <I2C_Handler>:
+    }
+}
+
+void I2C_Handler(void)
+{
+    while (1)
+     362:	e7fe      	b.n	362 <I2C_Handler>
+
+00000364 <RTC_Handler>:
+    }
+}
+
+void RTC_Handler(void)
+{
+    while (1)
+     364:	e7fe      	b.n	364 <RTC_Handler>
+
+00000366 <PORT0_0_Handler>:
+    }
+}
+
+void PORT0_0_Handler(void)
+{
+    while (1)
+     366:	e7fe      	b.n	366 <PORT0_0_Handler>
+
+00000368 <PORT0_1_Handler>:
+    }
+}
+
+void PORT0_1_Handler(void)
+{
+    while (1)
+     368:	e7fe      	b.n	368 <PORT0_1_Handler>
+
+0000036a <PORT0_2_Handler>:
+    }
+}
+
+void PORT0_2_Handler(void)
+{
+    while (1)
+     36a:	e7fe      	b.n	36a <PORT0_2_Handler>
+
+0000036c <PORT0_3_Handler>:
+    }
+}
+
+void PORT0_3_Handler(void)
+{
+    while (1)
+     36c:	e7fe      	b.n	36c <PORT0_3_Handler>
+
+0000036e <PORT0_4_Handler>:
+    }
+}
+
+void PORT0_4_Handler(void)
+{
+    while (1)
+     36e:	e7fe      	b.n	36e <PORT0_4_Handler>
+
+00000370 <PORT0_5_Handler>:
+    }
+}
+
+void PORT0_5_Handler(void)
+{
+    while (1)
+     370:	e7fe      	b.n	370 <PORT0_5_Handler>
+
+00000372 <PORT0_6_Handler>:
+    }
+}
+
+void PORT0_6_Handler(void)
+{
+    while (1)
+     372:	e7fe      	b.n	372 <PORT0_6_Handler>
+
+00000374 <PORT0_7_Handler>:
+    }
+}
+
+void PORT0_7_Handler(void)
+{
+    while (1)
+     374:	e7fe      	b.n	374 <PORT0_7_Handler>
+
+00000376 <PORT0_8_Handler>:
+    }
+}
+
+void PORT0_8_Handler(void)
+{
+    while (1)
+     376:	e7fe      	b.n	376 <PORT0_8_Handler>
+
+00000378 <PORT0_9_Handler>:
+    }
+}
+
+void PORT0_9_Handler(void)
+{
+    while (1)
+     378:	e7fe      	b.n	378 <PORT0_9_Handler>
+
+0000037a <PORT0_10_Handler>:
+    }
+}
+
+void PORT0_10_Handler(void)
+{
+    while (1)
+     37a:	e7fe      	b.n	37a <PORT0_10_Handler>
+
+0000037c <PORT0_11_Handler>:
+    }
+}
+
+void PORT0_11_Handler(void)
+{
+    while (1)
+     37c:	e7fe      	b.n	37c <PORT0_11_Handler>
+
+0000037e <PORT0_12_Handler>:
+    }
+}
+
+void PORT0_12_Handler(void)
+{
+    while (1)
+     37e:	e7fe      	b.n	37e <PORT0_12_Handler>
+
+00000380 <PORT0_13_Handler>:
+    }
+}
+
+void PORT0_13_Handler(void)
+{
+    while (1)
+     380:	e7fe      	b.n	380 <PORT0_13_Handler>
+
+00000382 <PORT0_14_Handler>:
+    }
+}
+
+void PORT0_14_Handler(void)
+{
+    while (1)
+     382:	e7fe      	b.n	382 <PORT0_14_Handler>
+
+00000384 <PORT0_15_Handler>:
+    }
+}
+
+void PORT0_15_Handler(void)
+{
+    while (1)
+     384:	e7fe      	b.n	384 <PORT0_15_Handler>
+	...
+
+00000388 <GPIOInit>:
+#include "scd_inc.h"
+
+
+//Initializes GPIO
+void GPIOInit(void)
+{
+     388:	b537      	push	{r0, r1, r2, r4, r5, lr}
+    GPIO_InitTypeDef GPIO_InitType;
+
+    GPIO_InitType.GPIO_Pin = GPIO_Pin_0;
+     38a:	2401      	movs	r4, #1
+    GPIO_InitType.GPIO_Mode = GPIO_Mode_OUT;
+    GPIO_InitType.GPIO_Int = GPIO_Int_Disable;
+
+    GPIO_Init(GPIO0, &GPIO_InitType);
+     38c:	4d06      	ldr	r5, [pc, #24]	; (3a8 <GPIOInit+0x20>)
+     38e:	4669      	mov	r1, sp
+     390:	4628      	mov	r0, r5
+    GPIO_InitType.GPIO_Pin = GPIO_Pin_0;
+     392:	9400      	str	r4, [sp, #0]
+    GPIO_InitType.GPIO_Mode = GPIO_Mode_OUT;
+     394:	f8ad 4004 	strh.w	r4, [sp, #4]
+    GPIO_Init(GPIO0, &GPIO_InitType);
+     398:	f7ff fe92 	bl	c0 <GPIO_Init>
+
+    GPIO_ResetBit(GPIO0, GPIO_Pin_0);
+     39c:	4621      	mov	r1, r4
+     39e:	4628      	mov	r0, r5
+     3a0:	f7ff feec 	bl	17c <GPIO_ResetBit>
+
+}
+     3a4:	b003      	add	sp, #12
+     3a6:	bd30      	pop	{r4, r5, pc}
+     3a8:	40010000 	.word	0x40010000
+
+000003ac <delay_ms>:
+
+//delay ms
+void delay_ms(uint32_t delay_ms)
+{
+    delay_ms *= 10;
+     3ac:	230a      	movs	r3, #10
+    for (uint32_t i = 0;i < delay_ms;i++)
+    {
+        while ((SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk) == 0)
+     3ae:	f04f 22e0 	mov.w	r2, #3758153728	; 0xe000e000
+    delay_ms *= 10;
+     3b2:	4358      	muls	r0, r3
+    for (uint32_t i = 0;i < delay_ms;i++)
+     3b4:	2300      	movs	r3, #0
+     3b6:	4283      	cmp	r3, r0
+     3b8:	d100      	bne.n	3bc <delay_ms+0x10>
+        {
+            // wait
+        }
+    }
+}
+     3ba:	4770      	bx	lr
+        while ((SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk) == 0)
+     3bc:	6911      	ldr	r1, [r2, #16]
+     3be:	03c9      	lsls	r1, r1, #15
+     3c0:	d5fc      	bpl.n	3bc <delay_ms+0x10>
+    for (uint32_t i = 0;i < delay_ms;i++)
+     3c2:	3301      	adds	r3, #1
+     3c4:	e7f7      	b.n	3b6 <delay_ms+0xa>
+	...
+
+000003c8 <UartInit>:
+
+//Initializes UART0
+void UartInit(void)
+{
+     3c8:	b51f      	push	{r0, r1, r2, r3, r4, lr}
+    UART_InitTypeDef UART_InitStruct;
+
+    UART_InitStruct.UART_Mode.UARTMode_Tx = ENABLE;
+     3ca:	f44f 22e1 	mov.w	r2, #460800	; 0x70800
+     3ce:	4b08      	ldr	r3, [pc, #32]	; (3f0 <UartInit+0x28>)
+    UART_InitStruct.UART_Ovr.UARTOvr_Tx = DISABLE;
+    UART_InitStruct.UART_Ovr.UARTOvr_Rx = DISABLE;
+    UART_InitStruct.UART_Hstm = DISABLE;
+    UART_InitStruct.UART_BaudRate = 460800;
+
+    UART_Init(UART0, &UART_InitStruct);
+     3d0:	a901      	add	r1, sp, #4
+    UART_InitStruct.UART_Mode.UARTMode_Tx = ENABLE;
+     3d2:	e9cd 2301 	strd	r2, r3, [sp, #4]
+    UART_InitStruct.UART_Ovr.UARTOvr_Tx = DISABLE;
+     3d6:	2300      	movs	r3, #0
+    UART_Init(UART0, &UART_InitStruct);
+     3d8:	f04f 2040 	mov.w	r0, #1073758208	; 0x40004000
+    UART_InitStruct.UART_Ovr.UARTOvr_Tx = DISABLE;
+     3dc:	f8ad 300c 	strh.w	r3, [sp, #12]
+    UART_InitStruct.UART_Hstm = DISABLE;
+     3e0:	f88d 300e 	strb.w	r3, [sp, #14]
+    UART_Init(UART0, &UART_InitStruct);
+     3e4:	f7ff ff28 	bl	238 <UART_Init>
+}
+     3e8:	b005      	add	sp, #20
+     3ea:	f85d fb04 	ldr.w	pc, [sp], #4
+     3ee:	bf00      	nop
+     3f0:	01000101 	.word	0x01000101
+
+000003f4 <nvicInit>:
+
+void nvicInit(void)
+{
+     3f4:	b507      	push	{r0, r1, r2, lr}
+static __INLINE void NVIC_SetPriorityGrouping(uint32_t PriorityGroup)
+{
+  uint32_t reg_value;
+  uint32_t PriorityGroupTmp = (PriorityGroup & 0x07);                         /* only values 0..7 are used          */
+  
+  reg_value  =  SCB->AIRCR;                                                   /* read old register configuration    */
+     3f6:	4a0c      	ldr	r2, [pc, #48]	; (428 <nvicInit+0x34>)
+    // uart Rx
+    InitTypeDef_NVIC.NVIC_IRQChannel = UART0_IRQn;
+    InitTypeDef_NVIC.NVIC_IRQChannelPreemptionPriority = 1;
+    InitTypeDef_NVIC.NVIC_IRQChannelSubPriority = 1;
+    InitTypeDef_NVIC.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&InitTypeDef_NVIC);
+     3f8:	a801      	add	r0, sp, #4
+     3fa:	68d3      	ldr	r3, [r2, #12]
+  reg_value &= ~(SCB_AIRCR_VECTKEY_Msk | SCB_AIRCR_PRIGROUP_Msk);             /* clear bits to change               */
+     3fc:	f423 63e0 	bic.w	r3, r3, #1792	; 0x700
+     400:	041b      	lsls	r3, r3, #16
+     402:	0c1b      	lsrs	r3, r3, #16
+  reg_value  =  (reg_value                       |
+     404:	f043 63bf 	orr.w	r3, r3, #100139008	; 0x5f80000
+     408:	f443 3300 	orr.w	r3, r3, #131072	; 0x20000
+                (0x5FA << SCB_AIRCR_VECTKEY_Pos) | 
+                (PriorityGroupTmp << 8));                                     /* Insert write key and priorty group */
+  SCB->AIRCR =  reg_value;
+     40c:	60d3      	str	r3, [r2, #12]
+    InitTypeDef_NVIC.NVIC_IRQChannel = UART0_IRQn;
+     40e:	4b07      	ldr	r3, [pc, #28]	; (42c <nvicInit+0x38>)
+     410:	9301      	str	r3, [sp, #4]
+    NVIC_Init(&InitTypeDef_NVIC);
+     412:	f7ff feb9 	bl	188 <NVIC_Init>
+
+    // systick
+    InitTypeDef_NVIC.NVIC_IRQChannel = SysTick_IRQn;
+     416:	4b06      	ldr	r3, [pc, #24]	; (430 <nvicInit+0x3c>)
+    InitTypeDef_NVIC.NVIC_IRQChannelPreemptionPriority = 2;
+    InitTypeDef_NVIC.NVIC_IRQChannelSubPriority = 1;
+    InitTypeDef_NVIC.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&InitTypeDef_NVIC);
+     418:	a801      	add	r0, sp, #4
+    InitTypeDef_NVIC.NVIC_IRQChannel = SysTick_IRQn;
+     41a:	9301      	str	r3, [sp, #4]
+    NVIC_Init(&InitTypeDef_NVIC);
+     41c:	f7ff feb4 	bl	188 <NVIC_Init>
+}
+     420:	b003      	add	sp, #12
+     422:	f85d fb04 	ldr.w	pc, [sp], #4
+     426:	bf00      	nop
+     428:	e000ed00 	.word	0xe000ed00
+     42c:	01010100 	.word	0x01010100
+     430:	010102ff 	.word	0x010102ff
+
+00000434 <SPIInit>:
+void SPIInit(void)
+{
+    SPI_InitTypeDef init_spi;
+    // 9MHz
+    init_spi.CLKSEL = CLKSEL_CLK_DIV_8;
+    init_spi.DIRECTION = SHIFT_DIR_MSB_FIRST;
+     434:	f04f 7340 	mov.w	r3, #50331648	; 0x3000000
+{
+     438:	b507      	push	{r0, r1, r2, lr}
+    init_spi.PHASE = SPI_CPOL_LO;
+    init_spi.POLARITY = SPI_CPHA_POSEDGE;
+
+    SPI_Init(&init_spi);
+     43a:	a801      	add	r0, sp, #4
+    init_spi.DIRECTION = SHIFT_DIR_MSB_FIRST;
+     43c:	9301      	str	r3, [sp, #4]
+    SPI_Init(&init_spi);
+     43e:	f7ff fecd 	bl	1dc <SPI_Init>
+}
+     442:	b003      	add	sp, #12
+     444:	f85d fb04 	ldr.w	pc, [sp], #4
+
+00000448 <main>:
+uint32_t ms_cnt;
+uint16_t initOk = 0;
+
+
+int main(void)
+{
+     448:	b508      	push	{r3, lr}
+    SystemInit();
+     44a:	f000 fdab 	bl	fa4 <SystemInit>
+    nvicInit();
+     44e:	f7ff ffd1 	bl	3f4 <nvicInit>
+    UartInit();
+     452:	f7ff ffb9 	bl	3c8 <UartInit>
+ */
+static __INLINE uint32_t SysTick_Config(uint32_t ticks)
+{ 
+  if (ticks > SysTick_LOAD_RELOAD_Msk)  return (1);            /* Reload value impossible */
+                                                               
+  SysTick->LOAD  = (ticks & SysTick_LOAD_RELOAD_Msk) - 1;      /* set reload register */
+     456:	f04f 23e0 	mov.w	r3, #3758153728	; 0xe000e000
+     45a:	f641 421e 	movw	r2, #7198	; 0x1c1e
+    SCB->SHP[((uint32_t)(IRQn) & 0xF)-4] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff); } /* set Priority for Cortex-M3 System Interrupts */
+     45e:	21e0      	movs	r1, #224	; 0xe0
+  SysTick->LOAD  = (ticks & SysTick_LOAD_RELOAD_Msk) - 1;      /* set reload register */
+     460:	615a      	str	r2, [r3, #20]
+    SCB->SHP[((uint32_t)(IRQn) & 0xF)-4] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff); } /* set Priority for Cortex-M3 System Interrupts */
+     462:	4a18      	ldr	r2, [pc, #96]	; (4c4 <main+0x7c>)
+  NVIC_SetPriority (SysTick_IRQn, (1<<__NVIC_PRIO_BITS) - 1);  /* set Priority for Cortex-M3 System Interrupts */
+  SysTick->VAL   = 0;                                          /* Load the SysTick Counter Value */
+     464:	2400      	movs	r4, #0
+    SCB->SHP[((uint32_t)(IRQn) & 0xF)-4] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff); } /* set Priority for Cortex-M3 System Interrupts */
+     466:	f882 1023 	strb.w	r1, [r2, #35]	; 0x23
+  SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk | 
+     46a:	2207      	movs	r2, #7
+  SysTick->VAL   = 0;                                          /* Load the SysTick Counter Value */
+     46c:	619c      	str	r4, [r3, #24]
+  SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk | 
+     46e:	611a      	str	r2, [r3, #16]
+    SysTick_Config(7200ul - 1ul);
+    GPIOInit();
+     470:	f7ff ff8a 	bl	388 <GPIOInit>
+    SPIInit();
+     474:	f7ff ffde 	bl	434 <SPIInit>
+
+    // adcInit
+    delay_ms(2);
+     478:	2002      	movs	r0, #2
+     47a:	f7ff ff97 	bl	3ac <delay_ms>
+    // 退出复位
+    GPIO_SetBit(GPIO0, GPIO_Pin_0);
+     47e:	2101      	movs	r1, #1
+     480:	4811      	ldr	r0, [pc, #68]	; (4c8 <main+0x80>)
+     482:	f7ff fe77 	bl	174 <GPIO_SetBit>
+    delay_ms(10);
+     486:	200a      	movs	r0, #10
+     488:	f7ff ff90 	bl	3ac <delay_ms>
+    SPI_Select_Slave(0);
+     48c:	4620      	mov	r0, r4
+     48e:	f7ff fecd 	bl	22c <SPI_Select_Slave>
+    delay_ms(1);
+     492:	2001      	movs	r0, #1
+     494:	f7ff ff8a 	bl	3ac <delay_ms>
+    SPI_Select_Slave(1);
+     498:	2001      	movs	r0, #1
+     49a:	f7ff fec7 	bl	22c <SPI_Select_Slave>
+    delay_ms(1);
+     49e:	2001      	movs	r0, #1
+     4a0:	f7ff ff84 	bl	3ac <delay_ms>
+    initOk = 1;
+     4a4:	2201      	movs	r2, #1
+     4a6:	4b09      	ldr	r3, [pc, #36]	; (4cc <main+0x84>)
+
+    scd_init_1();
+
+    while (1)
+    {
+        if ((UART0->STATE & UART_STATE_TXBF) == 0)
+     4a8:	f04f 2440 	mov.w	r4, #1073758208	; 0x40004000
+    initOk = 1;
+     4ac:	801a      	strh	r2, [r3, #0]
+    scd_init_1();
+     4ae:	f000 fcf1 	bl	e94 <scd_init_1>
+        {
+            UART0->DATA = scd_send1Byte(&scd_1);
+     4b2:	4d07      	ldr	r5, [pc, #28]	; (4d0 <main+0x88>)
+        if ((UART0->STATE & UART_STATE_TXBF) == 0)
+     4b4:	6863      	ldr	r3, [r4, #4]
+     4b6:	07db      	lsls	r3, r3, #31
+     4b8:	d4fc      	bmi.n	4b4 <main+0x6c>
+            UART0->DATA = scd_send1Byte(&scd_1);
+     4ba:	4628      	mov	r0, r5
+     4bc:	f000 fcc8 	bl	e50 <scd_send1Byte>
+     4c0:	6020      	str	r0, [r4, #0]
+     4c2:	e7f7      	b.n	4b4 <main+0x6c>
+     4c4:	e000ed00 	.word	0xe000ed00
+     4c8:	40010000 	.word	0x40010000
+     4cc:	20000022 	.word	0x20000022
+     4d0:	200000a8 	.word	0x200000a8
+
+000004d4 <SCO_get>:
+
+#if SCD_IF_USE_RAM_FUNCS
+#pragma CODE_SECTION(SCO_get, MEM_MACRO);
+#endif
+static uint16_t SCO_get(struct SCD_CTRL_STRUCT *scd)
+{
+     4d4:	b573      	push	{r0, r1, r4, r5, r6, lr}
+                return (*tempPtr) & 0xffu;
+            }
+        }
+        else
+        {
+            scd->byteToSend = 0;
+     4d6:	2200      	movs	r2, #0
+{
+     4d8:	4604      	mov	r4, r0
+    const unsigned char endByte[SCO_ENDBYTE_NUM + 1] = {0x00, 0x00, 0x80, 0x7f};
+     4da:	4b48      	ldr	r3, [pc, #288]	; (5fc <SCO_get+0x128>)
+     4dc:	681d      	ldr	r5, [r3, #0]
+     4de:	7919      	ldrb	r1, [r3, #4]
+    if (scd->structToSend == 0)
+     4e0:	f8b4 304c 	ldrh.w	r3, [r4, #76]	; 0x4c
+    const unsigned char endByte[SCO_ENDBYTE_NUM + 1] = {0x00, 0x00, 0x80, 0x7f};
+     4e4:	9500      	str	r5, [sp, #0]
+    if (scd->structToSend == 0)
+     4e6:	b218      	sxth	r0, r3
+    const unsigned char endByte[SCO_ENDBYTE_NUM + 1] = {0x00, 0x00, 0x80, 0x7f};
+     4e8:	f88d 1004 	strb.w	r1, [sp, #4]
+    if (scd->structToSend == 0)
+     4ec:	b9a0      	cbnz	r0, 518 <SCO_get+0x44>
+        if (scd->byteToSend < SCO_STARTBYTE_NUM)
+     4ee:	f8b4 604a 	ldrh.w	r6, [r4, #74]	; 0x4a
+     4f2:	0436      	lsls	r6, r6, #16
+     4f4:	d507      	bpl.n	506 <SCO_get+0x32>
+            return startByte[scd->byteToSend++];
+     4f6:	f8b4 304a 	ldrh.w	r3, [r4, #74]	; 0x4a
+     4fa:	3301      	adds	r3, #1
+     4fc:	b21b      	sxth	r3, r3
+     4fe:	f8a4 304a 	strh.w	r3, [r4, #74]	; 0x4a
+            scd->structToSend++;
+            // 数据位发送完成，递归找下一数据
+            return SCO_get(scd);
+        }
+    }
+}
+     502:	b002      	add	sp, #8
+     504:	bd70      	pop	{r4, r5, r6, pc}
+            scd->byteToSend = 0;
+     506:	f8a4 304a 	strh.w	r3, [r4, #74]	; 0x4a
+            scd->structToSend++;
+     50a:	f8b4 304c 	ldrh.w	r3, [r4, #76]	; 0x4c
+     50e:	3301      	adds	r3, #1
+     510:	b21b      	sxth	r3, r3
+     512:	f8a4 304c 	strh.w	r3, [r4, #76]	; 0x4c
+            return SCO_get(scd);
+     516:	e7e3      	b.n	4e0 <SCO_get+0xc>
+    else if (scd->structToSendTab[scd->structToSend - 1] > scd->structNum)
+     518:	f8b4 304c 	ldrh.w	r3, [r4, #76]	; 0x4c
+     51c:	b21b      	sxth	r3, r3
+     51e:	3b01      	subs	r3, #1
+     520:	f834 0013 	ldrh.w	r0, [r4, r3, lsl #1]
+     524:	f8b4 3044 	ldrh.w	r3, [r4, #68]	; 0x44
+     528:	b200      	sxth	r0, r0
+     52a:	b21b      	sxth	r3, r3
+     52c:	4298      	cmp	r0, r3
+        if (scd->byteToSend < SCO_ENDBYTE_NUM)
+     52e:	f8b4 304a 	ldrh.w	r3, [r4, #74]	; 0x4a
+     532:	b21b      	sxth	r3, r3
+    else if (scd->structToSendTab[scd->structToSend - 1] > scd->structNum)
+     534:	dd16      	ble.n	564 <SCO_get+0x90>
+        if (scd->byteToSend < SCO_ENDBYTE_NUM)
+     536:	2b03      	cmp	r3, #3
+     538:	dc0c      	bgt.n	554 <SCO_get+0x80>
+            return endByte[scd->byteToSend++];
+     53a:	f8b4 304a 	ldrh.w	r3, [r4, #74]	; 0x4a
+     53e:	b21a      	sxth	r2, r3
+     540:	3301      	adds	r3, #1
+     542:	b21b      	sxth	r3, r3
+     544:	f8a4 304a 	strh.w	r3, [r4, #74]	; 0x4a
+     548:	f102 0308 	add.w	r3, r2, #8
+     54c:	446b      	add	r3, sp
+     54e:	f813 0c08 	ldrb.w	r0, [r3, #-8]
+     552:	e7d6      	b.n	502 <SCO_get+0x2e>
+            scd->byteToSend = 0;
+     554:	2300      	movs	r3, #0
+            return 0x100u;
+     556:	f44f 7080 	mov.w	r0, #256	; 0x100
+            scd->byteToSend = 0;
+     55a:	f8a4 304a 	strh.w	r3, [r4, #74]	; 0x4a
+            scd->structToSend = 0;
+     55e:	f8a4 304c 	strh.w	r3, [r4, #76]	; 0x4c
+            return 0x100u;
+     562:	e7ce      	b.n	502 <SCO_get+0x2e>
+        if (scd->byteToSend < (4))
+     564:	2b03      	cmp	r3, #3
+     566:	dc46      	bgt.n	5f6 <SCO_get+0x122>
+            if (scd->byteToSend == 0)
+     568:	f8b4 304a 	ldrh.w	r3, [r4, #74]	; 0x4a
+     56c:	b21b      	sxth	r3, r3
+     56e:	bb43      	cbnz	r3, 5c2 <SCO_get+0xee>
+                uint16_t judgeType = (scd->_unit_struct[scd->structToSendTab[scd->structToSend - 1]]._type) & 0xffu;
+     570:	f8b4 304c 	ldrh.w	r3, [r4, #76]	; 0x4c
+     574:	6be1      	ldr	r1, [r4, #60]	; 0x3c
+     576:	b21b      	sxth	r3, r3
+     578:	3b01      	subs	r3, #1
+     57a:	f834 3013 	ldrh.w	r3, [r4, r3, lsl #1]
+                void *tempCommonPtr = (void *)scd->_unit_struct[scd->structToSendTab[scd->structToSend - 1]]._addr;
+     57e:	f8b4 204c 	ldrh.w	r2, [r4, #76]	; 0x4c
+                uint16_t judgeType = (scd->_unit_struct[scd->structToSendTab[scd->structToSend - 1]]._type) & 0xffu;
+     582:	b21b      	sxth	r3, r3
+                void *tempCommonPtr = (void *)scd->_unit_struct[scd->structToSendTab[scd->structToSend - 1]]._addr;
+     584:	b212      	sxth	r2, r2
+                uint16_t judgeType = (scd->_unit_struct[scd->structToSendTab[scd->structToSend - 1]]._type) & 0xffu;
+     586:	eb01 03c3 	add.w	r3, r1, r3, lsl #3
+                void *tempCommonPtr = (void *)scd->_unit_struct[scd->structToSendTab[scd->structToSend - 1]]._addr;
+     58a:	3a01      	subs	r2, #1
+                uint16_t judgeType = (scd->_unit_struct[scd->structToSendTab[scd->structToSend - 1]]._type) & 0xffu;
+     58c:	791b      	ldrb	r3, [r3, #4]
+                void *tempCommonPtr = (void *)scd->_unit_struct[scd->structToSendTab[scd->structToSend - 1]]._addr;
+     58e:	f834 2012 	ldrh.w	r2, [r4, r2, lsl #1]
+                if (judgeType == TYJ_uint16_t)
+     592:	2b02      	cmp	r3, #2
+                void *tempCommonPtr = (void *)scd->_unit_struct[scd->structToSendTab[scd->structToSend - 1]]._addr;
+     594:	b212      	sxth	r2, r2
+     596:	f851 0032 	ldr.w	r0, [r1, r2, lsl #3]
+                if (judgeType == TYJ_uint16_t)
+     59a:	d104      	bne.n	5a6 <SCO_get+0xd2>
+                    scd->tempBuff = *tempPtr;
+     59c:	8800      	ldrh	r0, [r0, #0]
+                    scd->tempBuff = (uint32_t)tempCommonPtr;
+     59e:	f000 fe91 	bl	12c4 <__aeabi_ui2f>
+                    scd->tempBuff = *tempPtr;
+     5a2:	6420      	str	r0, [r4, #64]	; 0x40
+     5a4:	e00d      	b.n	5c2 <SCO_get+0xee>
+                else if (judgeType == TYJ_uint32_t)
+     5a6:	2b04      	cmp	r3, #4
+     5a8:	d101      	bne.n	5ae <SCO_get+0xda>
+                    scd->tempBuff = *tempPtr;
+     5aa:	6800      	ldr	r0, [r0, #0]
+     5ac:	e7f7      	b.n	59e <SCO_get+0xca>
+                else if (judgeType == TYJ_int32_t)
+     5ae:	2b14      	cmp	r3, #20
+     5b0:	d103      	bne.n	5ba <SCO_get+0xe6>
+                    scd->tempBuff = *tempPtr;
+     5b2:	6800      	ldr	r0, [r0, #0]
+                    scd->tempBuff = *tempPtr;
+     5b4:	f000 fe8a 	bl	12cc <__aeabi_i2f>
+     5b8:	e7f3      	b.n	5a2 <SCO_get+0xce>
+                else if (judgeType == TYJ_float)
+     5ba:	2b24      	cmp	r3, #36	; 0x24
+     5bc:	d116      	bne.n	5ec <SCO_get+0x118>
+                    scd->tempBuff = *tempPtr;
+     5be:	6803      	ldr	r3, [r0, #0]
+     5c0:	6423      	str	r3, [r4, #64]	; 0x40
+            tempPtr = &tempPtr[scd->byteToSend >> 1];
+     5c2:	f8b4 304a 	ldrh.w	r3, [r4, #74]	; 0x4a
+            if (scd->byteToSend++ & 0x1)
+     5c6:	f8b4 204a 	ldrh.w	r2, [r4, #74]	; 0x4a
+            uint16_t *tempPtr = (uint16_t *)(void *)&(scd->tempBuff);
+     5ca:	f104 0040 	add.w	r0, r4, #64	; 0x40
+            if (scd->byteToSend++ & 0x1)
+     5ce:	b292      	uxth	r2, r2
+     5d0:	1c51      	adds	r1, r2, #1
+     5d2:	b209      	sxth	r1, r1
+     5d4:	07d2      	lsls	r2, r2, #31
+            tempPtr = &tempPtr[scd->byteToSend >> 1];
+     5d6:	f343 034e 	sbfx	r3, r3, #1, #15
+            if (scd->byteToSend++ & 0x1)
+     5da:	f8a4 104a 	strh.w	r1, [r4, #74]	; 0x4a
+                return ((*tempPtr) >> 8) & 0xffu;
+     5de:	bf4a      	itet	mi
+     5e0:	f830 0013 	ldrhmi.w	r0, [r0, r3, lsl #1]
+                return (*tempPtr) & 0xffu;
+     5e4:	f810 0013 	ldrbpl.w	r0, [r0, r3, lsl #1]
+                return ((*tempPtr) >> 8) & 0xffu;
+     5e8:	0a00      	lsrmi	r0, r0, #8
+                return (*tempPtr) & 0xffu;
+     5ea:	e78a      	b.n	502 <SCO_get+0x2e>
+                else if (judgeType == TYJ_function)
+     5ec:	2b32      	cmp	r3, #50	; 0x32
+     5ee:	d0d6      	beq.n	59e <SCO_get+0xca>
+                    scd->tempBuff = *tempPtr;
+     5f0:	f9b0 0000 	ldrsh.w	r0, [r0]
+     5f4:	e7de      	b.n	5b4 <SCO_get+0xe0>
+            scd->byteToSend = 0;
+     5f6:	f8a4 204a 	strh.w	r2, [r4, #74]	; 0x4a
+     5fa:	e786      	b.n	50a <SCO_get+0x36>
+     5fc:	00001397 	.word	0x00001397
+
+00000600 <SCO_VAR>:
+        {
+            scd->byteToSend2 = 0;
+            scd->structToSend2++;
+            // 起始位发送完成，递归找下一数据
+            // 将checkSum设为初值
+            checkUint16Sum = 0;
+     600:	2100      	movs	r1, #0
+{
+     602:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+     604:	4604      	mov	r4, r0
+                return (*tempPtr) & 0xffu;
+            }
+        }
+        else
+        {
+            scd->byteToSend2 = 0;
+     606:	4608      	mov	r0, r1
+     608:	4d51      	ldr	r5, [pc, #324]	; (750 <SCO_VAR+0x150>)
+     60a:	882b      	ldrh	r3, [r5, #0]
+    if (scd->structToSend2 == 0)
+     60c:	f8b4 6054 	ldrh.w	r6, [r4, #84]	; 0x54
+     610:	b232      	sxth	r2, r6
+     612:	b9c2      	cbnz	r2, 646 <SCO_VAR+0x46>
+        if (scd->byteToSend2 < SCO_STARTBYTE_NUM1)
+     614:	f8b4 7052 	ldrh.w	r7, [r4, #82]	; 0x52
+     618:	043f      	lsls	r7, r7, #16
+     61a:	d509      	bpl.n	630 <SCO_VAR+0x30>
+     61c:	b101      	cbz	r1, 620 <SCO_VAR+0x20>
+     61e:	802b      	strh	r3, [r5, #0]
+            return startByte[scd->byteToSend2++];
+     620:	2000      	movs	r0, #0
+     622:	f8b4 3052 	ldrh.w	r3, [r4, #82]	; 0x52
+     626:	3301      	adds	r3, #1
+     628:	b21b      	sxth	r3, r3
+     62a:	f8a4 3052 	strh.w	r3, [r4, #82]	; 0x52
+            scd->_endbyte1[0] = checkUint16Sum & 0xffu;
+            scd->_endbyte1[1] = (checkUint16Sum >> 8) & 0xffu;
+            return SCO_VAR(scd);
+        }
+    }
+}
+     62e:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+            scd->byteToSend2 = 0;
+     630:	f8a4 6052 	strh.w	r6, [r4, #82]	; 0x52
+            scd->structToSend2++;
+     634:	f8b4 3054 	ldrh.w	r3, [r4, #84]	; 0x54
+            return SCO_VAR(scd);
+     638:	2101      	movs	r1, #1
+            scd->structToSend2++;
+     63a:	3301      	adds	r3, #1
+     63c:	b21b      	sxth	r3, r3
+     63e:	f8a4 3054 	strh.w	r3, [r4, #84]	; 0x54
+            checkUint16Sum = 0;
+     642:	4613      	mov	r3, r2
+            return SCO_VAR(scd);
+     644:	e7e2      	b.n	60c <SCO_VAR+0xc>
+    else if (scd->structToSend2 > scd->structNum)
+     646:	f8b4 6054 	ldrh.w	r6, [r4, #84]	; 0x54
+     64a:	f8b4 2044 	ldrh.w	r2, [r4, #68]	; 0x44
+     64e:	b236      	sxth	r6, r6
+     650:	b212      	sxth	r2, r2
+     652:	4296      	cmp	r6, r2
+     654:	dd1f      	ble.n	696 <SCO_VAR+0x96>
+     656:	b101      	cbz	r1, 65a <SCO_VAR+0x5a>
+     658:	802b      	strh	r3, [r5, #0]
+        if (scd->byteToSend2 < SCO_ENDBYTE_NUM1)
+     65a:	f8b4 3052 	ldrh.w	r3, [r4, #82]	; 0x52
+     65e:	b21b      	sxth	r3, r3
+     660:	2b03      	cmp	r3, #3
+     662:	dc09      	bgt.n	678 <SCO_VAR+0x78>
+            return scd->_endbyte1[scd->byteToSend2++];
+     664:	f8b4 3052 	ldrh.w	r3, [r4, #82]	; 0x52
+     668:	6b21      	ldr	r1, [r4, #48]	; 0x30
+     66a:	b21a      	sxth	r2, r3
+     66c:	3301      	adds	r3, #1
+     66e:	b21b      	sxth	r3, r3
+     670:	f8a4 3052 	strh.w	r3, [r4, #82]	; 0x52
+     674:	5c88      	ldrb	r0, [r1, r2]
+     676:	e7da      	b.n	62e <SCO_VAR+0x2e>
+            scd->byteToSend2 = 0;
+     678:	2300      	movs	r3, #0
+     67a:	f8a4 3052 	strh.w	r3, [r4, #82]	; 0x52
+            scd->structToSend2 = 0;
+     67e:	f8a4 3054 	strh.w	r3, [r4, #84]	; 0x54
+            if (scd->sco_protocol_num_next == 1)
+     682:	f8b4 2050 	ldrh.w	r2, [r4, #80]	; 0x50
+     686:	b212      	sxth	r2, r2
+     688:	2a01      	cmp	r2, #1
+     68a:	d101      	bne.n	690 <SCO_VAR+0x90>
+                scd->sco_protocol_num_next = 0;
+     68c:	f8a4 3050 	strh.w	r3, [r4, #80]	; 0x50
+            return 0x100u;
+     690:	f44f 7080 	mov.w	r0, #256	; 0x100
+     694:	e7cb      	b.n	62e <SCO_VAR+0x2e>
+        if (scd->byteToSend2 < (4))
+     696:	f8b4 2052 	ldrh.w	r2, [r4, #82]	; 0x52
+     69a:	b212      	sxth	r2, r2
+     69c:	2a03      	cmp	r2, #3
+     69e:	dc48      	bgt.n	732 <SCO_VAR+0x132>
+     6a0:	b101      	cbz	r1, 6a4 <SCO_VAR+0xa4>
+     6a2:	802b      	strh	r3, [r5, #0]
+            if (scd->byteToSend2 == 0)
+     6a4:	f8b4 3052 	ldrh.w	r3, [r4, #82]	; 0x52
+     6a8:	b21b      	sxth	r3, r3
+     6aa:	bb23      	cbnz	r3, 6f6 <SCO_VAR+0xf6>
+                uint16_t judgeType = (scd->_unit_struct[scd->structToSend2 - 1]._type) & 0xffu;
+     6ac:	f06f 4060 	mvn.w	r0, #3758096384	; 0xe0000000
+     6b0:	f8b4 3054 	ldrh.w	r3, [r4, #84]	; 0x54
+     6b4:	6be1      	ldr	r1, [r4, #60]	; 0x3c
+     6b6:	b21b      	sxth	r3, r3
+     6b8:	4403      	add	r3, r0
+                void *tempCommonPtr = (void *)scd->_unit_struct[scd->structToSend2 - 1]._addr;
+     6ba:	f8b4 2054 	ldrh.w	r2, [r4, #84]	; 0x54
+                uint16_t judgeType = (scd->_unit_struct[scd->structToSend2 - 1]._type) & 0xffu;
+     6be:	eb01 03c3 	add.w	r3, r1, r3, lsl #3
+     6c2:	791b      	ldrb	r3, [r3, #4]
+                void *tempCommonPtr = (void *)scd->_unit_struct[scd->structToSend2 - 1]._addr;
+     6c4:	b212      	sxth	r2, r2
+     6c6:	4402      	add	r2, r0
+                if (judgeType == TYJ_uint16_t)
+     6c8:	2b02      	cmp	r3, #2
+                void *tempCommonPtr = (void *)scd->_unit_struct[scd->structToSend2 - 1]._addr;
+     6ca:	f851 0032 	ldr.w	r0, [r1, r2, lsl #3]
+                if (judgeType == TYJ_uint16_t)
+     6ce:	d104      	bne.n	6da <SCO_VAR+0xda>
+                    scd->tempBuff = *tempPtr;
+     6d0:	8800      	ldrh	r0, [r0, #0]
+                    scd->tempBuff = (uint32_t)tempCommonPtr;
+     6d2:	f000 fdf7 	bl	12c4 <__aeabi_ui2f>
+                    scd->tempBuff = *tempPtr;
+     6d6:	6420      	str	r0, [r4, #64]	; 0x40
+     6d8:	e00d      	b.n	6f6 <SCO_VAR+0xf6>
+                else if (judgeType == TYJ_uint32_t)
+     6da:	2b04      	cmp	r3, #4
+     6dc:	d101      	bne.n	6e2 <SCO_VAR+0xe2>
+                    scd->tempBuff = *tempPtr;
+     6de:	6800      	ldr	r0, [r0, #0]
+     6e0:	e7f7      	b.n	6d2 <SCO_VAR+0xd2>
+                else if (judgeType == TYJ_int32_t)
+     6e2:	2b14      	cmp	r3, #20
+     6e4:	d103      	bne.n	6ee <SCO_VAR+0xee>
+                    scd->tempBuff = *tempPtr;
+     6e6:	6800      	ldr	r0, [r0, #0]
+                    scd->tempBuff = *tempPtr;
+     6e8:	f000 fdf0 	bl	12cc <__aeabi_i2f>
+     6ec:	e7f3      	b.n	6d6 <SCO_VAR+0xd6>
+                else if (judgeType == TYJ_float)
+     6ee:	2b24      	cmp	r3, #36	; 0x24
+     6f0:	d11a      	bne.n	728 <SCO_VAR+0x128>
+                    scd->tempBuff = *tempPtr;
+     6f2:	6803      	ldr	r3, [r0, #0]
+     6f4:	6423      	str	r3, [r4, #64]	; 0x40
+            tempPtr = &tempPtr[scd->byteToSend2 >> 1];
+     6f6:	f8b4 2052 	ldrh.w	r2, [r4, #82]	; 0x52
+            if (scd->byteToSend2++ & 0x1)
+     6fa:	f8b4 3052 	ldrh.w	r3, [r4, #82]	; 0x52
+            uint16_t *tempPtr = (uint16_t *)(void *)&(scd->tempBuff);
+     6fe:	f104 0040 	add.w	r0, r4, #64	; 0x40
+            if (scd->byteToSend2++ & 0x1)
+     702:	b29b      	uxth	r3, r3
+     704:	1c59      	adds	r1, r3, #1
+     706:	b209      	sxth	r1, r1
+     708:	f013 0f01 	tst.w	r3, #1
+            tempPtr = &tempPtr[scd->byteToSend2 >> 1];
+     70c:	f342 024e 	sbfx	r2, r2, #1, #15
+            if (scd->byteToSend2++ & 0x1)
+     710:	f8a4 1052 	strh.w	r1, [r4, #82]	; 0x52
+     714:	f830 0012 	ldrh.w	r0, [r0, r2, lsl #1]
+                checkUint16Sum += *tempPtr;
+     718:	bf09      	itett	eq
+     71a:	882b      	ldrheq	r3, [r5, #0]
+                return ((*tempPtr) >> 8) & 0xffu;
+     71c:	0a00      	lsrne	r0, r0, #8
+                checkUint16Sum += *tempPtr;
+     71e:	181b      	addeq	r3, r3, r0
+     720:	802b      	strheq	r3, [r5, #0]
+                return (*tempPtr) & 0xffu;
+     722:	bf08      	it	eq
+     724:	b2c0      	uxtbeq	r0, r0
+     726:	e782      	b.n	62e <SCO_VAR+0x2e>
+                else if (judgeType == TYJ_function)
+     728:	2b32      	cmp	r3, #50	; 0x32
+     72a:	d0d2      	beq.n	6d2 <SCO_VAR+0xd2>
+                    scd->tempBuff = *tempPtr;
+     72c:	f9b0 0000 	ldrsh.w	r0, [r0]
+     730:	e7da      	b.n	6e8 <SCO_VAR+0xe8>
+            scd->byteToSend2 = 0;
+     732:	f8a4 0052 	strh.w	r0, [r4, #82]	; 0x52
+            scd->structToSend2++;
+     736:	f8b4 2054 	ldrh.w	r2, [r4, #84]	; 0x54
+            scd->_endbyte1[0] = checkUint16Sum & 0xffu;
+     73a:	b2de      	uxtb	r6, r3
+            scd->structToSend2++;
+     73c:	3201      	adds	r2, #1
+     73e:	b212      	sxth	r2, r2
+     740:	f8a4 2054 	strh.w	r2, [r4, #84]	; 0x54
+            scd->_endbyte1[0] = checkUint16Sum & 0xffu;
+     744:	6b22      	ldr	r2, [r4, #48]	; 0x30
+     746:	7016      	strb	r6, [r2, #0]
+            scd->_endbyte1[1] = (checkUint16Sum >> 8) & 0xffu;
+     748:	6b22      	ldr	r2, [r4, #48]	; 0x30
+     74a:	0a1e      	lsrs	r6, r3, #8
+     74c:	7056      	strb	r6, [r2, #1]
+            return SCO_VAR(scd);
+     74e:	e75d      	b.n	60c <SCO_VAR+0xc>
+     750:	2000002c 	.word	0x2000002c
+
+00000754 <SCO_DEBUG>:
+{
+    // debug用，只会发0
+    (void)scd;
+
+    // 若模式没改就发0
+    if (scd->sco_protocol_num_next == 2)
+     754:	f8b0 0050 	ldrh.w	r0, [r0, #80]	; 0x50
+     758:	b200      	sxth	r0, r0
+     75a:	3802      	subs	r0, #2
+     75c:	bf18      	it	ne
+     75e:	2001      	movne	r0, #1
+    {
+        return 0;
+    }
+    // 否则发送0x100，切换协议
+    return 0x100u;
+}
+     760:	0200      	lsls	r0, r0, #8
+     762:	4770      	bx	lr
+
+00000764 <SCO_DUMP>:
+            return scd->_endbyte2[scd->byteToSend3++];
+        }
+        else
+        {
+            scd->byteToSend3 = 0;
+            checkUint16Sum = 0;
+     764:	2200      	movs	r2, #0
+{
+     766:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+                return (*tempPtr) & 0xffu;
+            }
+        }
+        else
+        {
+            scd->byteToSend3 = 0;
+     76a:	4611      	mov	r1, r2
+{
+     76c:	4604      	mov	r4, r0
+    else if (scd->dumpPkgCnt > MAX_NUMS_PER_FRAME)
+     76e:	f240 3ae9 	movw	sl, #1001	; 0x3e9
+            scd->dumpPkgCnt = 2;
+     772:	f04f 0802 	mov.w	r8, #2
+            scd->ifContPkg = 1;
+     776:	f04f 0e01 	mov.w	lr, #1
+                scd->_endbyte2[0] = 0xcdu;
+     77a:	f04f 0ccd 	mov.w	ip, #205	; 0xcd
+                scd->_endbyte2[1] = 0xccu;
+     77e:	26cc      	movs	r6, #204	; 0xcc
+                scd->_endbyte2[2] = 0x8cu;
+     780:	278c      	movs	r7, #140	; 0x8c
+     782:	4d76      	ldr	r5, [pc, #472]	; (95c <Stack_Size+0x15c>)
+     784:	882b      	ldrh	r3, [r5, #0]
+    if (scd->structToSend3 >= scd->dumpNumCnt)
+     786:	f8b4 9058 	ldrh.w	r9, [r4, #88]	; 0x58
+     78a:	f8b4 005c 	ldrh.w	r0, [r4, #92]	; 0x5c
+     78e:	fa0f f989 	sxth.w	r9, r9
+     792:	b200      	sxth	r0, r0
+     794:	4581      	cmp	r9, r0
+     796:	db36      	blt.n	806 <Stack_Size+0x6>
+     798:	b102      	cbz	r2, 79c <SCO_DUMP+0x38>
+     79a:	802b      	strh	r3, [r5, #0]
+        if (scd->byteToSend3 == 0)
+     79c:	f8b4 3056 	ldrh.w	r3, [r4, #86]	; 0x56
+     7a0:	b21b      	sxth	r3, r3
+     7a2:	b95b      	cbnz	r3, 7bc <SCO_DUMP+0x58>
+            scd->_endbyte2[0] = 0xcdu;
+     7a4:	22cd      	movs	r2, #205	; 0xcd
+     7a6:	6b63      	ldr	r3, [r4, #52]	; 0x34
+     7a8:	701a      	strb	r2, [r3, #0]
+            scd->_endbyte2[1] = 0xccu;
+     7aa:	22cc      	movs	r2, #204	; 0xcc
+     7ac:	6b63      	ldr	r3, [r4, #52]	; 0x34
+     7ae:	705a      	strb	r2, [r3, #1]
+            scd->_endbyte2[2] = 0xcu;
+     7b0:	220c      	movs	r2, #12
+     7b2:	6b63      	ldr	r3, [r4, #52]	; 0x34
+     7b4:	709a      	strb	r2, [r3, #2]
+            scd->_endbyte2[3] = 0x40u;
+     7b6:	2240      	movs	r2, #64	; 0x40
+     7b8:	6b63      	ldr	r3, [r4, #52]	; 0x34
+     7ba:	70da      	strb	r2, [r3, #3]
+        if (scd->byteToSend3 < SCO_ENDBYTE_NUM2)
+     7bc:	f8b4 3056 	ldrh.w	r3, [r4, #86]	; 0x56
+     7c0:	b21b      	sxth	r3, r3
+     7c2:	2b07      	cmp	r3, #7
+     7c4:	dc0a      	bgt.n	7dc <SCO_DUMP+0x78>
+            return scd->_endbyte2[scd->byteToSend3++];
+     7c6:	f8b4 3056 	ldrh.w	r3, [r4, #86]	; 0x56
+     7ca:	6b61      	ldr	r1, [r4, #52]	; 0x34
+     7cc:	b21a      	sxth	r2, r3
+     7ce:	3301      	adds	r3, #1
+     7d0:	b21b      	sxth	r3, r3
+     7d2:	f8a4 3056 	strh.w	r3, [r4, #86]	; 0x56
+     7d6:	5c88      	ldrb	r0, [r1, r2]
+            scd->_endbyte2[4] = checkUint16Sum & 0xffu;
+            scd->_endbyte2[5] = (checkUint16Sum >> 8) & 0xffu;
+            return SCO_DUMP(scd);
+        }
+    }
+}
+     7d8:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+            scd->byteToSend3 = 0;
+     7dc:	2300      	movs	r3, #0
+            scd->dumpPkgCnt = 2;
+     7de:	2202      	movs	r2, #2
+            scd->byteToSend3 = 0;
+     7e0:	f8a4 3056 	strh.w	r3, [r4, #86]	; 0x56
+            scd->structToSend3 = 0;
+     7e4:	f8a4 3058 	strh.w	r3, [r4, #88]	; 0x58
+            scd->dumpPkgCnt = 2;
+     7e8:	f8a4 205e 	strh.w	r2, [r4, #94]	; 0x5e
+            scd->ifContPkg = 0;
+     7ec:	f8a4 3060 	strh.w	r3, [r4, #96]	; 0x60
+            if (scd->sco_protocol_num_next == 3)
+     7f0:	f8b4 2050 	ldrh.w	r2, [r4, #80]	; 0x50
+            checkUint16Sum = 0;
+     7f4:	802b      	strh	r3, [r5, #0]
+            if (scd->sco_protocol_num_next == 3)
+     7f6:	b212      	sxth	r2, r2
+     7f8:	2a03      	cmp	r2, #3
+     7fa:	d101      	bne.n	800 <Stack_Size>
+                scd->sco_protocol_num_next = 0;
+     7fc:	f8a4 3050 	strh.w	r3, [r4, #80]	; 0x50
+            return 0x100u;
+     800:	f44f 7080 	mov.w	r0, #256	; 0x100
+     804:	e7e8      	b.n	7d8 <SCO_DUMP+0x74>
+    else if (scd->dumpPkgCnt > MAX_NUMS_PER_FRAME)
+     806:	f8b4 005e 	ldrh.w	r0, [r4, #94]	; 0x5e
+     80a:	b200      	sxth	r0, r0
+     80c:	4550      	cmp	r0, sl
+        if (scd->byteToSend3 == 0)
+     80e:	f8b4 0056 	ldrh.w	r0, [r4, #86]	; 0x56
+     812:	b200      	sxth	r0, r0
+    else if (scd->dumpPkgCnt > MAX_NUMS_PER_FRAME)
+     814:	dd2f      	ble.n	876 <Stack_Size+0x76>
+        if (scd->byteToSend3 == 0)
+     816:	b990      	cbnz	r0, 83e <Stack_Size+0x3e>
+            if (scd->ifContPkg)
+     818:	f8b4 9060 	ldrh.w	r9, [r4, #96]	; 0x60
+                scd->_endbyte2[0] = 0xcdu;
+     81c:	6b60      	ldr	r0, [r4, #52]	; 0x34
+            if (scd->ifContPkg)
+     81e:	fa0f f989 	sxth.w	r9, r9
+     822:	f1b9 0f00 	cmp.w	r9, #0
+     826:	d013      	beq.n	850 <Stack_Size+0x50>
+                scd->_endbyte2[3] = 0x3fu;
+     828:	f04f 093f 	mov.w	r9, #63	; 0x3f
+                scd->_endbyte2[0] = 0xcdu;
+     82c:	f880 c000 	strb.w	ip, [r0]
+                scd->_endbyte2[1] = 0xccu;
+     830:	6b60      	ldr	r0, [r4, #52]	; 0x34
+     832:	7046      	strb	r6, [r0, #1]
+                scd->_endbyte2[2] = 0x8cu;
+     834:	6b60      	ldr	r0, [r4, #52]	; 0x34
+     836:	7087      	strb	r7, [r0, #2]
+                scd->_endbyte2[3] = 0x3fu;
+     838:	6b60      	ldr	r0, [r4, #52]	; 0x34
+                scd->_endbyte2[3] = 0;
+     83a:	f880 9003 	strb.w	r9, [r0, #3]
+        if (scd->byteToSend3 < SCO_ENDBYTE_NUM2)
+     83e:	f8b4 0056 	ldrh.w	r0, [r4, #86]	; 0x56
+     842:	b200      	sxth	r0, r0
+     844:	2807      	cmp	r0, #7
+     846:	dc0d      	bgt.n	864 <Stack_Size+0x64>
+     848:	2a00      	cmp	r2, #0
+     84a:	d0bc      	beq.n	7c6 <SCO_DUMP+0x62>
+     84c:	802b      	strh	r3, [r5, #0]
+     84e:	e7ba      	b.n	7c6 <SCO_DUMP+0x62>
+                scd->_endbyte2[0] = 0;
+     850:	f880 9000 	strb.w	r9, [r0]
+                scd->_endbyte2[1] = 0;
+     854:	6b60      	ldr	r0, [r4, #52]	; 0x34
+     856:	f880 9001 	strb.w	r9, [r0, #1]
+                scd->_endbyte2[2] = 0;
+     85a:	6b60      	ldr	r0, [r4, #52]	; 0x34
+     85c:	f880 9002 	strb.w	r9, [r0, #2]
+                scd->_endbyte2[3] = 0;
+     860:	6b60      	ldr	r0, [r4, #52]	; 0x34
+     862:	e7ea      	b.n	83a <Stack_Size+0x3a>
+            scd->byteToSend3 = 0;
+     864:	f8a4 1056 	strh.w	r1, [r4, #86]	; 0x56
+            return SCO_DUMP(scd);
+     868:	2201      	movs	r2, #1
+            scd->dumpPkgCnt = 2;
+     86a:	f8a4 805e 	strh.w	r8, [r4, #94]	; 0x5e
+            checkUint16Sum = 0;
+     86e:	2300      	movs	r3, #0
+            scd->ifContPkg = 1;
+     870:	f8a4 e060 	strh.w	lr, [r4, #96]	; 0x60
+            return SCO_DUMP(scd);
+     874:	e787      	b.n	786 <SCO_DUMP+0x22>
+        if (scd->byteToSend3 < (4))
+     876:	2803      	cmp	r0, #3
+     878:	dc57      	bgt.n	92a <Stack_Size+0x12a>
+     87a:	b102      	cbz	r2, 87e <Stack_Size+0x7e>
+     87c:	802b      	strh	r3, [r5, #0]
+            if (scd->byteToSend3 == 0)
+     87e:	f8b4 3056 	ldrh.w	r3, [r4, #86]	; 0x56
+     882:	b21b      	sxth	r3, r3
+     884:	bb83      	cbnz	r3, 8e8 <Stack_Size+0xe8>
+                uint16_t judgeType = (scd->_unit_struct[scd->dumpTarget]._type) & 0xffu;
+     886:	f8b4 305a 	ldrh.w	r3, [r4, #90]	; 0x5a
+     88a:	6be1      	ldr	r1, [r4, #60]	; 0x3c
+     88c:	b21b      	sxth	r3, r3
+     88e:	eb01 03c3 	add.w	r3, r1, r3, lsl #3
+     892:	791b      	ldrb	r3, [r3, #4]
+                void *tempCommonPtr = (void *)scd->_unit_struct[scd->dumpTarget]._addr;
+     894:	f8b4 205a 	ldrh.w	r2, [r4, #90]	; 0x5a
+                if (judgeType == TYJ_uint16_t)
+     898:	2b02      	cmp	r3, #2
+                void *tempCommonPtr = (void *)scd->_unit_struct[scd->dumpTarget]._addr;
+     89a:	b212      	sxth	r2, r2
+     89c:	f851 0032 	ldr.w	r0, [r1, r2, lsl #3]
+                if (judgeType == TYJ_uint16_t)
+     8a0:	d108      	bne.n	8b4 <Stack_Size+0xb4>
+                    scd->tempBuff = tempPtr[scd->structToSend3];
+     8a2:	f8b4 3058 	ldrh.w	r3, [r4, #88]	; 0x58
+     8a6:	b21b      	sxth	r3, r3
+     8a8:	f830 0013 	ldrh.w	r0, [r0, r3, lsl #1]
+                    scd->tempBuff = (uint32_t)tempCommonPtr;
+     8ac:	f000 fd0a 	bl	12c4 <__aeabi_ui2f>
+                    scd->tempBuff = tempPtr[scd->structToSend3];
+     8b0:	6420      	str	r0, [r4, #64]	; 0x40
+     8b2:	e019      	b.n	8e8 <Stack_Size+0xe8>
+                else if (judgeType == TYJ_uint32_t)
+     8b4:	2b04      	cmp	r3, #4
+     8b6:	d105      	bne.n	8c4 <Stack_Size+0xc4>
+                    scd->tempBuff = tempPtr[scd->structToSend3];
+     8b8:	f8b4 3058 	ldrh.w	r3, [r4, #88]	; 0x58
+     8bc:	b21b      	sxth	r3, r3
+     8be:	f850 0023 	ldr.w	r0, [r0, r3, lsl #2]
+     8c2:	e7f3      	b.n	8ac <Stack_Size+0xac>
+                else if (judgeType == TYJ_int32_t)
+     8c4:	2b14      	cmp	r3, #20
+     8c6:	d107      	bne.n	8d8 <Stack_Size+0xd8>
+                    scd->tempBuff = tempPtr[scd->structToSend3];
+     8c8:	f8b4 3058 	ldrh.w	r3, [r4, #88]	; 0x58
+     8cc:	b21b      	sxth	r3, r3
+     8ce:	f850 0023 	ldr.w	r0, [r0, r3, lsl #2]
+                    scd->tempBuff = tempPtr[scd->structToSend3];
+     8d2:	f000 fcfb 	bl	12cc <__aeabi_i2f>
+     8d6:	e7eb      	b.n	8b0 <Stack_Size+0xb0>
+                else if (judgeType == TYJ_float)
+     8d8:	2b24      	cmp	r3, #36	; 0x24
+     8da:	d11e      	bne.n	91a <Stack_Size+0x11a>
+                    scd->tempBuff = tempPtr[scd->structToSend3];
+     8dc:	f8b4 3058 	ldrh.w	r3, [r4, #88]	; 0x58
+     8e0:	b21b      	sxth	r3, r3
+     8e2:	f850 3023 	ldr.w	r3, [r0, r3, lsl #2]
+     8e6:	6423      	str	r3, [r4, #64]	; 0x40
+            tempPtr = &tempPtr[scd->byteToSend3 >> 1];
+     8e8:	f8b4 2056 	ldrh.w	r2, [r4, #86]	; 0x56
+            if (scd->byteToSend3++ & 0x1)
+     8ec:	f8b4 3056 	ldrh.w	r3, [r4, #86]	; 0x56
+            uint16_t *tempPtr = (uint16_t *)(void *)&(scd->tempBuff);
+     8f0:	f104 0040 	add.w	r0, r4, #64	; 0x40
+            if (scd->byteToSend3++ & 0x1)
+     8f4:	b29b      	uxth	r3, r3
+     8f6:	1c59      	adds	r1, r3, #1
+     8f8:	b209      	sxth	r1, r1
+     8fa:	f013 0f01 	tst.w	r3, #1
+            tempPtr = &tempPtr[scd->byteToSend3 >> 1];
+     8fe:	f342 024e 	sbfx	r2, r2, #1, #15
+            if (scd->byteToSend3++ & 0x1)
+     902:	f8a4 1056 	strh.w	r1, [r4, #86]	; 0x56
+     906:	f830 0012 	ldrh.w	r0, [r0, r2, lsl #1]
+                checkUint16Sum += *tempPtr;
+     90a:	bf09      	itett	eq
+     90c:	882b      	ldrheq	r3, [r5, #0]
+                return ((*tempPtr) >> 8) & 0xffu;
+     90e:	0a00      	lsrne	r0, r0, #8
+                checkUint16Sum += *tempPtr;
+     910:	181b      	addeq	r3, r3, r0
+     912:	802b      	strheq	r3, [r5, #0]
+                return (*tempPtr) & 0xffu;
+     914:	bf08      	it	eq
+     916:	b2c0      	uxtbeq	r0, r0
+     918:	e75e      	b.n	7d8 <SCO_DUMP+0x74>
+                else if (judgeType == TYJ_function)
+     91a:	2b32      	cmp	r3, #50	; 0x32
+     91c:	d0c6      	beq.n	8ac <Stack_Size+0xac>
+                    scd->tempBuff = tempPtr[scd->structToSend3];
+     91e:	f8b4 3058 	ldrh.w	r3, [r4, #88]	; 0x58
+     922:	b21b      	sxth	r3, r3
+     924:	f930 0013 	ldrsh.w	r0, [r0, r3, lsl #1]
+     928:	e7d3      	b.n	8d2 <Stack_Size+0xd2>
+            scd->byteToSend3 = 0;
+     92a:	f8a4 1056 	strh.w	r1, [r4, #86]	; 0x56
+            scd->structToSend3++;
+     92e:	f8b4 0058 	ldrh.w	r0, [r4, #88]	; 0x58
+            scd->_endbyte2[4] = checkUint16Sum & 0xffu;
+     932:	fa5f f983 	uxtb.w	r9, r3
+            scd->structToSend3++;
+     936:	3001      	adds	r0, #1
+     938:	b200      	sxth	r0, r0
+     93a:	f8a4 0058 	strh.w	r0, [r4, #88]	; 0x58
+            scd->dumpPkgCnt++;
+     93e:	f8b4 005e 	ldrh.w	r0, [r4, #94]	; 0x5e
+     942:	3001      	adds	r0, #1
+     944:	b200      	sxth	r0, r0
+     946:	f8a4 005e 	strh.w	r0, [r4, #94]	; 0x5e
+            scd->_endbyte2[4] = checkUint16Sum & 0xffu;
+     94a:	6b60      	ldr	r0, [r4, #52]	; 0x34
+     94c:	f880 9004 	strb.w	r9, [r0, #4]
+            scd->_endbyte2[5] = (checkUint16Sum >> 8) & 0xffu;
+     950:	6b60      	ldr	r0, [r4, #52]	; 0x34
+     952:	ea4f 2913 	mov.w	r9, r3, lsr #8
+     956:	f880 9005 	strb.w	r9, [r0, #5]
+            return SCO_DUMP(scd);
+     95a:	e714      	b.n	786 <SCO_DUMP+0x22>
+     95c:	2000002e 	.word	0x2000002e
+
+00000960 <SCO_PRINT>:
+static uint16_t SCO_PRINT(struct SCD_CTRL_STRUCT *scd)
+{
+#define SCO_ENDBYTE_NUM3 2
+
+    // 用判断代替求余
+    if (scd->byteToSend4 == 4)
+     960:	f8b0 3066 	ldrh.w	r3, [r0, #102]	; 0x66
+{
+     964:	b530      	push	{r4, r5, lr}
+    if (scd->byteToSend4 == 4)
+     966:	b21b      	sxth	r3, r3
+     968:	2b04      	cmp	r3, #4
+    {
+        scd->byteToSend4 = 0;
+     96a:	bf04      	itt	eq
+     96c:	2300      	moveq	r3, #0
+     96e:	f8a0 3066 	strheq.w	r3, [r0, #102]	; 0x66
+    }
+    if (scd->byteToSend4 == 0)
+     972:	f8b0 3066 	ldrh.w	r3, [r0, #102]	; 0x66
+     976:	b219      	sxth	r1, r3
+     978:	bb39      	cbnz	r1, 9ca <SCO_PRINT+0x6a>
+    {
+        // 规划帧
+        if (scd->byteToPrint < scd->isPrintBusyFlg)
+     97a:	f8b0 4064 	ldrh.w	r4, [r0, #100]	; 0x64
+     97e:	f8b0 2062 	ldrh.w	r2, [r0, #98]	; 0x62
+     982:	b224      	sxth	r4, r4
+     984:	b212      	sxth	r2, r2
+     986:	4294      	cmp	r4, r2
+     988:	da2b      	bge.n	9e2 <SCO_PRINT+0x82>
+        {
+            scd->_endbyte3[0] = scd->_printBuff[scd->byteToPrint++];
+     98a:	f8b0 3064 	ldrh.w	r3, [r0, #100]	; 0x64
+     98e:	6ac5      	ldr	r5, [r0, #44]	; 0x2c
+     990:	b21c      	sxth	r4, r3
+     992:	3301      	adds	r3, #1
+     994:	b21b      	sxth	r3, r3
+     996:	f8a0 3064 	strh.w	r3, [r0, #100]	; 0x64
+     99a:	5d2b      	ldrb	r3, [r5, r4]
+     99c:	6b82      	ldr	r2, [r0, #56]	; 0x38
+     99e:	b2db      	uxtb	r3, r3
+     9a0:	7013      	strb	r3, [r2, #0]
+            // 发完了
+            scd->byteToPrint = 0;
+            scd->isPrintBusyFlg = 0;
+            return 0x100u;
+        }
+        if (scd->byteToPrint < scd->isPrintBusyFlg)
+     9a2:	f8b0 2064 	ldrh.w	r2, [r0, #100]	; 0x64
+     9a6:	f8b0 3062 	ldrh.w	r3, [r0, #98]	; 0x62
+     9aa:	b212      	sxth	r2, r2
+     9ac:	b21b      	sxth	r3, r3
+     9ae:	429a      	cmp	r2, r3
+     9b0:	6b82      	ldr	r2, [r0, #56]	; 0x38
+     9b2:	da14      	bge.n	9de <SCO_PRINT+0x7e>
+        {
+            scd->_endbyte3[1] = scd->_printBuff[scd->byteToPrint++];
+     9b4:	f8b0 3064 	ldrh.w	r3, [r0, #100]	; 0x64
+     9b8:	6ac4      	ldr	r4, [r0, #44]	; 0x2c
+     9ba:	b219      	sxth	r1, r3
+     9bc:	3301      	adds	r3, #1
+     9be:	b21b      	sxth	r3, r3
+     9c0:	f8a0 3064 	strh.w	r3, [r0, #100]	; 0x64
+     9c4:	5c63      	ldrb	r3, [r4, r1]
+     9c6:	b2db      	uxtb	r3, r3
+     9c8:	7053      	strb	r3, [r2, #1]
+            // 第二字节，没东西但还是要发一帧
+            scd->_endbyte3[1] = 0;
+        }
+        return scd->_endbyte3[scd->byteToSend4++];
+    }
+    return scd->_endbyte3[scd->byteToSend4++];
+     9ca:	f8b0 3066 	ldrh.w	r3, [r0, #102]	; 0x66
+     9ce:	6b81      	ldr	r1, [r0, #56]	; 0x38
+     9d0:	b21a      	sxth	r2, r3
+     9d2:	3301      	adds	r3, #1
+     9d4:	b21b      	sxth	r3, r3
+     9d6:	f8a0 3066 	strh.w	r3, [r0, #102]	; 0x66
+     9da:	5c88      	ldrb	r0, [r1, r2]
+     9dc:	e007      	b.n	9ee <SCO_PRINT+0x8e>
+            scd->_endbyte3[1] = 0;
+     9de:	7051      	strb	r1, [r2, #1]
+        return scd->_endbyte3[scd->byteToSend4++];
+     9e0:	e7f3      	b.n	9ca <SCO_PRINT+0x6a>
+            scd->byteToPrint = 0;
+     9e2:	f8a0 3064 	strh.w	r3, [r0, #100]	; 0x64
+            scd->isPrintBusyFlg = 0;
+     9e6:	f8a0 3062 	strh.w	r3, [r0, #98]	; 0x62
+            return 0x100u;
+     9ea:	f44f 7080 	mov.w	r0, #256	; 0x100
+}
+     9ee:	bd30      	pop	{r4, r5, pc}
+
+000009f0 <_cz_strtoxl.constprop.0>:
+static uint32_t _cz_strtoxl(const char *nptr, const char **endptr, int ibase, int flags)
+     9f0:	4603      	mov	r3, r0
+     9f2:	b5f0      	push	{r4, r5, r6, r7, lr}
+    if (endptr != NULL)
+     9f4:	b101      	cbz	r1, 9f8 <_cz_strtoxl.constprop.0+0x8>
+        *endptr = nptr;
+     9f6:	6008      	str	r0, [r1, #0]
+    c = *p++;
+     9f8:	f813 4b01 	ldrb.w	r4, [r3], #1
+    while (cz_isspace((int)(unsigned char)c))
+     9fc:	4e2c      	ldr	r6, [pc, #176]	; (ab0 <_cz_strtoxl.constprop.0+0xc0>)
+     9fe:	f856 2024 	ldr.w	r2, [r6, r4, lsl #2]
+     a02:	f012 0208 	ands.w	r2, r2, #8
+     a06:	d121      	bne.n	a4c <_cz_strtoxl.constprop.0+0x5c>
+    if (c == '+')
+     a08:	2c2b      	cmp	r4, #43	; 0x2b
+     a0a:	d14a      	bne.n	aa2 <_cz_strtoxl.constprop.0+0xb2>
+        c = *p++;
+     a0c:	f813 4b01 	ldrb.w	r4, [r3], #1
+    if (c == '-')
+     a10:	2c2d      	cmp	r4, #45	; 0x2d
+     a12:	d102      	bne.n	a1a <_cz_strtoxl.constprop.0+0x2a>
+        flags |= IFL_NEG;
+     a14:	2201      	movs	r2, #1
+        c = *p++;
+     a16:	f813 4b01 	ldrb.w	r4, [r3], #1
+    if (c == '+')
+     a1a:	2c2b      	cmp	r4, #43	; 0x2b
+        c = *p++;
+     a1c:	bf08      	it	eq
+     a1e:	f813 4b01 	ldrbeq.w	r4, [r3], #1
+    if (c == '-')
+     a22:	2000      	movs	r0, #0
+            number = number * ((uint32_t)ibase) + digval;
+     a24:	f04f 0c0a 	mov.w	ip, #10
+        if (number < maxval || (number == maxval &&
+     a28:	4f22      	ldr	r7, [pc, #136]	; (ab4 <_cz_strtoxl.constprop.0+0xc4>)
+        if (cz_isdigit((int)(unsigned char)c))
+     a2a:	f856 5024 	ldr.w	r5, [r6, r4, lsl #2]
+     a2e:	f015 0f04 	tst.w	r5, #4
+     a32:	d00e      	beq.n	a52 <_cz_strtoxl.constprop.0+0x62>
+            digval = c - '0';
+     a34:	3c30      	subs	r4, #48	; 0x30
+        if (digval >= (uint32_t)ibase)
+     a36:	2c09      	cmp	r4, #9
+     a38:	d815      	bhi.n	a66 <_cz_strtoxl.constprop.0+0x76>
+        if (number < maxval || (number == maxval &&
+     a3a:	42b8      	cmp	r0, r7
+     a3c:	d80f      	bhi.n	a5e <_cz_strtoxl.constprop.0+0x6e>
+            number = number * ((uint32_t)ibase) + digval;
+     a3e:	fb0c 4000 	mla	r0, ip, r0, r4
+        flags |= IFL_READDIGIT;
+     a42:	f042 0202 	orr.w	r2, r2, #2
+        c = *p++;
+     a46:	f813 4b01 	ldrb.w	r4, [r3], #1
+        if (cz_isdigit((int)(unsigned char)c))
+     a4a:	e7ee      	b.n	a2a <_cz_strtoxl.constprop.0+0x3a>
+        c = *p++;
+     a4c:	f813 4b01 	ldrb.w	r4, [r3], #1
+     a50:	e7d5      	b.n	9fe <_cz_strtoxl.constprop.0+0xe>
+        else if (cz_isalpha((int)(unsigned char)c))
+     a52:	07ac      	lsls	r4, r5, #30
+     a54:	d007      	beq.n	a66 <_cz_strtoxl.constprop.0+0x76>
+            digval = (char)cz_toupper((unsigned char)c) - 'A' + 10;
+     a56:	f3c5 2407 	ubfx	r4, r5, #8, #8
+     a5a:	3c37      	subs	r4, #55	; 0x37
+     a5c:	e7eb      	b.n	a36 <_cz_strtoxl.constprop.0+0x46>
+            flags |= IFL_OVERFLOW;
+     a5e:	f042 0206 	orr.w	r2, r2, #6
+            if (endptr == NULL)
+     a62:	2900      	cmp	r1, #0
+     a64:	d1ef      	bne.n	a46 <_cz_strtoxl.constprop.0+0x56>
+    if (!(flags & IFL_READDIGIT))
+     a66:	f012 0502 	ands.w	r5, r2, #2
+              (((flags & IFL_NEG) && (number > limit)) ||
+     a6a:	f002 0401 	and.w	r4, r2, #1
+    if (!(flags & IFL_READDIGIT))
+     a6e:	d104      	bne.n	a7a <_cz_strtoxl.constprop.0+0x8a>
+        if (endptr)
+     a70:	b9a9      	cbnz	r1, a9e <_cz_strtoxl.constprop.0+0xae>
+        number = 0;
+     a72:	4608      	mov	r0, r1
+    if (flags & IFL_NEG)
+     a74:	b104      	cbz	r4, a78 <_cz_strtoxl.constprop.0+0x88>
+        number = (uint32_t)(-(int32_t)number);
+     a76:	4240      	negs	r0, r0
+}
+     a78:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    else if ((flags & IFL_OVERFLOW) ||
+     a7a:	0752      	lsls	r2, r2, #29
+     a7c:	d407      	bmi.n	a8e <_cz_strtoxl.constprop.0+0x9e>
+             (!(flags & IFL_UNSIGNED) &&
+     a7e:	b124      	cbz	r4, a8a <_cz_strtoxl.constprop.0+0x9a>
+              (((flags & IFL_NEG) && (number > limit)) ||
+     a80:	f1b0 4f00 	cmp.w	r0, #2147483648	; 0x80000000
+     a84:	d803      	bhi.n	a8e <_cz_strtoxl.constprop.0+0x9e>
+    if (endptr)
+     a86:	b939      	cbnz	r1, a98 <_cz_strtoxl.constprop.0+0xa8>
+     a88:	e7f5      	b.n	a76 <_cz_strtoxl.constprop.0+0x86>
+               (!(flags & IFL_NEG) && (number > limit - 1)))))
+     a8a:	2800      	cmp	r0, #0
+     a8c:	da0c      	bge.n	aa8 <_cz_strtoxl.constprop.0+0xb8>
+        else if (flags & IFL_NEG)
+     a8e:	f104 4000 	add.w	r0, r4, #2147483648	; 0x80000000
+     a92:	3801      	subs	r0, #1
+    if (endptr)
+     a94:	2900      	cmp	r1, #0
+     a96:	d0ed      	beq.n	a74 <_cz_strtoxl.constprop.0+0x84>
+    --p;
+     a98:	3b01      	subs	r3, #1
+        *endptr = p;
+     a9a:	600b      	str	r3, [r1, #0]
+     a9c:	e7ea      	b.n	a74 <_cz_strtoxl.constprop.0+0x84>
+        number = 0;
+     a9e:	4628      	mov	r0, r5
+     aa0:	e7fa      	b.n	a98 <_cz_strtoxl.constprop.0+0xa8>
+    if (c == '-')
+     aa2:	2c2d      	cmp	r4, #45	; 0x2d
+     aa4:	d1bd      	bne.n	a22 <_cz_strtoxl.constprop.0+0x32>
+     aa6:	e7b5      	b.n	a14 <_cz_strtoxl.constprop.0+0x24>
+    if (endptr)
+     aa8:	2900      	cmp	r1, #0
+     aaa:	d1f5      	bne.n	a98 <_cz_strtoxl.constprop.0+0xa8>
+     aac:	e7e4      	b.n	a78 <_cz_strtoxl.constprop.0+0x88>
+     aae:	bf00      	nop
+     ab0:	000013d8 	.word	0x000013d8
+     ab4:	19999999 	.word	0x19999999
+
+00000ab8 <cz_atol>:
+    return (int32_t)_cz_strtoxl(nptr, 0, 10, 0);
+     ab8:	2100      	movs	r1, #0
+     aba:	f7ff bf99 	b.w	9f0 <_cz_strtoxl.constprop.0>
+
+00000abe <SCD_CMD_CONF>:
+{
+     abe:	b538      	push	{r3, r4, r5, lr}
+    if (targetNum >= 0 && targetNum < SCD_SEND_TAB_SIZE)
+     ac0:	b293      	uxth	r3, r2
+     ac2:	2b13      	cmp	r3, #19
+{
+     ac4:	4605      	mov	r5, r0
+     ac6:	4614      	mov	r4, r2
+     ac8:	4608      	mov	r0, r1
+    if (targetNum >= 0 && targetNum < SCD_SEND_TAB_SIZE)
+     aca:	d804      	bhi.n	ad6 <SCD_CMD_CONF+0x18>
+        int varNum = cz_atol((const char *)paraPtr);
+     acc:	f7ff fff4 	bl	ab8 <cz_atol>
+            scd->structToSendTab[targetNum] = varNum;
+     ad0:	b200      	sxth	r0, r0
+     ad2:	f825 0014 	strh.w	r0, [r5, r4, lsl #1]
+}
+     ad6:	bd38      	pop	{r3, r4, r5, pc}
+
+00000ad8 <SCD_CMD_CHG>:
+{
+     ad8:	b510      	push	{r4, lr}
+     ada:	4604      	mov	r4, r0
+    int p_num = cz_atol((const char *)paraPtr);
+     adc:	4608      	mov	r0, r1
+     ade:	f7ff ffeb 	bl	ab8 <cz_atol>
+    if (p_num >= 0 && p_num < SCD_PROTOCOL_NUM)
+     ae2:	2804      	cmp	r0, #4
+        scd->sco_protocol_num_next = p_num;
+     ae4:	bf9c      	itt	ls
+     ae6:	b203      	sxthls	r3, r0
+     ae8:	f8a4 3050 	strhls.w	r3, [r4, #80]	; 0x50
+}
+     aec:	bd10      	pop	{r4, pc}
+
+00000aee <SCD_CMD_DUMP>:
+{
+     aee:	b510      	push	{r4, lr}
+     af0:	4604      	mov	r4, r0
+    scd->dumpTarget = targetNum;
+     af2:	f8a0 205a 	strh.w	r2, [r0, #90]	; 0x5a
+    int p_num = cz_atol((const char *)paraPtr);
+     af6:	4608      	mov	r0, r1
+     af8:	f7ff ffde 	bl	ab8 <cz_atol>
+    scd->dumpNumCnt = p_num;
+     afc:	f5b0 4ffa 	cmp.w	r0, #32000	; 0x7d00
+     b00:	bfa8      	it	ge
+     b02:	f44f 40fa 	movge.w	r0, #32000	; 0x7d00
+     b06:	2801      	cmp	r0, #1
+     b08:	bfb8      	it	lt
+     b0a:	2001      	movlt	r0, #1
+     b0c:	b203      	sxth	r3, r0
+     b0e:	f8a4 305c 	strh.w	r3, [r4, #92]	; 0x5c
+}
+     b12:	bd10      	pop	{r4, pc}
+
+00000b14 <SCD_CMD_CALL>:
+{
+     b14:	b570      	push	{r4, r5, r6, lr}
+    uint16_t judgeType = (scd->_unit_struct[targetNum]._type) & 0xffu;
+     b16:	6bc5      	ldr	r5, [r0, #60]	; 0x3c
+{
+     b18:	4614      	mov	r4, r2
+    uint16_t judgeType = (scd->_unit_struct[targetNum]._type) & 0xffu;
+     b1a:	eb05 03c2 	add.w	r3, r5, r2, lsl #3
+    if (judgeType == TYJ_function)
+     b1e:	791b      	ldrb	r3, [r3, #4]
+     b20:	2b32      	cmp	r3, #50	; 0x32
+     b22:	d107      	bne.n	b34 <SCD_CMD_CALL+0x20>
+        int para = cz_atol((const char *)paraPtr);
+     b24:	4608      	mov	r0, r1
+     b26:	f7ff ffc7 	bl	ab8 <cz_atol>
+        (*funcPtr)(para);
+     b2a:	f855 3034 	ldr.w	r3, [r5, r4, lsl #3]
+}
+     b2e:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+        (*funcPtr)(para);
+     b32:	4718      	bx	r3
+}
+     b34:	bd70      	pop	{r4, r5, r6, pc}
+	...
+
+00000b38 <SCD_CMD_SET>:
+{
+     b38:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    if (SCD_DATA_STRUCT_tab[targetNum]._type == TYJ_float)
+     b3c:	6bc6      	ldr	r6, [r0, #60]	; 0x3c
+{
+     b3e:	460d      	mov	r5, r1
+    if (SCD_DATA_STRUCT_tab[targetNum]._type == TYJ_float)
+     b40:	eb06 07c2 	add.w	r7, r6, r2, lsl #3
+     b44:	f9b7 3004 	ldrsh.w	r3, [r7, #4]
+{
+     b48:	4614      	mov	r4, r2
+    if (SCD_DATA_STRUCT_tab[targetNum]._type == TYJ_float)
+     b4a:	2b24      	cmp	r3, #36	; 0x24
+{
+     b4c:	b087      	sub	sp, #28
+    if (SCD_DATA_STRUCT_tab[targetNum]._type == TYJ_float)
+     b4e:	f040 8099 	bne.w	c84 <SCD_CMD_SET+0x14c>
+        volatile float *xtemp = (float *)(void *)SCD_DATA_STRUCT_tab[targetNum]._addr;
+     b52:	f856 3032 	ldr.w	r3, [r6, r2, lsl #3]
+    int sign = 1;
+     b56:	f04f 0a01 	mov.w	sl, #1
+        volatile float *xtemp = (float *)(void *)SCD_DATA_STRUCT_tab[targetNum]._addr;
+     b5a:	9301      	str	r3, [sp, #4]
+    const char *nextCharPtr = NULL;
+     b5c:	2300      	movs	r3, #0
+     b5e:	460a      	mov	r2, r1
+    while (!cz_isalnum((int)(unsigned char)(*chrIn)))
+     b60:	f8df c158 	ldr.w	ip, [pc, #344]	; cbc <SCD_CMD_SET+0x184>
+    const char *nextCharPtr = NULL;
+     b64:	9305      	str	r3, [sp, #20]
+    while (!cz_isalnum((int)(unsigned char)(*chrIn)))
+     b66:	4610      	mov	r0, r2
+     b68:	f812 3b01 	ldrb.w	r3, [r2], #1
+     b6c:	f85c 1023 	ldr.w	r1, [ip, r3, lsl #2]
+     b70:	f011 0f07 	tst.w	r1, #7
+     b74:	d051      	beq.n	c1a <SCD_CMD_SET+0xe2>
+    int32_t intPart = _cz_strtoxl(chrIn, &nextCharPtr, 10, 0);
+     b76:	a905      	add	r1, sp, #20
+     b78:	f7ff ff3a 	bl	9f0 <_cz_strtoxl.constprop.0>
+    if (*nextCharPtr == '.')
+     b7c:	9b05      	ldr	r3, [sp, #20]
+    int32_t intPart = _cz_strtoxl(chrIn, &nextCharPtr, 10, 0);
+     b7e:	4683      	mov	fp, r0
+    if (*nextCharPtr == '.')
+     b80:	781a      	ldrb	r2, [r3, #0]
+     b82:	2a2e      	cmp	r2, #46	; 0x2e
+     b84:	d167      	bne.n	c56 <SCD_CMD_SET+0x11e>
+        chrIn = nextCharPtr + 1;
+     b86:	f103 0901 	add.w	r9, r3, #1
+        int32_t decInt = _cz_strtoxl(chrIn, &nextCharPtr, 10, 0);
+     b8a:	4648      	mov	r0, r9
+     b8c:	f7ff ff30 	bl	9f0 <_cz_strtoxl.constprop.0>
+        decPart = _atof_pow10((float)decInt, -lenth);
+     b90:	f000 fb9c 	bl	12cc <__aeabi_i2f>
+     b94:	9a05      	ldr	r2, [sp, #20]
+     b96:	4680      	mov	r8, r0
+     b98:	eba9 0902 	sub.w	r9, r9, r2
+    while (exp > 0)
+     b9c:	464a      	mov	r2, r9
+        data *= 10.0f;
+     b9e:	4948      	ldr	r1, [pc, #288]	; (cc0 <SCD_CMD_SET+0x188>)
+    while (exp > 0)
+     ba0:	2a00      	cmp	r2, #0
+     ba2:	dc45      	bgt.n	c30 <SCD_CMD_SET+0xf8>
+     ba4:	f1b9 0f00 	cmp.w	r9, #0
+        data *= 0.1f;
+     ba8:	4946      	ldr	r1, [pc, #280]	; (cc4 <SCD_CMD_SET+0x18c>)
+     baa:	bfa8      	it	ge
+     bac:	eba9 0909 	subge.w	r9, r9, r9
+    while (exp < 0)
+     bb0:	f1b9 0f00 	cmp.w	r9, #0
+     bb4:	d146      	bne.n	c44 <SCD_CMD_SET+0x10c>
+    if (*nextCharPtr == 'e' || *nextCharPtr == 'E')
+     bb6:	9805      	ldr	r0, [sp, #20]
+     bb8:	7802      	ldrb	r2, [r0, #0]
+     bba:	f002 02df 	and.w	r2, r2, #223	; 0xdf
+     bbe:	2a45      	cmp	r2, #69	; 0x45
+     bc0:	d14c      	bne.n	c5c <SCD_CMD_SET+0x124>
+        ePart = _cz_strtoxl(chrIn, &nextCharPtr, 10, 0);
+     bc2:	a905      	add	r1, sp, #20
+     bc4:	3001      	adds	r0, #1
+     bc6:	f7ff ff13 	bl	9f0 <_cz_strtoxl.constprop.0>
+     bca:	4681      	mov	r9, r0
+        ret = intPart + decPart;
+     bcc:	4658      	mov	r0, fp
+     bce:	f000 fb7d 	bl	12cc <__aeabi_i2f>
+    if (sign == 1)
+     bd2:	f1ba 0f01 	cmp.w	sl, #1
+        ret = intPart + decPart;
+     bd6:	4601      	mov	r1, r0
+    if (sign == 1)
+     bd8:	d143      	bne.n	c62 <SCD_CMD_SET+0x12a>
+        ret = intPart + decPart;
+     bda:	4640      	mov	r0, r8
+     bdc:	f000 fac2 	bl	1164 <__addsf3>
+    int ePart = 0;
+     be0:	46ca      	mov	sl, r9
+        data *= 10.0f;
+     be2:	f8df b0dc 	ldr.w	fp, [pc, #220]	; cc0 <SCD_CMD_SET+0x188>
+    while (exp > 0)
+     be6:	f1ba 0f00 	cmp.w	sl, #0
+     bea:	dc3f      	bgt.n	c6c <SCD_CMD_SET+0x134>
+     bec:	f1b9 0f00 	cmp.w	r9, #0
+        data *= 0.1f;
+     bf0:	f8df a0d0 	ldr.w	sl, [pc, #208]	; cc4 <SCD_CMD_SET+0x18c>
+     bf4:	bfa8      	it	ge
+     bf6:	eba9 0909 	subge.w	r9, r9, r9
+    while (exp < 0)
+     bfa:	f1b9 0f00 	cmp.w	r9, #0
+     bfe:	d13b      	bne.n	c78 <SCD_CMD_SET+0x140>
+        *xtemp = atof_tyj((const char *)paraPtr);
+     c00:	9b01      	ldr	r3, [sp, #4]
+     c02:	6018      	str	r0, [r3, #0]
+    if (SCD_DATA_STRUCT_tab[targetNum]._type == TYJ_uint32_t)
+     c04:	f9b7 3004 	ldrsh.w	r3, [r7, #4]
+     c08:	2b04      	cmp	r3, #4
+     c0a:	d152      	bne.n	cb2 <SCD_CMD_SET+0x17a>
+        *xtemp = cz_atol((const char *)paraPtr);
+     c0c:	4628      	mov	r0, r5
+        volatile int32_t *xtemp = (int32_t *)(void *)SCD_DATA_STRUCT_tab[targetNum]._addr;
+     c0e:	f856 4034 	ldr.w	r4, [r6, r4, lsl #3]
+        *xtemp = cz_atol((const char *)paraPtr);
+     c12:	f7ff ff51 	bl	ab8 <cz_atol>
+     c16:	6020      	str	r0, [r4, #0]
+}
+     c18:	e04d      	b.n	cb6 <SCD_CMD_SET+0x17e>
+        if (cz_ispunct((int)(unsigned char)(*chrIn)))
+     c1a:	06c9      	lsls	r1, r1, #27
+     c1c:	d5a3      	bpl.n	b66 <SCD_CMD_SET+0x2e>
+            if (*chrIn == '-')
+     c1e:	2b2d      	cmp	r3, #45	; 0x2d
+     c20:	d102      	bne.n	c28 <SCD_CMD_SET+0xf0>
+                sign = -sign;
+     c22:	f1ca 0a00 	rsb	sl, sl, #0
+     c26:	e79e      	b.n	b66 <SCD_CMD_SET+0x2e>
+            else if (*chrIn == '+')
+     c28:	2b2b      	cmp	r3, #43	; 0x2b
+     c2a:	d09c      	beq.n	b66 <SCD_CMD_SET+0x2e>
+                return 0;
+     c2c:	2000      	movs	r0, #0
+     c2e:	e7e7      	b.n	c00 <SCD_CMD_SET+0xc8>
+        data *= 10.0f;
+     c30:	4640      	mov	r0, r8
+     c32:	e9cd 1202 	strd	r1, r2, [sp, #8]
+     c36:	f000 f9db 	bl	ff0 <__aeabi_fmul>
+        --exp;
+     c3a:	9a03      	ldr	r2, [sp, #12]
+        data *= 10.0f;
+     c3c:	4680      	mov	r8, r0
+        --exp;
+     c3e:	9902      	ldr	r1, [sp, #8]
+     c40:	3a01      	subs	r2, #1
+     c42:	e7ad      	b.n	ba0 <SCD_CMD_SET+0x68>
+        data *= 0.1f;
+     c44:	4640      	mov	r0, r8
+     c46:	9102      	str	r1, [sp, #8]
+     c48:	f000 f9d2 	bl	ff0 <__aeabi_fmul>
+        ++exp;
+     c4c:	f109 0901 	add.w	r9, r9, #1
+        data *= 0.1f;
+     c50:	4680      	mov	r8, r0
+        ++exp;
+     c52:	9902      	ldr	r1, [sp, #8]
+     c54:	e7ac      	b.n	bb0 <SCD_CMD_SET+0x78>
+    float decPart = 0;
+     c56:	f04f 0800 	mov.w	r8, #0
+     c5a:	e7ac      	b.n	bb6 <SCD_CMD_SET+0x7e>
+    int ePart = 0;
+     c5c:	f04f 0900 	mov.w	r9, #0
+     c60:	e7b4      	b.n	bcc <SCD_CMD_SET+0x94>
+        ret = -decPart - intPart;
+     c62:	f108 4000 	add.w	r0, r8, #2147483648	; 0x80000000
+     c66:	f000 fa7b 	bl	1160 <__aeabi_fsub>
+     c6a:	e7b9      	b.n	be0 <SCD_CMD_SET+0xa8>
+        data *= 10.0f;
+     c6c:	4659      	mov	r1, fp
+     c6e:	f000 f9bf 	bl	ff0 <__aeabi_fmul>
+        --exp;
+     c72:	f10a 3aff 	add.w	sl, sl, #4294967295
+     c76:	e7b6      	b.n	be6 <SCD_CMD_SET+0xae>
+        data *= 0.1f;
+     c78:	4651      	mov	r1, sl
+     c7a:	f000 f9b9 	bl	ff0 <__aeabi_fmul>
+        ++exp;
+     c7e:	f109 0901 	add.w	r9, r9, #1
+     c82:	e7ba      	b.n	bfa <SCD_CMD_SET+0xc2>
+    if (SCD_DATA_STRUCT_tab[targetNum]._type == TYJ_uint16_t)
+     c84:	2b02      	cmp	r3, #2
+     c86:	d107      	bne.n	c98 <SCD_CMD_SET+0x160>
+        *xtemp = cz_atol((const char *)paraPtr);
+     c88:	4608      	mov	r0, r1
+        volatile uint16_t *xtemp = (uint16_t *)(void *)SCD_DATA_STRUCT_tab[targetNum]._addr;
+     c8a:	f856 8032 	ldr.w	r8, [r6, r2, lsl #3]
+        *xtemp = cz_atol((const char *)paraPtr);
+     c8e:	f7ff ff13 	bl	ab8 <cz_atol>
+     c92:	b280      	uxth	r0, r0
+     c94:	f8a8 0000 	strh.w	r0, [r8]
+    if (SCD_DATA_STRUCT_tab[targetNum]._type == TYJ_int16_t)
+     c98:	f9b7 3004 	ldrsh.w	r3, [r7, #4]
+     c9c:	2b12      	cmp	r3, #18
+     c9e:	d1b1      	bne.n	c04 <SCD_CMD_SET+0xcc>
+        *xtemp = cz_atol((const char *)paraPtr);
+     ca0:	4628      	mov	r0, r5
+        volatile int16_t *xtemp = (int16_t *)(void *)SCD_DATA_STRUCT_tab[targetNum]._addr;
+     ca2:	f856 8034 	ldr.w	r8, [r6, r4, lsl #3]
+        *xtemp = cz_atol((const char *)paraPtr);
+     ca6:	f7ff ff07 	bl	ab8 <cz_atol>
+     caa:	b200      	sxth	r0, r0
+     cac:	f8a8 0000 	strh.w	r0, [r8]
+     cb0:	e7a8      	b.n	c04 <SCD_CMD_SET+0xcc>
+    if (SCD_DATA_STRUCT_tab[targetNum]._type == TYJ_int32_t)
+     cb2:	2b14      	cmp	r3, #20
+     cb4:	d0aa      	beq.n	c0c <SCD_CMD_SET+0xd4>
+}
+     cb6:	b007      	add	sp, #28
+     cb8:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+     cbc:	000013d8 	.word	0x000013d8
+     cc0:	41200000 	.word	0x41200000
+     cc4:	3dcccccd 	.word	0x3dcccccd
+
+00000cc8 <SCD_Rev1Byte>:
+    if (data == '!')
+     cc8:	2921      	cmp	r1, #33	; 0x21
+{
+     cca:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+     cce:	4604      	mov	r4, r0
+    volatile unsigned char(*recBuff)[SCD_REVBUFF_SIZE] = scd->_recBuff;
+     cd0:	6a85      	ldr	r5, [r0, #40]	; 0x28
+    if (data == '!')
+     cd2:	f040 80a6 	bne.w	e22 <SCD_Rev1Byte+0x15a>
+        if (scd->bytesRec > 0)
+     cd6:	f8b0 3048 	ldrh.w	r3, [r0, #72]	; 0x48
+     cda:	b21b      	sxth	r3, r3
+     cdc:	2b00      	cmp	r3, #0
+     cde:	dc3b      	bgt.n	d58 <SCD_Rev1Byte+0x90>
+}
+     ce0:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+                if (recBuff[0][ii] != recBuff[1][ii])
+     ce4:	5ce9      	ldrb	r1, [r5, r3]
+     ce6:	442b      	add	r3, r5
+     ce8:	f893 3028 	ldrb.w	r3, [r3, #40]	; 0x28
+     cec:	3001      	adds	r0, #1
+                    isSame = 0;
+     cee:	4299      	cmp	r1, r3
+     cf0:	bf18      	it	ne
+     cf2:	2200      	movne	r2, #0
+            for (int16_t ii = 0; ii < scd->bytesRec; ii++)
+     cf4:	f8b4 1048 	ldrh.w	r1, [r4, #72]	; 0x48
+     cf8:	b203      	sxth	r3, r0
+     cfa:	b209      	sxth	r1, r1
+     cfc:	4299      	cmp	r1, r3
+     cfe:	dcf1      	bgt.n	ce4 <SCD_Rev1Byte+0x1c>
+            if (isSame)
+     d00:	2a00      	cmp	r2, #0
+     d02:	f000 8083 	beq.w	e0c <SCD_Rev1Byte+0x144>
+                recBuff[0][scd->bytesRec] = 0;
+     d06:	f04f 0c00 	mov.w	ip, #0
+     d0a:	f8b4 3048 	ldrh.w	r3, [r4, #72]	; 0x48
+    while (!cz_isalnum((int)(unsigned char)(recBuff[0][xstart])))
+     d0e:	4e4d      	ldr	r6, [pc, #308]	; (e44 <SCD_Rev1Byte+0x17c>)
+                recBuff[0][scd->bytesRec] = 0;
+     d10:	b21b      	sxth	r3, r3
+     d12:	f805 c003 	strb.w	ip, [r5, r3]
+    volatile unsigned char(*recBuff)[SCD_REVBUFF_SIZE] = scd->_recBuff;
+     d16:	6aa1      	ldr	r1, [r4, #40]	; 0x28
+    while (!cz_isalnum((int)(unsigned char)(recBuff[0][xstart])))
+     d18:	f811 300c 	ldrb.w	r3, [r1, ip]
+     d1c:	f856 3023 	ldr.w	r3, [r6, r3, lsl #2]
+     d20:	075f      	lsls	r7, r3, #29
+     d22:	d01c      	beq.n	d5e <SCD_Rev1Byte+0x96>
+    if (!cz_isalpha((int)(unsigned char)(recBuff[0][xstart])))
+     d24:	f811 300c 	ldrb.w	r3, [r1, ip]
+     d28:	f856 3023 	ldr.w	r3, [r6, r3, lsl #2]
+     d2c:	0798      	lsls	r0, r3, #30
+     d2e:	d01e      	beq.n	d6e <SCD_Rev1Byte+0xa6>
+     d30:	2000      	movs	r0, #0
+     d32:	fa0f fe80 	sxth.w	lr, r0
+    while (cz_isalpha((int)(unsigned char)(recBuff[0][cmdLen + xstart])))
+     d36:	eb0e 020c 	add.w	r2, lr, ip
+     d3a:	5c8a      	ldrb	r2, [r1, r2]
+     d3c:	b283      	uxth	r3, r0
+     d3e:	f856 2022 	ldr.w	r2, [r6, r2, lsl #2]
+     d42:	3001      	adds	r0, #1
+     d44:	f012 0203 	ands.w	r2, r2, #3
+     d48:	d1f3      	bne.n	d32 <SCD_Rev1Byte+0x6a>
+            if (recBuff[0][jj + xstart] != SCD_CMD_TAB[ii][jj])
+     d4a:	f8df 90fc 	ldr.w	r9, [pc, #252]	; e48 <SCD_Rev1Byte+0x180>
+                isSame = 0;
+     d4e:	2000      	movs	r0, #0
+        int16_t isSame = 1;
+     d50:	f04f 0801 	mov.w	r8, #1
+     d54:	b217      	sxth	r7, r2
+     d56:	e020      	b.n	d9a <SCD_Rev1Byte+0xd2>
+     d58:	2000      	movs	r0, #0
+            uint16_t isSame = 1;
+     d5a:	2201      	movs	r2, #1
+     d5c:	e7ca      	b.n	cf4 <SCD_Rev1Byte+0x2c>
+        xstart++;
+     d5e:	f10c 0c01 	add.w	ip, ip, #1
+     d62:	fa0f fc8c 	sxth.w	ip, ip
+        if (recBuff[0][xstart] == 0)
+     d66:	f811 300c 	ldrb.w	r3, [r1, ip]
+     d6a:	2b00      	cmp	r3, #0
+     d6c:	d1d4      	bne.n	d18 <SCD_Rev1Byte+0x50>
+                scd->bufNum = 0;
+     d6e:	2300      	movs	r3, #0
+     d70:	f8a4 3046 	strh.w	r3, [r4, #70]	; 0x46
+                recBuff[1][0] = 0;
+     d74:	f885 3028 	strb.w	r3, [r5, #40]	; 0x28
+            scd->bytesRec = 0;
+     d78:	2300      	movs	r3, #0
+     d7a:	f8a4 3048 	strh.w	r3, [r4, #72]	; 0x48
+     d7e:	e7af      	b.n	ce0 <SCD_Rev1Byte+0x18>
+            if (recBuff[0][jj + xstart] != SCD_CMD_TAB[ii][jj])
+     d80:	f859 b022 	ldr.w	fp, [r9, r2, lsl #2]
+     d84:	eb0c 0a00 	add.w	sl, ip, r0
+     d88:	f81b b000 	ldrb.w	fp, [fp, r0]
+     d8c:	f811 a00a 	ldrb.w	sl, [r1, sl]
+     d90:	3001      	adds	r0, #1
+                isSame = 0;
+     d92:	45d3      	cmp	fp, sl
+     d94:	bf18      	it	ne
+     d96:	f04f 0800 	movne.w	r8, #0
+        for (int16_t jj = 0; jj < cmdLen; jj++)
+     d9a:	fa0f fa80 	sxth.w	sl, r0
+     d9e:	45d6      	cmp	lr, sl
+     da0:	dcee      	bgt.n	d80 <SCD_Rev1Byte+0xb8>
+        if (isSame)
+     da2:	f1b8 0f00 	cmp.w	r8, #0
+     da6:	d104      	bne.n	db2 <SCD_Rev1Byte+0xea>
+    for (int16_t ii = 0; ii < SCD_CMD_NUM; ii++)
+     da8:	3201      	adds	r2, #1
+     daa:	2a05      	cmp	r2, #5
+     dac:	d1cf      	bne.n	d4e <SCD_Rev1Byte+0x86>
+    int16_t cmd2exec = -1;
+     dae:	f04f 37ff 	mov.w	r7, #4294967295
+    int16_t ptr = cmdLen + xstart;
+     db2:	4463      	add	r3, ip
+     db4:	b21b      	sxth	r3, r3
+    if (!cz_isdigit((int)(unsigned char)(recBuff[0][ptr])))
+     db6:	5cca      	ldrb	r2, [r1, r3]
+     db8:	f856 2022 	ldr.w	r2, [r6, r2, lsl #2]
+     dbc:	0752      	lsls	r2, r2, #29
+     dbe:	d5d6      	bpl.n	d6e <SCD_Rev1Byte+0xa6>
+    int16_t targetNum = 0;
+     dc0:	2200      	movs	r2, #0
+    while (cz_isdigit((int)(unsigned char)(recBuff[0][ptr])))
+     dc2:	5cc8      	ldrb	r0, [r1, r3]
+     dc4:	f856 0020 	ldr.w	r0, [r6, r0, lsl #2]
+     dc8:	f010 0f04 	tst.w	r0, #4
+        targetNum = targetNum * 10 + recBuff[0][ptr] - '0';
+     dcc:	5cc8      	ldrb	r0, [r1, r3]
+    while (cz_isdigit((int)(unsigned char)(recBuff[0][ptr])))
+     dce:	d114      	bne.n	dfa <SCD_Rev1Byte+0x132>
+    if (recBuff[0][ptr] != '#')
+     dd0:	2823      	cmp	r0, #35	; 0x23
+     dd2:	d1cc      	bne.n	d6e <SCD_Rev1Byte+0xa6>
+    if (cmd2exec >= 0 && cmd2exec < SCD_CMD_NUM && targetNum < scd->structNum && targetNum >= 0)
+     dd4:	b2b8      	uxth	r0, r7
+     dd6:	2804      	cmp	r0, #4
+     dd8:	d8c9      	bhi.n	d6e <SCD_Rev1Byte+0xa6>
+     dda:	f8b4 0044 	ldrh.w	r0, [r4, #68]	; 0x44
+     dde:	b200      	sxth	r0, r0
+     de0:	4282      	cmp	r2, r0
+     de2:	dac4      	bge.n	d6e <SCD_Rev1Byte+0xa6>
+     de4:	2a00      	cmp	r2, #0
+     de6:	dbc2      	blt.n	d6e <SCD_Rev1Byte+0xa6>
+        (*SCD_CMD_FCNS[cmd2exec])(scd, &recBuff[0][ptr], targetNum);
+     de8:	4818      	ldr	r0, [pc, #96]	; (e4c <SCD_Rev1Byte+0x184>)
+    ptr++;
+     dea:	3301      	adds	r3, #1
+        (*SCD_CMD_FCNS[cmd2exec])(scd, &recBuff[0][ptr], targetNum);
+     dec:	b21b      	sxth	r3, r3
+     dee:	f850 6027 	ldr.w	r6, [r0, r7, lsl #2]
+     df2:	4419      	add	r1, r3
+     df4:	4620      	mov	r0, r4
+     df6:	47b0      	blx	r6
+     df8:	e7b9      	b.n	d6e <SCD_Rev1Byte+0xa6>
+        targetNum = targetNum * 10 + recBuff[0][ptr] - '0';
+     dfa:	eb02 0282 	add.w	r2, r2, r2, lsl #2
+     dfe:	eb00 0042 	add.w	r0, r0, r2, lsl #1
+     e02:	3830      	subs	r0, #48	; 0x30
+     e04:	3301      	adds	r3, #1
+     e06:	b202      	sxth	r2, r0
+        ptr++;
+     e08:	b21b      	sxth	r3, r3
+     e0a:	e7da      	b.n	dc2 <SCD_Rev1Byte+0xfa>
+                if (scd->bufNum)
+     e0c:	f8b4 3046 	ldrh.w	r3, [r4, #70]	; 0x46
+     e10:	b21b      	sxth	r3, r3
+     e12:	b113      	cbz	r3, e1a <SCD_Rev1Byte+0x152>
+                    scd->bufNum = 0;
+     e14:	f8a4 2046 	strh.w	r2, [r4, #70]	; 0x46
+     e18:	e7ae      	b.n	d78 <SCD_Rev1Byte+0xb0>
+                    scd->bufNum = 1;
+     e1a:	2301      	movs	r3, #1
+     e1c:	f8a4 3046 	strh.w	r3, [r4, #70]	; 0x46
+     e20:	e7aa      	b.n	d78 <SCD_Rev1Byte+0xb0>
+        recBuff[scd->bufNum][scd->bytesRec++] = data;
+     e22:	2228      	movs	r2, #40	; 0x28
+     e24:	f8b0 3046 	ldrh.w	r3, [r0, #70]	; 0x46
+     e28:	b2c9      	uxtb	r1, r1
+     e2a:	b21b      	sxth	r3, r3
+     e2c:	fb02 5503 	mla	r5, r2, r3, r5
+     e30:	f8b0 3048 	ldrh.w	r3, [r0, #72]	; 0x48
+     e34:	b21a      	sxth	r2, r3
+     e36:	3301      	adds	r3, #1
+     e38:	b21b      	sxth	r3, r3
+     e3a:	f8a0 3048 	strh.w	r3, [r0, #72]	; 0x48
+     e3e:	54a9      	strb	r1, [r5, r2]
+}
+     e40:	e74e      	b.n	ce0 <SCD_Rev1Byte+0x18>
+     e42:	bf00      	nop
+     e44:	000013d8 	.word	0x000013d8
+     e48:	000013b0 	.word	0x000013b0
+     e4c:	0000139c 	.word	0x0000139c
+
+00000e50 <scd_send1Byte>:
+
+#if SCD_IF_USE_RAM_FUNCS
+#pragma CODE_SECTION(scd_send1Byte, MEM_MACRO);
+#endif
+uint16_t scd_send1Byte(struct SCD_CTRL_STRUCT *scd)
+{
+     e50:	b538      	push	{r3, r4, r5, lr}
+    uint16_t ret;
+    ret = SCD_PROTOCOL_FCNS[scd->sco_protocol_num](scd);
+     e52:	f8b0 304e 	ldrh.w	r3, [r0, #78]	; 0x4e
+     e56:	4d0e      	ldr	r5, [pc, #56]	; (e90 <scd_send1Byte+0x40>)
+     e58:	b21b      	sxth	r3, r3
+     e5a:	f855 3023 	ldr.w	r3, [r5, r3, lsl #2]
+{
+     e5e:	4604      	mov	r4, r0
+    ret = SCD_PROTOCOL_FCNS[scd->sco_protocol_num](scd);
+     e60:	4798      	blx	r3
+    if (ret & (((uint16_t)0xffu) << 8))
+     e62:	f410 4f7f 	tst.w	r0, #65280	; 0xff00
+     e66:	d00d      	beq.n	e84 <scd_send1Byte+0x34>
+    {
+        // 到结尾了,换协议
+        if (scd->isPrintBusyFlg)
+     e68:	f8b4 3062 	ldrh.w	r3, [r4, #98]	; 0x62
+     e6c:	b21b      	sxth	r3, r3
+     e6e:	b15b      	cbz	r3, e88 <scd_send1Byte+0x38>
+        {
+            // 确保print优先级最高，不会被chg命令覆盖
+            scd->sco_protocol_num = 4;
+     e70:	2304      	movs	r3, #4
+        }
+        else
+        {
+            scd->sco_protocol_num = scd->sco_protocol_num_next;
+     e72:	f8a4 304e 	strh.w	r3, [r4, #78]	; 0x4e
+        }
+        ret = SCD_PROTOCOL_FCNS[scd->sco_protocol_num](scd);
+     e76:	f8b4 304e 	ldrh.w	r3, [r4, #78]	; 0x4e
+     e7a:	4620      	mov	r0, r4
+     e7c:	b21b      	sxth	r3, r3
+     e7e:	f855 3023 	ldr.w	r3, [r5, r3, lsl #2]
+     e82:	4798      	blx	r3
+    }
+    return ret & 0xffu;
+}
+     e84:	b2c0      	uxtb	r0, r0
+     e86:	bd38      	pop	{r3, r4, r5, pc}
+            scd->sco_protocol_num = scd->sco_protocol_num_next;
+     e88:	f8b4 3050 	ldrh.w	r3, [r4, #80]	; 0x50
+     e8c:	e7f1      	b.n	e72 <scd_send1Byte+0x22>
+     e8e:	bf00      	nop
+     e90:	000013c4 	.word	0x000013c4
+
+00000e94 <scd_init_1>:
+
+SCD_REG_BEGIN(_1)
+SCD_REG_ADD(ms_cnt, uint32_t)
+SCD_REG_ADD(adcRawData, uint16_t)
+SCD_REG_ADD(voltAns, float)
+SCD_REG_END(_1)
+     e94:	4b1c      	ldr	r3, [pc, #112]	; (f08 <scd_init_1+0x74>)
+     e96:	4a1d      	ldr	r2, [pc, #116]	; (f0c <scd_init_1+0x78>)
+     e98:	f242 710f 	movw	r1, #9999	; 0x270f
+     e9c:	63da      	str	r2, [r3, #60]	; 0x3c
+     e9e:	2200      	movs	r2, #0
+     ea0:	801a      	strh	r2, [r3, #0]
+     ea2:	8059      	strh	r1, [r3, #2]
+     ea4:	491a      	ldr	r1, [pc, #104]	; (f10 <scd_init_1+0x7c>)
+     ea6:	6299      	str	r1, [r3, #40]	; 0x28
+     ea8:	491a      	ldr	r1, [pc, #104]	; (f14 <scd_init_1+0x80>)
+     eaa:	62d9      	str	r1, [r3, #44]	; 0x2c
+     eac:	491a      	ldr	r1, [pc, #104]	; (f18 <scd_init_1+0x84>)
+     eae:	6319      	str	r1, [r3, #48]	; 0x30
+     eb0:	491a      	ldr	r1, [pc, #104]	; (f1c <scd_init_1+0x88>)
+     eb2:	6359      	str	r1, [r3, #52]	; 0x34
+     eb4:	491a      	ldr	r1, [pc, #104]	; (f20 <scd_init_1+0x8c>)
+     eb6:	6399      	str	r1, [r3, #56]	; 0x38
+     eb8:	2103      	movs	r1, #3
+     eba:	f8a3 1044 	strh.w	r1, [r3, #68]	; 0x44
+     ebe:	2100      	movs	r1, #0
+     ec0:	f8a3 2046 	strh.w	r2, [r3, #70]	; 0x46
+     ec4:	f8a3 2048 	strh.w	r2, [r3, #72]	; 0x48
+     ec8:	f8a3 204c 	strh.w	r2, [r3, #76]	; 0x4c
+     ecc:	f8a3 204a 	strh.w	r2, [r3, #74]	; 0x4a
+     ed0:	6419      	str	r1, [r3, #64]	; 0x40
+     ed2:	f8a3 204e 	strh.w	r2, [r3, #78]	; 0x4e
+     ed6:	f8a3 2050 	strh.w	r2, [r3, #80]	; 0x50
+     eda:	f8a3 2054 	strh.w	r2, [r3, #84]	; 0x54
+     ede:	f8a3 2052 	strh.w	r2, [r3, #82]	; 0x52
+     ee2:	f8a3 2056 	strh.w	r2, [r3, #86]	; 0x56
+     ee6:	f8a3 2058 	strh.w	r2, [r3, #88]	; 0x58
+     eea:	f8a3 205a 	strh.w	r2, [r3, #90]	; 0x5a
+     eee:	f8a3 205c 	strh.w	r2, [r3, #92]	; 0x5c
+     ef2:	f8a3 205e 	strh.w	r2, [r3, #94]	; 0x5e
+     ef6:	f8a3 2060 	strh.w	r2, [r3, #96]	; 0x60
+     efa:	f8a3 2062 	strh.w	r2, [r3, #98]	; 0x62
+     efe:	f8a3 2064 	strh.w	r2, [r3, #100]	; 0x64
+     f02:	f8a3 2066 	strh.w	r2, [r3, #102]	; 0x66
+     f06:	4770      	bx	lr
+     f08:	200000a8 	.word	0x200000a8
+     f0c:	000017d8 	.word	0x000017d8
+     f10:	20000058 	.word	0x20000058
+     f14:	20000030 	.word	0x20000030
+     f18:	20000000 	.word	0x20000000
+     f1c:	20000004 	.word	0x20000004
+     f20:	2000000c 	.word	0x2000000c
+
+00000f24 <Reset_Handler>:
+//      linker script.
+//      __etext: End of code section, i.e., begin of data sections to copy from.
+//      __data_start__/__data_end__: RAM address range that data should be
+//      copied to. Both must be aligned to 4 bytes boundary.
+
+    ldr    r1, =__etext
+     f24:	4907      	ldr	r1, [pc, #28]	; (f44 <Reset_Handler+0x20>)
+    ldr    r2, =__data_start__
+     f26:	4a08      	ldr	r2, [pc, #32]	; (f48 <Reset_Handler+0x24>)
+    ldr    r3, =__data_end__
+     f28:	4b08      	ldr	r3, [pc, #32]	; (f4c <Reset_Handler+0x28>)
+
+    subs    r3, r2
+     f2a:	1a9b      	subs	r3, r3, r2
+    ble    .LC1
+     f2c:	dd03      	ble.n	f36 <Reset_Handler+0x12>
+.LC0:
+    subs    r3, #4
+     f2e:	3b04      	subs	r3, #4
+    ldr    r0, [r1, r3]
+     f30:	58c8      	ldr	r0, [r1, r3]
+    str    r0, [r2, r3]
+     f32:	50d0      	str	r0, [r2, r3]
+    bgt    .LC0
+     f34:	dcfb      	bgt.n	f2e <Reset_Handler+0xa>
+    blt    .LC2
+#endif //__STARTUP_CLEAR_BSS
+
+#ifndef __NO_SYSTEM_INIT
+    // bl    SystemInit
+    ldr     r0,=SystemInit
+     f36:	4806      	ldr	r0, [pc, #24]	; (f50 <Reset_Handler+0x2c>)
+    blx     r0
+     f38:	4780      	blx	r0
+#endif
+
+    bl    main
+     f3a:	f7ff fa85 	bl	448 <main>
+    bl    exit
+     f3e:	f000 f845 	bl	fcc <exit>
+     f42:	0000      	.short	0x0000
+    ldr    r1, =__etext
+     f44:	000017f0 	.word	0x000017f0
+    ldr    r2, =__data_start__
+     f48:	20000000 	.word	0x20000000
+    ldr    r3, =__data_end__
+     f4c:	20000020 	.word	0x20000020
+    ldr     r0,=SystemInit
+     f50:	00000fa5 	.word	0x00000fa5
+    .size    \handler_name, . - \handler_name
+    .endm
+
+// System Exception Handlers
+
+    def_default_handler    NMI_Handler
+     f54:	e7fe      	b.n	f54 <Reset_Handler+0x30>
+    def_default_handler    HardFault_Handler
+     f56:	e7fe      	b.n	f56 <Reset_Handler+0x32>
+    def_default_handler    MemManage_Handler
+     f58:	e7fe      	b.n	f58 <Reset_Handler+0x34>
+    def_default_handler    BusFault_Handler
+     f5a:	e7fe      	b.n	f5a <Reset_Handler+0x36>
+    def_default_handler    UsageFault_Handler
+     f5c:	e7fe      	b.n	f5c <Reset_Handler+0x38>
+    def_default_handler    SVC_Handler
+     f5e:	e7fe      	b.n	f5e <Reset_Handler+0x3a>
+    def_default_handler    DebugMon_Handler
+     f60:	e7fe      	b.n	f60 <Reset_Handler+0x3c>
+    def_default_handler    PendSV_Handler
+     f62:	e7fe      	b.n	f62 <Reset_Handler+0x3e>
+    def_default_handler    SysTick_Handler
+     f64:	e7fe      	b.n	f64 <Reset_Handler+0x40>
+
+// IRQ Handlers
+
+    def_default_handler    UART0_Handler
+     f66:	e7fe      	b.n	f66 <Reset_Handler+0x42>
+    def_default_handler    USER_INT0_Handler
+     f68:	e7fe      	b.n	f68 <Reset_Handler+0x44>
+    def_default_handler    UART1_Handler
+     f6a:	e7fe      	b.n	f6a <Reset_Handler+0x46>
+    def_default_handler    USER_INT1_Handler
+     f6c:	e7fe      	b.n	f6c <Reset_Handler+0x48>
+    def_default_handler    USER_INT2_Handler
+     f6e:	e7fe      	b.n	f6e <Reset_Handler+0x4a>
+	def_default_handler    RTC_Handler
+     f70:	e7fe      	b.n	f70 <Reset_Handler+0x4c>
+
+00000f72 <PORT0_COMB_Handler>:
+    def_default_handler    PORT0_COMB_Handler
+     f72:	e7fe      	b.n	f72 <PORT0_COMB_Handler>
+    def_default_handler    USER_INT3_Handler
+     f74:	e7fe      	b.n	f74 <PORT0_COMB_Handler+0x2>
+    def_default_handler    TIMER0_Handler
+     f76:	e7fe      	b.n	f76 <PORT0_COMB_Handler+0x4>
+    def_default_handler    TIMER1_Handler
+     f78:	e7fe      	b.n	f78 <PORT0_COMB_Handler+0x6>
+    def_default_handler    I2C_Handler
+     f7a:	e7fe      	b.n	f7a <PORT0_COMB_Handler+0x8>
+
+00000f7c <UARTOVF_Handler>:
+    def_default_handler    UARTOVF_Handler
+     f7c:	e7fe      	b.n	f7c <UARTOVF_Handler>
+    def_default_handler    USER_INT4_Handler
+     f7e:	e7fe      	b.n	f7e <UARTOVF_Handler+0x2>
+    def_default_handler    USER_INT5_Handler
+     f80:	e7fe      	b.n	f80 <UARTOVF_Handler+0x4>
+
+00000f82 <Spare15_Handler>:
+    def_default_handler    Spare15_Handler
+     f82:	e7fe      	b.n	f82 <Spare15_Handler>
+    def_default_handler    PORT0_0_Handler
+     f84:	e7fe      	b.n	f84 <Spare15_Handler+0x2>
+    def_default_handler    PORT0_1_Handler
+     f86:	e7fe      	b.n	f86 <Spare15_Handler+0x4>
+    def_default_handler    PORT0_2_Handler
+     f88:	e7fe      	b.n	f88 <Spare15_Handler+0x6>
+    def_default_handler    PORT0_3_Handler
+     f8a:	e7fe      	b.n	f8a <Spare15_Handler+0x8>
+    def_default_handler    PORT0_4_Handler
+     f8c:	e7fe      	b.n	f8c <Spare15_Handler+0xa>
+    def_default_handler    PORT0_5_Handler
+     f8e:	e7fe      	b.n	f8e <Spare15_Handler+0xc>
+    def_default_handler    PORT0_6_Handler
+     f90:	e7fe      	b.n	f90 <Spare15_Handler+0xe>
+    def_default_handler    PORT0_7_Handler
+     f92:	e7fe      	b.n	f92 <Spare15_Handler+0x10>
+    def_default_handler    PORT0_8_Handler
+     f94:	e7fe      	b.n	f94 <Spare15_Handler+0x12>
+    def_default_handler    PORT0_9_Handler
+     f96:	e7fe      	b.n	f96 <Spare15_Handler+0x14>
+    def_default_handler    PORT0_10_Handler
+     f98:	e7fe      	b.n	f98 <Spare15_Handler+0x16>
+    def_default_handler    PORT0_11_Handler
+     f9a:	e7fe      	b.n	f9a <Spare15_Handler+0x18>
+    def_default_handler    PORT0_12_Handler
+     f9c:	e7fe      	b.n	f9c <Spare15_Handler+0x1a>
+    def_default_handler    PORT0_13_Handler
+     f9e:	e7fe      	b.n	f9e <Spare15_Handler+0x1c>
+    def_default_handler    PORT0_14_Handler
+     fa0:	e7fe      	b.n	fa0 <Spare15_Handler+0x1e>
+    def_default_handler    PORT0_15_Handler
+     fa2:	e7fe      	b.n	fa2 <Spare15_Handler+0x20>
+
+00000fa4 <SystemInit>:
+{
+#ifdef UNALIGNED_SUPPORT_DISABLE
+  SCB->CCR |= SCB_CCR_UNALIGN_TRP_Msk;
+#endif
+
+  SystemCoreClock = __SYSTEM_CLOCK;
+     fa4:	4b04      	ldr	r3, [pc, #16]	; (fb8 <SystemInit+0x14>)
+     fa6:	4a05      	ldr	r2, [pc, #20]	; (fbc <SystemInit+0x18>)
+     fa8:	6013      	str	r3, [r2, #0]
+  PCLK1 = SystemCoreClock;
+     faa:	4a05      	ldr	r2, [pc, #20]	; (fc0 <SystemInit+0x1c>)
+     fac:	6013      	str	r3, [r2, #0]
+  PCLK2 = SystemCoreClock;
+     fae:	4a05      	ldr	r2, [pc, #20]	; (fc4 <SystemInit+0x20>)
+     fb0:	6013      	str	r3, [r2, #0]
+  HCLK = SystemCoreClock;
+     fb2:	4a05      	ldr	r2, [pc, #20]	; (fc8 <SystemInit+0x24>)
+     fb4:	6013      	str	r3, [r2, #0]
+}
+     fb6:	4770      	bx	lr
+     fb8:	044aa200 	.word	0x044aa200
+     fbc:	2000001c 	.word	0x2000001c
+     fc0:	20000014 	.word	0x20000014
+     fc4:	20000018 	.word	0x20000018
+     fc8:	20000010 	.word	0x20000010
+
+00000fcc <exit>:
+     fcc:	b508      	push	{r3, lr}
+     fce:	4b06      	ldr	r3, [pc, #24]	; (fe8 <exit+0x1c>)
+     fd0:	4604      	mov	r4, r0
+     fd2:	b113      	cbz	r3, fda <exit+0xe>
+     fd4:	2100      	movs	r1, #0
+     fd6:	f3af 8000 	nop.w
+     fda:	4b04      	ldr	r3, [pc, #16]	; (fec <exit+0x20>)
+     fdc:	681b      	ldr	r3, [r3, #0]
+     fde:	b103      	cbz	r3, fe2 <exit+0x16>
+     fe0:	4798      	blx	r3
+     fe2:	4620      	mov	r0, r4
+     fe4:	f000 f9c6 	bl	1374 <_exit>
+     fe8:	00000000 	.word	0x00000000
+     fec:	20000110 	.word	0x20000110
+
+00000ff0 <__aeabi_fmul>:
+     ff0:	f04f 0cff 	mov.w	ip, #255	; 0xff
+     ff4:	ea1c 52d0 	ands.w	r2, ip, r0, lsr #23
+     ff8:	bf1e      	ittt	ne
+     ffa:	ea1c 53d1 	andsne.w	r3, ip, r1, lsr #23
+     ffe:	ea92 0f0c 	teqne	r2, ip
+    1002:	ea93 0f0c 	teqne	r3, ip
+    1006:	d06f      	beq.n	10e8 <__aeabi_fmul+0xf8>
+    1008:	441a      	add	r2, r3
+    100a:	ea80 0c01 	eor.w	ip, r0, r1
+    100e:	0240      	lsls	r0, r0, #9
+    1010:	bf18      	it	ne
+    1012:	ea5f 2141 	movsne.w	r1, r1, lsl #9
+    1016:	d01e      	beq.n	1056 <__aeabi_fmul+0x66>
+    1018:	f04f 6300 	mov.w	r3, #134217728	; 0x8000000
+    101c:	ea43 1050 	orr.w	r0, r3, r0, lsr #5
+    1020:	ea43 1151 	orr.w	r1, r3, r1, lsr #5
+    1024:	fba0 3101 	umull	r3, r1, r0, r1
+    1028:	f00c 4000 	and.w	r0, ip, #2147483648	; 0x80000000
+    102c:	f5b1 0f00 	cmp.w	r1, #8388608	; 0x800000
+    1030:	bf3e      	ittt	cc
+    1032:	0049      	lslcc	r1, r1, #1
+    1034:	ea41 71d3 	orrcc.w	r1, r1, r3, lsr #31
+    1038:	005b      	lslcc	r3, r3, #1
+    103a:	ea40 0001 	orr.w	r0, r0, r1
+    103e:	f162 027f 	sbc.w	r2, r2, #127	; 0x7f
+    1042:	2afd      	cmp	r2, #253	; 0xfd
+    1044:	d81d      	bhi.n	1082 <__aeabi_fmul+0x92>
+    1046:	f1b3 4f00 	cmp.w	r3, #2147483648	; 0x80000000
+    104a:	eb40 50c2 	adc.w	r0, r0, r2, lsl #23
+    104e:	bf08      	it	eq
+    1050:	f020 0001 	biceq.w	r0, r0, #1
+    1054:	4770      	bx	lr
+    1056:	f090 0f00 	teq	r0, #0
+    105a:	f00c 4c00 	and.w	ip, ip, #2147483648	; 0x80000000
+    105e:	bf08      	it	eq
+    1060:	0249      	lsleq	r1, r1, #9
+    1062:	ea4c 2050 	orr.w	r0, ip, r0, lsr #9
+    1066:	ea40 2051 	orr.w	r0, r0, r1, lsr #9
+    106a:	3a7f      	subs	r2, #127	; 0x7f
+    106c:	bfc2      	ittt	gt
+    106e:	f1d2 03ff 	rsbsgt	r3, r2, #255	; 0xff
+    1072:	ea40 50c2 	orrgt.w	r0, r0, r2, lsl #23
+    1076:	4770      	bxgt	lr
+    1078:	f440 0000 	orr.w	r0, r0, #8388608	; 0x800000
+    107c:	f04f 0300 	mov.w	r3, #0
+    1080:	3a01      	subs	r2, #1
+    1082:	dc5d      	bgt.n	1140 <__aeabi_fmul+0x150>
+    1084:	f112 0f19 	cmn.w	r2, #25
+    1088:	bfdc      	itt	le
+    108a:	f000 4000 	andle.w	r0, r0, #2147483648	; 0x80000000
+    108e:	4770      	bxle	lr
+    1090:	f1c2 0200 	rsb	r2, r2, #0
+    1094:	0041      	lsls	r1, r0, #1
+    1096:	fa21 f102 	lsr.w	r1, r1, r2
+    109a:	f1c2 0220 	rsb	r2, r2, #32
+    109e:	fa00 fc02 	lsl.w	ip, r0, r2
+    10a2:	ea5f 0031 	movs.w	r0, r1, rrx
+    10a6:	f140 0000 	adc.w	r0, r0, #0
+    10aa:	ea53 034c 	orrs.w	r3, r3, ip, lsl #1
+    10ae:	bf08      	it	eq
+    10b0:	ea20 70dc 	biceq.w	r0, r0, ip, lsr #31
+    10b4:	4770      	bx	lr
+    10b6:	f092 0f00 	teq	r2, #0
+    10ba:	f000 4c00 	and.w	ip, r0, #2147483648	; 0x80000000
+    10be:	bf02      	ittt	eq
+    10c0:	0040      	lsleq	r0, r0, #1
+    10c2:	f410 0f00 	tsteq.w	r0, #8388608	; 0x800000
+    10c6:	3a01      	subeq	r2, #1
+    10c8:	d0f9      	beq.n	10be <__aeabi_fmul+0xce>
+    10ca:	ea40 000c 	orr.w	r0, r0, ip
+    10ce:	f093 0f00 	teq	r3, #0
+    10d2:	f001 4c00 	and.w	ip, r1, #2147483648	; 0x80000000
+    10d6:	bf02      	ittt	eq
+    10d8:	0049      	lsleq	r1, r1, #1
+    10da:	f411 0f00 	tsteq.w	r1, #8388608	; 0x800000
+    10de:	3b01      	subeq	r3, #1
+    10e0:	d0f9      	beq.n	10d6 <__aeabi_fmul+0xe6>
+    10e2:	ea41 010c 	orr.w	r1, r1, ip
+    10e6:	e78f      	b.n	1008 <__aeabi_fmul+0x18>
+    10e8:	ea0c 53d1 	and.w	r3, ip, r1, lsr #23
+    10ec:	ea92 0f0c 	teq	r2, ip
+    10f0:	bf18      	it	ne
+    10f2:	ea93 0f0c 	teqne	r3, ip
+    10f6:	d00a      	beq.n	110e <__aeabi_fmul+0x11e>
+    10f8:	f030 4c00 	bics.w	ip, r0, #2147483648	; 0x80000000
+    10fc:	bf18      	it	ne
+    10fe:	f031 4c00 	bicsne.w	ip, r1, #2147483648	; 0x80000000
+    1102:	d1d8      	bne.n	10b6 <__aeabi_fmul+0xc6>
+    1104:	ea80 0001 	eor.w	r0, r0, r1
+    1108:	f000 4000 	and.w	r0, r0, #2147483648	; 0x80000000
+    110c:	4770      	bx	lr
+    110e:	f090 0f00 	teq	r0, #0
+    1112:	bf17      	itett	ne
+    1114:	f090 4f00 	teqne	r0, #2147483648	; 0x80000000
+    1118:	4608      	moveq	r0, r1
+    111a:	f091 0f00 	teqne	r1, #0
+    111e:	f091 4f00 	teqne	r1, #2147483648	; 0x80000000
+    1122:	d014      	beq.n	114e <__aeabi_fmul+0x15e>
+    1124:	ea92 0f0c 	teq	r2, ip
+    1128:	d101      	bne.n	112e <__aeabi_fmul+0x13e>
+    112a:	0242      	lsls	r2, r0, #9
+    112c:	d10f      	bne.n	114e <__aeabi_fmul+0x15e>
+    112e:	ea93 0f0c 	teq	r3, ip
+    1132:	d103      	bne.n	113c <__aeabi_fmul+0x14c>
+    1134:	024b      	lsls	r3, r1, #9
+    1136:	bf18      	it	ne
+    1138:	4608      	movne	r0, r1
+    113a:	d108      	bne.n	114e <__aeabi_fmul+0x15e>
+    113c:	ea80 0001 	eor.w	r0, r0, r1
+    1140:	f000 4000 	and.w	r0, r0, #2147483648	; 0x80000000
+    1144:	f040 40fe 	orr.w	r0, r0, #2130706432	; 0x7f000000
+    1148:	f440 0000 	orr.w	r0, r0, #8388608	; 0x800000
+    114c:	4770      	bx	lr
+    114e:	f040 40fe 	orr.w	r0, r0, #2130706432	; 0x7f000000
+    1152:	f440 0040 	orr.w	r0, r0, #12582912	; 0xc00000
+    1156:	4770      	bx	lr
+
+00001158 <__aeabi_frsub>:
+    1158:	f080 4000 	eor.w	r0, r0, #2147483648	; 0x80000000
+    115c:	e002      	b.n	1164 <__addsf3>
+    115e:	bf00      	nop
+
+00001160 <__aeabi_fsub>:
+    1160:	f081 4100 	eor.w	r1, r1, #2147483648	; 0x80000000
+
+00001164 <__addsf3>:
+    1164:	0042      	lsls	r2, r0, #1
+    1166:	bf1f      	itttt	ne
+    1168:	ea5f 0341 	movsne.w	r3, r1, lsl #1
+    116c:	ea92 0f03 	teqne	r2, r3
+    1170:	ea7f 6c22 	mvnsne.w	ip, r2, asr #24
+    1174:	ea7f 6c23 	mvnsne.w	ip, r3, asr #24
+    1178:	d06a      	beq.n	1250 <__addsf3+0xec>
+    117a:	ea4f 6212 	mov.w	r2, r2, lsr #24
+    117e:	ebd2 6313 	rsbs	r3, r2, r3, lsr #24
+    1182:	bfc1      	itttt	gt
+    1184:	18d2      	addgt	r2, r2, r3
+    1186:	4041      	eorgt	r1, r0
+    1188:	4048      	eorgt	r0, r1
+    118a:	4041      	eorgt	r1, r0
+    118c:	bfb8      	it	lt
+    118e:	425b      	neglt	r3, r3
+    1190:	2b19      	cmp	r3, #25
+    1192:	bf88      	it	hi
+    1194:	4770      	bxhi	lr
+    1196:	f010 4f00 	tst.w	r0, #2147483648	; 0x80000000
+    119a:	f440 0000 	orr.w	r0, r0, #8388608	; 0x800000
+    119e:	f020 407f 	bic.w	r0, r0, #4278190080	; 0xff000000
+    11a2:	bf18      	it	ne
+    11a4:	4240      	negne	r0, r0
+    11a6:	f011 4f00 	tst.w	r1, #2147483648	; 0x80000000
+    11aa:	f441 0100 	orr.w	r1, r1, #8388608	; 0x800000
+    11ae:	f021 417f 	bic.w	r1, r1, #4278190080	; 0xff000000
+    11b2:	bf18      	it	ne
+    11b4:	4249      	negne	r1, r1
+    11b6:	ea92 0f03 	teq	r2, r3
+    11ba:	d03f      	beq.n	123c <__addsf3+0xd8>
+    11bc:	f1a2 0201 	sub.w	r2, r2, #1
+    11c0:	fa41 fc03 	asr.w	ip, r1, r3
+    11c4:	eb10 000c 	adds.w	r0, r0, ip
+    11c8:	f1c3 0320 	rsb	r3, r3, #32
+    11cc:	fa01 f103 	lsl.w	r1, r1, r3
+    11d0:	f000 4300 	and.w	r3, r0, #2147483648	; 0x80000000
+    11d4:	d502      	bpl.n	11dc <__addsf3+0x78>
+    11d6:	4249      	negs	r1, r1
+    11d8:	eb60 0040 	sbc.w	r0, r0, r0, lsl #1
+    11dc:	f5b0 0f00 	cmp.w	r0, #8388608	; 0x800000
+    11e0:	d313      	bcc.n	120a <__addsf3+0xa6>
+    11e2:	f1b0 7f80 	cmp.w	r0, #16777216	; 0x1000000
+    11e6:	d306      	bcc.n	11f6 <__addsf3+0x92>
+    11e8:	0840      	lsrs	r0, r0, #1
+    11ea:	ea4f 0131 	mov.w	r1, r1, rrx
+    11ee:	f102 0201 	add.w	r2, r2, #1
+    11f2:	2afe      	cmp	r2, #254	; 0xfe
+    11f4:	d251      	bcs.n	129a <__addsf3+0x136>
+    11f6:	f1b1 4f00 	cmp.w	r1, #2147483648	; 0x80000000
+    11fa:	eb40 50c2 	adc.w	r0, r0, r2, lsl #23
+    11fe:	bf08      	it	eq
+    1200:	f020 0001 	biceq.w	r0, r0, #1
+    1204:	ea40 0003 	orr.w	r0, r0, r3
+    1208:	4770      	bx	lr
+    120a:	0049      	lsls	r1, r1, #1
+    120c:	eb40 0000 	adc.w	r0, r0, r0
+    1210:	3a01      	subs	r2, #1
+    1212:	bf28      	it	cs
+    1214:	f5b0 0f00 	cmpcs.w	r0, #8388608	; 0x800000
+    1218:	d2ed      	bcs.n	11f6 <__addsf3+0x92>
+    121a:	fab0 fc80 	clz	ip, r0
+    121e:	f1ac 0c08 	sub.w	ip, ip, #8
+    1222:	ebb2 020c 	subs.w	r2, r2, ip
+    1226:	fa00 f00c 	lsl.w	r0, r0, ip
+    122a:	bfaa      	itet	ge
+    122c:	eb00 50c2 	addge.w	r0, r0, r2, lsl #23
+    1230:	4252      	neglt	r2, r2
+    1232:	4318      	orrge	r0, r3
+    1234:	bfbc      	itt	lt
+    1236:	40d0      	lsrlt	r0, r2
+    1238:	4318      	orrlt	r0, r3
+    123a:	4770      	bx	lr
+    123c:	f092 0f00 	teq	r2, #0
+    1240:	f481 0100 	eor.w	r1, r1, #8388608	; 0x800000
+    1244:	bf06      	itte	eq
+    1246:	f480 0000 	eoreq.w	r0, r0, #8388608	; 0x800000
+    124a:	3201      	addeq	r2, #1
+    124c:	3b01      	subne	r3, #1
+    124e:	e7b5      	b.n	11bc <__addsf3+0x58>
+    1250:	ea4f 0341 	mov.w	r3, r1, lsl #1
+    1254:	ea7f 6c22 	mvns.w	ip, r2, asr #24
+    1258:	bf18      	it	ne
+    125a:	ea7f 6c23 	mvnsne.w	ip, r3, asr #24
+    125e:	d021      	beq.n	12a4 <__addsf3+0x140>
+    1260:	ea92 0f03 	teq	r2, r3
+    1264:	d004      	beq.n	1270 <__addsf3+0x10c>
+    1266:	f092 0f00 	teq	r2, #0
+    126a:	bf08      	it	eq
+    126c:	4608      	moveq	r0, r1
+    126e:	4770      	bx	lr
+    1270:	ea90 0f01 	teq	r0, r1
+    1274:	bf1c      	itt	ne
+    1276:	2000      	movne	r0, #0
+    1278:	4770      	bxne	lr
+    127a:	f012 4f7f 	tst.w	r2, #4278190080	; 0xff000000
+    127e:	d104      	bne.n	128a <__addsf3+0x126>
+    1280:	0040      	lsls	r0, r0, #1
+    1282:	bf28      	it	cs
+    1284:	f040 4000 	orrcs.w	r0, r0, #2147483648	; 0x80000000
+    1288:	4770      	bx	lr
+    128a:	f112 7200 	adds.w	r2, r2, #33554432	; 0x2000000
+    128e:	bf3c      	itt	cc
+    1290:	f500 0000 	addcc.w	r0, r0, #8388608	; 0x800000
+    1294:	4770      	bxcc	lr
+    1296:	f000 4300 	and.w	r3, r0, #2147483648	; 0x80000000
+    129a:	f043 40fe 	orr.w	r0, r3, #2130706432	; 0x7f000000
+    129e:	f440 0000 	orr.w	r0, r0, #8388608	; 0x800000
+    12a2:	4770      	bx	lr
+    12a4:	ea7f 6222 	mvns.w	r2, r2, asr #24
+    12a8:	bf16      	itet	ne
+    12aa:	4608      	movne	r0, r1
+    12ac:	ea7f 6323 	mvnseq.w	r3, r3, asr #24
+    12b0:	4601      	movne	r1, r0
+    12b2:	0242      	lsls	r2, r0, #9
+    12b4:	bf06      	itte	eq
+    12b6:	ea5f 2341 	movseq.w	r3, r1, lsl #9
+    12ba:	ea90 0f01 	teqeq	r0, r1
+    12be:	f440 0080 	orrne.w	r0, r0, #4194304	; 0x400000
+    12c2:	4770      	bx	lr
+
+000012c4 <__aeabi_ui2f>:
+    12c4:	f04f 0300 	mov.w	r3, #0
+    12c8:	e004      	b.n	12d4 <__aeabi_i2f+0x8>
+    12ca:	bf00      	nop
+
+000012cc <__aeabi_i2f>:
+    12cc:	f010 4300 	ands.w	r3, r0, #2147483648	; 0x80000000
+    12d0:	bf48      	it	mi
+    12d2:	4240      	negmi	r0, r0
+    12d4:	ea5f 0c00 	movs.w	ip, r0
+    12d8:	bf08      	it	eq
+    12da:	4770      	bxeq	lr
+    12dc:	f043 4396 	orr.w	r3, r3, #1258291200	; 0x4b000000
+    12e0:	4601      	mov	r1, r0
+    12e2:	f04f 0000 	mov.w	r0, #0
+    12e6:	e01c      	b.n	1322 <__aeabi_l2f+0x2a>
+
+000012e8 <__aeabi_ul2f>:
+    12e8:	ea50 0201 	orrs.w	r2, r0, r1
+    12ec:	bf08      	it	eq
+    12ee:	4770      	bxeq	lr
+    12f0:	f04f 0300 	mov.w	r3, #0
+    12f4:	e00a      	b.n	130c <__aeabi_l2f+0x14>
+    12f6:	bf00      	nop
+
+000012f8 <__aeabi_l2f>:
+    12f8:	ea50 0201 	orrs.w	r2, r0, r1
+    12fc:	bf08      	it	eq
+    12fe:	4770      	bxeq	lr
+    1300:	f011 4300 	ands.w	r3, r1, #2147483648	; 0x80000000
+    1304:	d502      	bpl.n	130c <__aeabi_l2f+0x14>
+    1306:	4240      	negs	r0, r0
+    1308:	eb61 0141 	sbc.w	r1, r1, r1, lsl #1
+    130c:	ea5f 0c01 	movs.w	ip, r1
+    1310:	bf02      	ittt	eq
+    1312:	4684      	moveq	ip, r0
+    1314:	4601      	moveq	r1, r0
+    1316:	2000      	moveq	r0, #0
+    1318:	f043 43b6 	orr.w	r3, r3, #1526726656	; 0x5b000000
+    131c:	bf08      	it	eq
+    131e:	f1a3 5380 	subeq.w	r3, r3, #268435456	; 0x10000000
+    1322:	f5a3 0300 	sub.w	r3, r3, #8388608	; 0x800000
+    1326:	fabc f28c 	clz	r2, ip
+    132a:	3a08      	subs	r2, #8
+    132c:	eba3 53c2 	sub.w	r3, r3, r2, lsl #23
+    1330:	db10      	blt.n	1354 <__aeabi_l2f+0x5c>
+    1332:	fa01 fc02 	lsl.w	ip, r1, r2
+    1336:	4463      	add	r3, ip
+    1338:	fa00 fc02 	lsl.w	ip, r0, r2
+    133c:	f1c2 0220 	rsb	r2, r2, #32
+    1340:	f1bc 4f00 	cmp.w	ip, #2147483648	; 0x80000000
+    1344:	fa20 f202 	lsr.w	r2, r0, r2
+    1348:	eb43 0002 	adc.w	r0, r3, r2
+    134c:	bf08      	it	eq
+    134e:	f020 0001 	biceq.w	r0, r0, #1
+    1352:	4770      	bx	lr
+    1354:	f102 0220 	add.w	r2, r2, #32
+    1358:	fa01 fc02 	lsl.w	ip, r1, r2
+    135c:	f1c2 0220 	rsb	r2, r2, #32
+    1360:	ea50 004c 	orrs.w	r0, r0, ip, lsl #1
+    1364:	fa21 f202 	lsr.w	r2, r1, r2
+    1368:	eb43 0002 	adc.w	r0, r3, r2
+    136c:	bf08      	it	eq
+    136e:	ea20 70dc 	biceq.w	r0, r0, ip, lsr #31
+    1372:	4770      	bx	lr
+
+00001374 <_exit>:
+    1374:	e7fe      	b.n	1374 <_exit>
+	...
+
+00001378 <_init>:
+    1378:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+    137a:	bf00      	nop
+
+0000137c <_fini>:
+    137c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+    137e:	bf00      	nop
+    1380:	00746573 	.word	0x00746573
+    1384:	666e6f63 	.word	0x666e6f63
+    1388:	67686300 	.word	0x67686300
+    138c:	6d756400 	.word	0x6d756400
+    1390:	61630070 	.word	0x61630070
+    1394:	6c6c      	.short	0x6c6c
+    1396:	00          	.byte	0x00
+    1397:	00          	.byte	0x00
+    1398:	007f8000 	.word	0x007f8000
+
+0000139c <SCD_CMD_FCNS>:
+    139c:	00000b39 00000abf 00000ad9 00000aef     9...............
+    13ac:	00000b15                                ....
+
+000013b0 <SCD_CMD_TAB>:
+    13b0:	00001380 00001384 00001389 0000138d     ................
+    13c0:	00001392                                ....
+
+000013c4 <SCD_PROTOCOL_FCNS>:
+    13c4:	000004d5 00000601 00000755 00000765     ........U...e...
+    13d4:	00000961                                a...
+
+000013d8 <cz_ctype>:
+    13d8:	00000020 00010120 00020220 00030320      ... ... ... ...
+    13e8:	00040420 00050520 00060620 00070720      ... ... ... ...
+    13f8:	00080820 00090968 000a0a28 000b0b28      ...h...(...(...
+    1408:	000c0c28 000d0d28 000e0e20 000f0f20     (...(... ... ...
+    1418:	00101020 00111120 00121220 00131320      ... ... ... ...
+    1428:	00141420 00151520 00161620 00171720      ... ... ... ...
+    1438:	00181820 00191920 001a1a20 001b1b20      ... ... ... ...
+    1448:	001c1c20 001d1d20 001e1e20 001f1f20      ... ... ... ...
+    1458:	00202048 00212110 00222210 00232310     H  ..!!..""..##.
+    1468:	00242410 00252510 00262610 00272710     .$$..%%..&&..''.
+    1478:	00282810 00292910 002a2a10 002b2b10     .((..))..**..++.
+    1488:	002c2c10 002d2d10 002e2e10 002f2f10     .,,..--......//.
+    1498:	00303004 00313104 00323204 00333304     .00..11..22..33.
+    14a8:	00343404 00353504 00363604 00373704     .44..55..66..77.
+    14b8:	00383804 00393904 003a3a10 003b3b10     .88..99..::..;;.
+    14c8:	003c3c10 003d3d10 003e3e10 003f3f10     .<<..==..>>..??.
+    14d8:	00404010 00614181 00624281 00634381     .@@..Aa..Bb..Cc.
+    14e8:	00644481 00654581 00664681 00674701     .Dd..Ee..Ff..Gg.
+    14f8:	00684801 00694901 006a4a01 006b4b01     .Hh..Ii..Jj..Kk.
+    1508:	006c4c01 006d4d01 006e4e01 006f4f01     .Ll..Mm..Nn..Oo.
+    1518:	00705001 00715101 00725201 00735301     .Pp..Qq..Rr..Ss.
+    1528:	00745401 00755501 00765601 00775701     .Tt..Uu..Vv..Ww.
+    1538:	00785801 00795901 007a5a01 005b5b10     .Xx..Yy..Zz..[[.
+    1548:	005c5c10 005d5d10 005e5e10 005f5f10     .\\..]]..^^..__.
+    1558:	00606010 00614182 00624282 00634382     .``..Aa..Bb..Cc.
+    1568:	00644482 00654582 00664682 00674702     .Dd..Ee..Ff..Gg.
+    1578:	00684802 00694902 006a4a02 006b4b02     .Hh..Ii..Jj..Kk.
+    1588:	006c4c02 006d4d02 006e4e02 006f4f02     .Ll..Mm..Nn..Oo.
+    1598:	00705002 00715102 00725202 00735302     .Pp..Qq..Rr..Ss.
+    15a8:	00745402 00755502 00765602 00775702     .Tt..Uu..Vv..Ww.
+    15b8:	00785802 00795902 007a5a02 007b7b10     .Xx..Yy..Zz..{{.
+    15c8:	007c7c10 007d7d10 007e7e10 007f7f20     .||..}}..~~. ...
+    15d8:	00808000 00818100 00828200 00838300     ................
+    15e8:	00848400 00858500 00868600 00878700     ................
+    15f8:	00888800 00898900 008a8a00 008b8b00     ................
+    1608:	008c8c00 008d8d00 008e8e00 008f8f00     ................
+    1618:	00909000 00919100 00929200 00939300     ................
+    1628:	00949400 00959500 00969600 00979700     ................
+    1638:	00989800 00999900 009a9a00 009b9b00     ................
+    1648:	009c9c00 009d9d00 009e9e00 009f9f00     ................
+    1658:	00a0a000 00a1a100 00a2a200 00a3a300     ................
+    1668:	00a4a400 00a5a500 00a6a600 00a7a700     ................
+    1678:	00a8a800 00a9a900 00aaaa00 00abab00     ................
+    1688:	00acac00 00adad00 00aeae00 00afaf00     ................
+    1698:	00b0b000 00b1b100 00b2b200 00b3b300     ................
+    16a8:	00b4b400 00b5b500 00b6b600 00b7b700     ................
+    16b8:	00b8b800 00b9b900 00baba00 00bbbb00     ................
+    16c8:	00bcbc00 00bdbd00 00bebe00 00bfbf00     ................
+    16d8:	00c0c000 00c1c100 00c2c200 00c3c300     ................
+    16e8:	00c4c400 00c5c500 00c6c600 00c7c700     ................
+    16f8:	00c8c800 00c9c900 00caca00 00cbcb00     ................
+    1708:	00cccc00 00cdcd00 00cece00 00cfcf00     ................
+    1718:	00d0d000 00d1d100 00d2d200 00d3d300     ................
+    1728:	00d4d400 00d5d500 00d6d600 00d7d700     ................
+    1738:	00d8d800 00d9d900 00dada00 00dbdb00     ................
+    1748:	00dcdc00 00dddd00 00dede00 00dfdf00     ................
+    1758:	00e0e000 00e1e100 00e2e200 00e3e300     ................
+    1768:	00e4e400 00e5e500 00e6e600 00e7e700     ................
+    1778:	00e8e800 00e9e900 00eaea00 00ebeb00     ................
+    1788:	00ecec00 00eded00 00eeee00 00efef00     ................
+    1798:	00f0f000 00f1f100 00f2f200 00f3f300     ................
+    17a8:	00f4f400 00f5f500 00f6f600 00f7f700     ................
+    17b8:	00f8f800 00f9f900 00fafa00 00fbfb00     ................
+    17c8:	00fcfc00 00fdfd00 00fefe00 00ffff00     ................
+
+000017d8 <tyj_unit_struct_1>:
+    17d8:	20000024 00000004 20000020 00000002     $.. .... .. ....
+    17e8:	20000028 00000024                       (.. $...

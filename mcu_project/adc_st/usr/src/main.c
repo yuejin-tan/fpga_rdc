@@ -1,6 +1,7 @@
 #include "gw1ns4c.h"
 #include "main.h"
 #include "scd_inc.h"
+#include "delay.h"
 
 
 //Initializes GPIO
@@ -19,19 +20,6 @@ void GPIOInit(void)
     // pin1 dacCs
     GPIO_SetBit(GPIO0, GPIO_Pin_1);
 
-}
-
-//delay ms
-void delay_ms(uint32_t delay_ms)
-{
-    // delay_ms *= 10;
-    for (uint32_t i = 0;i < delay_ms;i++)
-    {
-        while ((SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk) == 0)
-        {
-            // wait
-        }
-    }
 }
 
 //Initializes UART0
@@ -93,14 +81,16 @@ uint16_t initOk = 0;
 float voltTar = 2.5f;
 uint16_t dacRawData;
 
+//delay ms
 
 int main(void)
 {
-    SystemInit();
+    GPIOInit();
+    initRamfuncs();
+    SysTick_Config(SystemCoreClock / 1000ul - 1ul);
+
     nvicInit();
     UartInit();
-    SysTick_Config(72000ul - 1ul);
-    GPIOInit();
     SPIInit();
 
     // adcInit

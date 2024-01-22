@@ -1,3 +1,0 @@
-../usr/src/main.c:34:6:GPIOInit	24	static
-../usr/src/main.c:48:6:delay_ms	8	static
-../usr/src/main.c:18:5:main	8	static

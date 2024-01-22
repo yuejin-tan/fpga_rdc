@@ -12,6 +12,7 @@
 #include "gw1ns4c_it.h"
 #include "main.h"
 #include "scd_inc.h"
+#include "delay.h"
 
 void NMI_Handler(void)
 {
@@ -67,11 +68,6 @@ void PendSV_Handler(void)
     while (1)
     {
     }
-}
-
-void delay_c(volatile uint32_t cycles)
-{
-    while (--cycles);
 }
 
 void SysTick_Handler(void)

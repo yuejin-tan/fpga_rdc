@@ -61,9 +61,9 @@ SECTIONS
    } > FLASH
    __exidx_end = .;
 
-   __etext = .;
+   __etext = LOADADDR(.data);
 
-   .data : AT (__etext)
+   .data :
    {
       __data_start__ = .;
       *(vtable)
@@ -94,7 +94,7 @@ SECTIONS
       /* All data end */
       __data_end__ = .;
 
-   } > RAM
+   } > RAM AT > FLASH
 
    .bss :
    {
@@ -105,6 +105,16 @@ SECTIONS
       . = ALIGN(4);
       __bss_end__ = .;
    } > RAM
+
+   __ramfuncsFlashStart = LOADADDR(.ramfuncs);
+   .ramfuncs :
+   {
+      . = ALIGN(4);
+      __ramfuncs_start__ = .;
+      *(.ramfuncs)
+      __ramfuncs_end__ = .;
+      . = ALIGN(4);
+   } > RAM AT > FLASH
 
    .heap (COPY):
    {

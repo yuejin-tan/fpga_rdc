@@ -1,7 +1,0 @@
-../drivers/peripheral/gw1ns4c_syscon.c:63:6:SYSCON_Init	1
-../drivers/peripheral/gw1ns4c_syscon.c:76:10:SYSCON_GetRemap	1
-../drivers/peripheral/gw1ns4c_syscon.c:86:10:SYSCON_GetPmuctrlEnable	1
-../drivers/peripheral/gw1ns4c_syscon.c:96:10:SYSCON_GetResetopLockuprst	1
-../drivers/peripheral/gw1ns4c_syscon.c:108:12:SYSCON_GetRstinfoSysresetreq	1
-../drivers/peripheral/gw1ns4c_syscon.c:120:12:SYSCON_GetRstinfoWdogresetreq	1
-../drivers/peripheral/gw1ns4c_syscon.c:132:12:SYSCON_GetRstinfoLockreset	1

@@ -18,6 +18,9 @@
             "compilerPath": "D:\\stm32\\GNU_ARM\\bin\\arm-none-eabi-gcc.exe",
             "cStandard": "gnu11",
             "cppStandard": "c++11",
+            "forcedInclude": [
+                "${workspaceFolder}/fake.h"
+            ],
             "intelliSenseMode": "gcc-arm"
         }
     ],

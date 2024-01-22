@@ -28,6 +28,8 @@ C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.external
                               C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o (__libc_init_array)
 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-lock.o)
                               C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o) (__retarget_lock_init_recursive)
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-memcpy-stub.o)
+                              ./usr/src/delay.o (memcpy)
 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-freer.o)
                               C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-reent.o) (_free_r)
 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-mallocr.o)
@@ -933,6 +935,78 @@ Discarded input sections
  .debug_frame   0x0000000000000000      0x140 ./drivers/peripheral/gw1ns4c_wdog.o
  .ARM.attributes
                 0x0000000000000000       0x2d ./drivers/peripheral/gw1ns4c_wdog.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .group         0x0000000000000000        0xc ./usr/src/delay.o
+ .text          0x0000000000000000        0x0 ./usr/src/delay.o
+ .data          0x0000000000000000        0x0 ./usr/src/delay.o
+ .bss           0x0000000000000000        0x0 ./usr/src/delay.o
+ .ramfuncs      0x0000000000000000       0x12 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000      0xa96 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x22 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x8e ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x51 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000      0x103 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x6a ./usr/src/delay.o
+ .debug_macro   0x0000000000000000      0x1df ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x24 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x43 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x34 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000      0x174 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x16 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x43 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x34 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x10 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x58 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x8e ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x1c ./usr/src/delay.o
+ .debug_macro   0x0000000000000000      0x177 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000      0x369 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x35 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x20 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x22 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000      0x7d5 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000      0x314 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x6a ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x3a ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x7c ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x22 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x94 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x58 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x34 ./usr/src/delay.o
+ .debug_macro   0x0000000000000000       0x1c ./usr/src/delay.o
  .group         0x0000000000000000        0xc ./usr/src/gw1ns4c_it.o
  .group         0x0000000000000000        0xc ./usr/src/gw1ns4c_it.o
  .group         0x0000000000000000        0xc ./usr/src/gw1ns4c_it.o
@@ -957,7 +1031,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./usr/src/gw1ns4c_it.o
  .data          0x0000000000000000        0x0 ./usr/src/gw1ns4c_it.o
  .bss           0x0000000000000000        0x0 ./usr/src/gw1ns4c_it.o
- .text.delay_c  0x0000000000000000       0x12 ./usr/src/gw1ns4c_it.o
  .debug_macro   0x0000000000000000      0xa96 ./usr/src/gw1ns4c_it.o
  .debug_macro   0x0000000000000000       0x22 ./usr/src/gw1ns4c_it.o
  .debug_macro   0x0000000000000000       0x22 ./usr/src/gw1ns4c_it.o
@@ -1079,6 +1152,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x1df ./usr/src/scd_reg.o
  .debug_macro   0x0000000000000000       0x46 ./usr/src/scd_reg.o
  .debug_macro   0x0000000000000000       0x46 ./usr/src/scd_reg.o
+ .debug_macro   0x0000000000000000       0x61 ./usr/src/scd_reg.o
  .debug_macro   0x0000000000000000       0x24 ./usr/src/scd_reg.o
  .debug_macro   0x0000000000000000       0x43 ./usr/src/scd_reg.o
  .debug_macro   0x0000000000000000       0x34 ./usr/src/scd_reg.o
@@ -1116,8 +1190,12 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./usr/sys/system_gw1ns4c.o
  .data          0x0000000000000000        0x0 ./usr/sys/system_gw1ns4c.o
  .bss           0x0000000000000000        0x0 ./usr/sys/system_gw1ns4c.o
+ .text.SystemInit
+                0x0000000000000000       0x28 ./usr/sys/system_gw1ns4c.o
  .text.SystemCoreClockUpdate
                 0x0000000000000000        0x4 ./usr/sys/system_gw1ns4c.o
+ .data.HCLK     0x0000000000000000        0x4 ./usr/sys/system_gw1ns4c.o
+ .data.PCLK2    0x0000000000000000        0x4 ./usr/sys/system_gw1ns4c.o
  .debug_macro   0x0000000000000000      0xa96 ./usr/sys/system_gw1ns4c.o
  .debug_macro   0x0000000000000000       0x22 ./usr/sys/system_gw1ns4c.o
  .debug_macro   0x0000000000000000       0x22 ./usr/sys/system_gw1ns4c.o
@@ -1301,6 +1379,9 @@ Discarded input sections
  .debug_frame   0x0000000000000000       0xb0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-lock.o)
  .ARM.attributes
                 0x0000000000000000       0x2d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-lock.o)
+ .text          0x0000000000000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-memcpy-stub.o)
+ .data          0x0000000000000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-memcpy-stub.o)
+ .bss           0x0000000000000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-memcpy-stub.o)
  .text          0x0000000000000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-freer.o)
  .data          0x0000000000000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-freer.o)
  .bss           0x0000000000000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-freer.o)
@@ -1398,6 +1479,7 @@ LOAD ./drivers/peripheral/gw1ns4c_syscon.o
 LOAD ./drivers/peripheral/gw1ns4c_timer.o
 LOAD ./drivers/peripheral/gw1ns4c_uart.o
 LOAD ./drivers/peripheral/gw1ns4c_wdog.o
+LOAD ./usr/src/delay.o
 LOAD ./usr/src/gw1ns4c_it.o
 LOAD ./usr/src/main.o
 LOAD ./usr/src/scd.o
@@ -1431,7 +1513,7 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libnosys.a
 END GROUP
 
-.text           0x0000000000000000     0x1890
+.text           0x0000000000000000     0x18c4
  *(.isr_vector)
  .isr_vector    0x0000000000000000       0xc0 ./usr/startup_gw1ns4c.o
                 0x0000000000000000                __isr_vector
@@ -1464,207 +1546,209 @@ END GROUP
  .text.UART_ClearRxIRQ
                 0x00000000000002b0        0x6 ./drivers/peripheral/gw1ns4c_uart.o
                 0x00000000000002b0                UART_ClearRxIRQ
- .text.NMI_Handler
-                0x00000000000002b6        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000002b6                NMI_Handler
- .text.HardFault_Handler
-                0x00000000000002b8        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000002b8                HardFault_Handler
- .text.MemManage_Handler
-                0x00000000000002ba        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000002ba                MemManage_Handler
- .text.BusFault_Handler
-                0x00000000000002bc        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000002bc                BusFault_Handler
- .text.UsageFault_Handler
-                0x00000000000002be        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000002be                UsageFault_Handler
- .text.SVC_Handler
-                0x00000000000002c0        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000002c0                SVC_Handler
- .text.DebugMon_Handler
-                0x00000000000002c2        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000002c2                DebugMon_Handler
- .text.PendSV_Handler
-                0x00000000000002c4        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000002c4                PendSV_Handler
- *fill*         0x00000000000002c6        0x2 
- .text.SysTick_Handler
-                0x00000000000002c8       0xa8 ./usr/src/gw1ns4c_it.o
-                0x00000000000002c8                SysTick_Handler
- .text.USER_INT0_Handler
-                0x0000000000000370        0x2 ./usr/src/gw1ns4c_it.o
-                0x0000000000000370                USER_INT0_Handler
- .text.USER_INT1_Handler
-                0x0000000000000372        0x2 ./usr/src/gw1ns4c_it.o
-                0x0000000000000372                USER_INT1_Handler
- .text.USER_INT2_Handler
-                0x0000000000000374        0x2 ./usr/src/gw1ns4c_it.o
-                0x0000000000000374                USER_INT2_Handler
- .text.USER_INT3_Handler
-                0x0000000000000376        0x2 ./usr/src/gw1ns4c_it.o
-                0x0000000000000376                USER_INT3_Handler
- .text.USER_INT4_Handler
-                0x0000000000000378        0x2 ./usr/src/gw1ns4c_it.o
-                0x0000000000000378                USER_INT4_Handler
- .text.USER_INT5_Handler
-                0x000000000000037a        0x2 ./usr/src/gw1ns4c_it.o
-                0x000000000000037a                USER_INT5_Handler
- .text.UART0_Handler
-                0x000000000000037c       0x28 ./usr/src/gw1ns4c_it.o
-                0x000000000000037c                UART0_Handler
- .text.UART1_Handler
-                0x00000000000003a4        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003a4                UART1_Handler
- .text.TIMER0_Handler
-                0x00000000000003a6        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003a6                TIMER0_Handler
- .text.TIMER1_Handler
-                0x00000000000003a8        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003a8                TIMER1_Handler
- .text.I2C_Handler
-                0x00000000000003aa        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003aa                I2C_Handler
- .text.RTC_Handler
-                0x00000000000003ac        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003ac                RTC_Handler
- .text.PORT0_0_Handler
-                0x00000000000003ae        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003ae                PORT0_0_Handler
- .text.PORT0_1_Handler
-                0x00000000000003b0        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003b0                PORT0_1_Handler
- .text.PORT0_2_Handler
-                0x00000000000003b2        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003b2                PORT0_2_Handler
- .text.PORT0_3_Handler
-                0x00000000000003b4        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003b4                PORT0_3_Handler
- .text.PORT0_4_Handler
-                0x00000000000003b6        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003b6                PORT0_4_Handler
- .text.PORT0_5_Handler
-                0x00000000000003b8        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003b8                PORT0_5_Handler
- .text.PORT0_6_Handler
-                0x00000000000003ba        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003ba                PORT0_6_Handler
- .text.PORT0_7_Handler
-                0x00000000000003bc        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003bc                PORT0_7_Handler
- .text.PORT0_8_Handler
-                0x00000000000003be        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003be                PORT0_8_Handler
- .text.PORT0_9_Handler
-                0x00000000000003c0        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003c0                PORT0_9_Handler
- .text.PORT0_10_Handler
-                0x00000000000003c2        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003c2                PORT0_10_Handler
- .text.PORT0_11_Handler
-                0x00000000000003c4        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003c4                PORT0_11_Handler
- .text.PORT0_12_Handler
-                0x00000000000003c6        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003c6                PORT0_12_Handler
- .text.PORT0_13_Handler
-                0x00000000000003c8        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003c8                PORT0_13_Handler
- .text.PORT0_14_Handler
-                0x00000000000003ca        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003ca                PORT0_14_Handler
- .text.PORT0_15_Handler
-                0x00000000000003cc        0x2 ./usr/src/gw1ns4c_it.o
-                0x00000000000003cc                PORT0_15_Handler
- *fill*         0x00000000000003ce        0x2 
- .text.GPIOInit
-                0x00000000000003d0       0x30 ./usr/src/main.o
-                0x00000000000003d0                GPIOInit
+ *fill*         0x00000000000002b6        0x2 
+ .text.initRamfuncs
+                0x00000000000002b8       0x18 ./usr/src/delay.o
+                0x00000000000002b8                initRamfuncs
  .text.delay_ms
-                0x0000000000000400       0x16 ./usr/src/main.o
-                0x0000000000000400                delay_ms
- *fill*         0x0000000000000416        0x2 
+                0x00000000000002d0       0x16 ./usr/src/delay.o
+                0x00000000000002d0                delay_ms
+ .text.NMI_Handler
+                0x00000000000002e6        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000002e6                NMI_Handler
+ .text.HardFault_Handler
+                0x00000000000002e8        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000002e8                HardFault_Handler
+ .text.MemManage_Handler
+                0x00000000000002ea        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000002ea                MemManage_Handler
+ .text.BusFault_Handler
+                0x00000000000002ec        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000002ec                BusFault_Handler
+ .text.UsageFault_Handler
+                0x00000000000002ee        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000002ee                UsageFault_Handler
+ .text.SVC_Handler
+                0x00000000000002f0        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000002f0                SVC_Handler
+ .text.DebugMon_Handler
+                0x00000000000002f2        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000002f2                DebugMon_Handler
+ .text.PendSV_Handler
+                0x00000000000002f4        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000002f4                PendSV_Handler
+ *fill*         0x00000000000002f6        0x2 
+ .text.SysTick_Handler
+                0x00000000000002f8       0xa8 ./usr/src/gw1ns4c_it.o
+                0x00000000000002f8                SysTick_Handler
+ .text.USER_INT0_Handler
+                0x00000000000003a0        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003a0                USER_INT0_Handler
+ .text.USER_INT1_Handler
+                0x00000000000003a2        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003a2                USER_INT1_Handler
+ .text.USER_INT2_Handler
+                0x00000000000003a4        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003a4                USER_INT2_Handler
+ .text.USER_INT3_Handler
+                0x00000000000003a6        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003a6                USER_INT3_Handler
+ .text.USER_INT4_Handler
+                0x00000000000003a8        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003a8                USER_INT4_Handler
+ .text.USER_INT5_Handler
+                0x00000000000003aa        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003aa                USER_INT5_Handler
+ .text.UART0_Handler
+                0x00000000000003ac       0x28 ./usr/src/gw1ns4c_it.o
+                0x00000000000003ac                UART0_Handler
+ .text.UART1_Handler
+                0x00000000000003d4        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003d4                UART1_Handler
+ .text.TIMER0_Handler
+                0x00000000000003d6        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003d6                TIMER0_Handler
+ .text.TIMER1_Handler
+                0x00000000000003d8        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003d8                TIMER1_Handler
+ .text.I2C_Handler
+                0x00000000000003da        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003da                I2C_Handler
+ .text.RTC_Handler
+                0x00000000000003dc        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003dc                RTC_Handler
+ .text.PORT0_0_Handler
+                0x00000000000003de        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003de                PORT0_0_Handler
+ .text.PORT0_1_Handler
+                0x00000000000003e0        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003e0                PORT0_1_Handler
+ .text.PORT0_2_Handler
+                0x00000000000003e2        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003e2                PORT0_2_Handler
+ .text.PORT0_3_Handler
+                0x00000000000003e4        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003e4                PORT0_3_Handler
+ .text.PORT0_4_Handler
+                0x00000000000003e6        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003e6                PORT0_4_Handler
+ .text.PORT0_5_Handler
+                0x00000000000003e8        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003e8                PORT0_5_Handler
+ .text.PORT0_6_Handler
+                0x00000000000003ea        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003ea                PORT0_6_Handler
+ .text.PORT0_7_Handler
+                0x00000000000003ec        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003ec                PORT0_7_Handler
+ .text.PORT0_8_Handler
+                0x00000000000003ee        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003ee                PORT0_8_Handler
+ .text.PORT0_9_Handler
+                0x00000000000003f0        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003f0                PORT0_9_Handler
+ .text.PORT0_10_Handler
+                0x00000000000003f2        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003f2                PORT0_10_Handler
+ .text.PORT0_11_Handler
+                0x00000000000003f4        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003f4                PORT0_11_Handler
+ .text.PORT0_12_Handler
+                0x00000000000003f6        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003f6                PORT0_12_Handler
+ .text.PORT0_13_Handler
+                0x00000000000003f8        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003f8                PORT0_13_Handler
+ .text.PORT0_14_Handler
+                0x00000000000003fa        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003fa                PORT0_14_Handler
+ .text.PORT0_15_Handler
+                0x00000000000003fc        0x2 ./usr/src/gw1ns4c_it.o
+                0x00000000000003fc                PORT0_15_Handler
+ *fill*         0x00000000000003fe        0x2 
+ .text.GPIOInit
+                0x0000000000000400       0x30 ./usr/src/main.o
+                0x0000000000000400                GPIOInit
  .text.UartInit
-                0x0000000000000418       0x2c ./usr/src/main.o
-                0x0000000000000418                UartInit
+                0x0000000000000430       0x2c ./usr/src/main.o
+                0x0000000000000430                UartInit
  .text.nvicInit
-                0x0000000000000444       0x40 ./usr/src/main.o
-                0x0000000000000444                nvicInit
- .text.SPIInit  0x0000000000000484       0x14 ./usr/src/main.o
-                0x0000000000000484                SPIInit
+                0x000000000000045c       0x40 ./usr/src/main.o
+                0x000000000000045c                nvicInit
+ .text.SPIInit  0x000000000000049c       0x14 ./usr/src/main.o
+                0x000000000000049c                SPIInit
  .text.startup.main
-                0x0000000000000498       0x8c ./usr/src/main.o
-                0x0000000000000498                main
- .text.SCO_get  0x0000000000000524      0x12c ./usr/src/scd.o
- .text.SCO_VAR  0x0000000000000650      0x154 ./usr/src/scd.o
+                0x00000000000004b0       0xa4 ./usr/src/main.o
+                0x00000000000004b0                main
+ .text.SCO_get  0x0000000000000554      0x12c ./usr/src/scd.o
+ .text.SCO_VAR  0x0000000000000680      0x154 ./usr/src/scd.o
  .text.SCO_DEBUG
-                0x00000000000007a4       0x10 ./usr/src/scd.o
+                0x00000000000007d4       0x10 ./usr/src/scd.o
  .text.SCO_DUMP
-                0x00000000000007b4      0x1fc ./usr/src/scd.o
+                0x00000000000007e4      0x1fc ./usr/src/scd.o
  .text.SCO_PRINT
-                0x00000000000009b0       0x90 ./usr/src/scd.o
+                0x00000000000009e0       0x90 ./usr/src/scd.o
  .text._cz_strtoxl.constprop.0
-                0x0000000000000a40       0xc8 ./usr/src/scd.o
- .text.cz_atol  0x0000000000000b08        0x6 ./usr/src/scd.o
+                0x0000000000000a70       0xc8 ./usr/src/scd.o
+ .text.cz_atol  0x0000000000000b38        0x6 ./usr/src/scd.o
  .text.SCD_CMD_CONF
-                0x0000000000000b0e       0x1a ./usr/src/scd.o
+                0x0000000000000b3e       0x1a ./usr/src/scd.o
  .text.SCD_CMD_CHG
-                0x0000000000000b28       0x16 ./usr/src/scd.o
+                0x0000000000000b58       0x16 ./usr/src/scd.o
  .text.SCD_CMD_DUMP
-                0x0000000000000b3e       0x26 ./usr/src/scd.o
+                0x0000000000000b6e       0x26 ./usr/src/scd.o
  .text.SCD_CMD_CALL
-                0x0000000000000b64       0x22 ./usr/src/scd.o
- *fill*         0x0000000000000b86        0x2 
+                0x0000000000000b94       0x22 ./usr/src/scd.o
+ *fill*         0x0000000000000bb6        0x2 
  .text.SCD_CMD_SET
-                0x0000000000000b88      0x190 ./usr/src/scd.o
+                0x0000000000000bb8      0x190 ./usr/src/scd.o
  .text.SCD_Rev1Byte
-                0x0000000000000d18      0x188 ./usr/src/scd.o
-                0x0000000000000d18                SCD_Rev1Byte
+                0x0000000000000d48      0x188 ./usr/src/scd.o
+                0x0000000000000d48                SCD_Rev1Byte
  .text.scd_send1Byte
-                0x0000000000000ea0       0x44 ./usr/src/scd.o
-                0x0000000000000ea0                scd_send1Byte
+                0x0000000000000ed0       0x44 ./usr/src/scd.o
+                0x0000000000000ed0                scd_send1Byte
  .text.scd_init_1
-                0x0000000000000ee4       0x90 ./usr/src/scd_reg.o
-                0x0000000000000ee4                scd_init_1
- .text          0x0000000000000f74       0x80 ./usr/startup_gw1ns4c.o
-                0x0000000000000f74                Reset_Handler
-                0x0000000000000fc2                PORT0_COMB_Handler
-                0x0000000000000fcc                UARTOVF_Handler
-                0x0000000000000fd2                Spare15_Handler
- .text.SystemInit
-                0x0000000000000ff4       0x28 ./usr/sys/system_gw1ns4c.o
-                0x0000000000000ff4                SystemInit
- .text.exit     0x000000000000101c       0x24 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-exit.o)
-                0x000000000000101c                exit
- .text          0x0000000000001040      0x168 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_mulsf3.o)
-                0x0000000000001040                __aeabi_fmul
-                0x0000000000001040                __mulsf3
- .text          0x00000000000011a8      0x21c C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
-                0x00000000000011a8                __aeabi_frsub
-                0x00000000000011b0                __subsf3
-                0x00000000000011b0                __aeabi_fsub
-                0x00000000000011b4                __aeabi_fadd
-                0x00000000000011b4                __addsf3
-                0x0000000000001314                __aeabi_ui2f
-                0x0000000000001314                __floatunsisf
-                0x000000000000131c                __aeabi_i2f
-                0x000000000000131c                __floatsisf
-                0x0000000000001338                __aeabi_ul2f
-                0x0000000000001338                __floatundisf
-                0x0000000000001348                __aeabi_l2f
-                0x0000000000001348                __floatdisf
- .text          0x00000000000013c4       0x40 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunssfsi.o)
-                0x00000000000013c4                __fixunssfsi
-                0x00000000000013c4                __aeabi_f2uiz
- .text._exit    0x0000000000001404        0x2 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libnosys.a(_exit.o)
-                0x0000000000001404                _exit
+                0x0000000000000f14       0x90 ./usr/src/scd_reg.o
+                0x0000000000000f14                scd_init_1
+ .text          0x0000000000000fa4       0x90 ./usr/startup_gw1ns4c.o
+                0x0000000000000fa4                Reset_Handler
+                0x0000000000001002                PORT0_COMB_Handler
+                0x000000000000100c                UARTOVF_Handler
+                0x0000000000001012                Spare15_Handler
+ .text.exit     0x0000000000001034       0x24 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-exit.o)
+                0x0000000000001034                exit
+ .text.memcpy   0x0000000000001058       0x1c C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-memcpy-stub.o)
+                0x0000000000001058                memcpy
+ .text          0x0000000000001074      0x168 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_mulsf3.o)
+                0x0000000000001074                __aeabi_fmul
+                0x0000000000001074                __mulsf3
+ .text          0x00000000000011dc      0x21c C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+                0x00000000000011dc                __aeabi_frsub
+                0x00000000000011e4                __subsf3
+                0x00000000000011e4                __aeabi_fsub
+                0x00000000000011e8                __aeabi_fadd
+                0x00000000000011e8                __addsf3
+                0x0000000000001348                __aeabi_ui2f
+                0x0000000000001348                __floatunsisf
+                0x0000000000001350                __aeabi_i2f
+                0x0000000000001350                __floatsisf
+                0x000000000000136c                __aeabi_ul2f
+                0x000000000000136c                __floatundisf
+                0x000000000000137c                __aeabi_l2f
+                0x000000000000137c                __floatdisf
+ .text          0x00000000000013f8       0x40 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunssfsi.o)
+                0x00000000000013f8                __fixunssfsi
+                0x00000000000013f8                __aeabi_f2uiz
+ .text._exit    0x0000000000001438        0x2 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libnosys.a(_exit.o)
+                0x0000000000001438                _exit
  *(.init)
- *fill*         0x0000000000001406        0x2 
- .init          0x0000000000001408        0x4 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp/crti.o
-                0x0000000000001408                _init
+ *fill*         0x000000000000143a        0x2 
+ .init          0x000000000000143c        0x4 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp/crti.o
+                0x000000000000143c                _init
  *(.fini)
- .fini          0x000000000000140c        0x4 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp/crti.o
-                0x000000000000140c                _fini
+ .fini          0x0000000000001440        0x4 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp/crti.o
+                0x0000000000001440                _fini
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -1677,50 +1761,50 @@ END GROUP
  *(.dtors)
  *(.rodata*)
  .rodata.str1.1
-                0x0000000000001410       0x17 ./usr/src/scd.o
- .rodata        0x0000000000001427        0x5 ./usr/src/scd.o
+                0x0000000000001444       0x17 ./usr/src/scd.o
+ .rodata        0x000000000000145b        0x5 ./usr/src/scd.o
  .rodata.SCD_CMD_FCNS
-                0x000000000000142c       0x14 ./usr/src/scd.o
+                0x0000000000001460       0x14 ./usr/src/scd.o
  .rodata.SCD_CMD_TAB
-                0x0000000000001440       0x14 ./usr/src/scd.o
+                0x0000000000001474       0x14 ./usr/src/scd.o
  .rodata.SCD_PROTOCOL_FCNS
-                0x0000000000001454       0x14 ./usr/src/scd.o
+                0x0000000000001488       0x14 ./usr/src/scd.o
  .rodata.cz_ctype
-                0x0000000000001468      0x400 ./usr/src/scd.o
-                0x0000000000001468                cz_ctype
+                0x000000000000149c      0x400 ./usr/src/scd.o
+                0x000000000000149c                cz_ctype
  .rodata.tyj_unit_struct_1
-                0x0000000000001868       0x28 ./usr/src/scd_reg.o
-                0x0000000000001868                tyj_unit_struct_1
+                0x000000000000189c       0x28 ./usr/src/scd_reg.o
+                0x000000000000189c                tyj_unit_struct_1
  *(.eh_frame*)
 
-.glue_7         0x0000000000001890        0x0
- .glue_7        0x0000000000001890        0x0 linker stubs
+.glue_7         0x00000000000018c4        0x0
+ .glue_7        0x00000000000018c4        0x0 linker stubs
 
-.glue_7t        0x0000000000001890        0x0
- .glue_7t       0x0000000000001890        0x0 linker stubs
+.glue_7t        0x00000000000018c4        0x0
+ .glue_7t       0x00000000000018c4        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000001890        0x0
- .vfp11_veneer  0x0000000000001890        0x0 linker stubs
+.vfp11_veneer   0x00000000000018c4        0x0
+ .vfp11_veneer  0x00000000000018c4        0x0 linker stubs
 
-.v4_bx          0x0000000000001890        0x0
- .v4_bx         0x0000000000001890        0x0 linker stubs
+.v4_bx          0x00000000000018c4        0x0
+ .v4_bx         0x00000000000018c4        0x0 linker stubs
 
-.iplt           0x0000000000001890        0x0
- .iplt          0x0000000000001890        0x0 ./drivers/peripheral/gw1ns4c_uart.o
+.iplt           0x00000000000018c4        0x0
+ .iplt          0x00000000000018c4        0x0 ./drivers/peripheral/gw1ns4c_uart.o
 
-.rel.dyn        0x0000000000001890        0x0
- .rel.iplt      0x0000000000001890        0x0 ./drivers/peripheral/gw1ns4c_uart.o
+.rel.dyn        0x00000000000018c4        0x0
+ .rel.iplt      0x00000000000018c4        0x0 ./drivers/peripheral/gw1ns4c_uart.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000000001890                __exidx_start = .
+                0x00000000000018c4                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000000000001890                __exidx_end = .
-                0x0000000000001890                __etext = .
+                0x00000000000018c4                __exidx_end = .
+                0x00000000000018c4                __etext = LOADADDR (.data)
 
-.data           0x0000000020000000       0x24 load address 0x0000000000001890
+.data           0x0000000020000000       0x1c load address 0x00000000000018c4
                 0x0000000020000000                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -1735,82 +1819,86 @@ END GROUP
  .data.endBuff3_1
                 0x0000000020000010        0x4 ./usr/src/scd_reg.o
                 0x0000000020000010                endBuff3_1
- .data.HCLK     0x0000000020000014        0x4 ./usr/sys/system_gw1ns4c.o
-                0x0000000020000014                HCLK
- .data.PCLK1    0x0000000020000018        0x4 ./usr/sys/system_gw1ns4c.o
-                0x0000000020000018                PCLK1
- .data.PCLK2    0x000000002000001c        0x4 ./usr/sys/system_gw1ns4c.o
-                0x000000002000001c                PCLK2
+ .data.PCLK1    0x0000000020000014        0x4 ./usr/sys/system_gw1ns4c.o
+                0x0000000020000014                PCLK1
  .data.SystemCoreClock
-                0x0000000020000020        0x4 ./usr/sys/system_gw1ns4c.o
-                0x0000000020000020                SystemCoreClock
-                0x0000000020000024                . = ALIGN (0x4)
-                0x0000000020000024                PROVIDE (__preinit_array_start = .)
+                0x0000000020000018        0x4 ./usr/sys/system_gw1ns4c.o
+                0x0000000020000018                SystemCoreClock
+                0x000000002000001c                . = ALIGN (0x4)
+                0x000000002000001c                PROVIDE (__preinit_array_start = .)
  *(.preinit_array)
-                0x0000000020000024                PROVIDE (__preinit_array_end = .)
-                0x0000000020000024                . = ALIGN (0x4)
-                0x0000000020000024                PROVIDE (__init_array_start = .)
+                0x000000002000001c                PROVIDE (__preinit_array_end = .)
+                0x000000002000001c                . = ALIGN (0x4)
+                0x000000002000001c                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
-                0x0000000020000024                PROVIDE (__init_array_end = .)
-                0x0000000020000024                . = ALIGN (0x4)
+                0x000000002000001c                PROVIDE (__init_array_end = .)
+                0x000000002000001c                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array)
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0000000020000024                . = ALIGN (0x4)
-                0x0000000020000024                __data_end__ = .
+                0x000000002000001c                . = ALIGN (0x4)
+                0x000000002000001c                __data_end__ = .
 
-.igot.plt       0x0000000020000024        0x0 load address 0x00000000000018b4
- .igot.plt      0x0000000020000024        0x0 ./drivers/peripheral/gw1ns4c_uart.o
+.igot.plt       0x000000002000001c        0x0 load address 0x00000000000018e0
+ .igot.plt      0x000000002000001c        0x0 ./drivers/peripheral/gw1ns4c_uart.o
 
-.bss            0x0000000020000024       0xf8 load address 0x00000000000018b4
-                0x0000000020000024                . = ALIGN (0x4)
-                0x0000000020000024                __bss_start__ = .
+.bss            0x000000002000001c       0xf8 load address 0x00000000000018e0
+                0x000000002000001c                . = ALIGN (0x4)
+                0x000000002000001c                __bss_start__ = .
  *(.bss*)
  .bss.adcRawData
-                0x0000000020000024        0x2 ./usr/src/main.o
-                0x0000000020000024                adcRawData
+                0x000000002000001c        0x2 ./usr/src/main.o
+                0x000000002000001c                adcRawData
  .bss.dacRawData
-                0x0000000020000026        0x2 ./usr/src/main.o
-                0x0000000020000026                dacRawData
- .bss.initOk    0x0000000020000028        0x2 ./usr/src/main.o
-                0x0000000020000028                initOk
- *fill*         0x000000002000002a        0x2 
- .bss.ms_cnt    0x000000002000002c        0x4 ./usr/src/main.o
-                0x000000002000002c                ms_cnt
- .bss.voltAns   0x0000000020000030        0x4 ./usr/src/main.o
-                0x0000000020000030                voltAns
+                0x000000002000001e        0x2 ./usr/src/main.o
+                0x000000002000001e                dacRawData
+ .bss.initOk    0x0000000020000020        0x2 ./usr/src/main.o
+                0x0000000020000020                initOk
+ *fill*         0x0000000020000022        0x2 
+ .bss.ms_cnt    0x0000000020000024        0x4 ./usr/src/main.o
+                0x0000000020000024                ms_cnt
+ .bss.voltAns   0x0000000020000028        0x4 ./usr/src/main.o
+                0x0000000020000028                voltAns
  .bss.checkUint16Sum.0
-                0x0000000020000034        0x2 ./usr/src/scd.o
+                0x000000002000002c        0x2 ./usr/src/scd.o
  .bss.checkUint16Sum.1
-                0x0000000020000036        0x2 ./usr/src/scd.o
+                0x000000002000002e        0x2 ./usr/src/scd.o
  .bss.printBuff_1
-                0x0000000020000038       0x28 ./usr/src/scd_reg.o
-                0x0000000020000038                printBuff_1
+                0x0000000020000030       0x28 ./usr/src/scd_reg.o
+                0x0000000020000030                printBuff_1
  .bss.recBuff_1
-                0x0000000020000060       0x50 ./usr/src/scd_reg.o
-                0x0000000020000060                recBuff_1
- .bss.scd_1     0x00000000200000b0       0x68 ./usr/src/scd_reg.o
-                0x00000000200000b0                scd_1
+                0x0000000020000058       0x50 ./usr/src/scd_reg.o
+                0x0000000020000058                recBuff_1
+ .bss.scd_1     0x00000000200000a8       0x68 ./usr/src/scd_reg.o
+                0x00000000200000a8                scd_1
  .bss.__stdio_exit_handler
-                0x0000000020000118        0x4 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o)
-                0x0000000020000118                __stdio_exit_handler
+                0x0000000020000110        0x4 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o)
+                0x0000000020000110                __stdio_exit_handler
  *(COMMON)
-                0x000000002000011c                . = ALIGN (0x4)
-                0x000000002000011c                __bss_end__ = .
+                0x0000000020000114                . = ALIGN (0x4)
+                0x0000000020000114                __bss_end__ = .
+                0x00000000000018e0                __ramfuncsFlashStart = LOADADDR (.ramfuncs)
 
-.heap           0x0000000020000120      0x200
-                0x0000000020000120                __end__ = .
-                0x0000000020000120                end = __end__
+.ramfuncs       0x0000000020000114        0x0 load address 0x00000000000018e0
+                0x0000000020000114                . = ALIGN (0x4)
+                0x0000000020000114                __ramfuncs_start__ = .
+ *(.ramfuncs)
+                0x0000000020000114                __ramfuncs_end__ = .
+                0x0000000020000114                . = ALIGN (0x4)
+
+.heap           0x0000000020000118      0x200 load address 0x00000000000018e0
+                0x0000000020000118                __end__ = .
+                0x0000000020000118                end = __end__
  *(.heap*)
- .heap          0x0000000020000120      0x200 ./usr/startup_gw1ns4c.o
-                0x0000000020000120                __HeapBase
-                0x0000000020000320                __HeapLimit = .
+ .heap          0x0000000020000118      0x200 ./usr/startup_gw1ns4c.o
+                0x0000000020000118                __HeapBase
+                0x0000000020000318                __HeapLimit = .
 
-.stack_dummy    0x0000000020000120      0x800
+.stack_dummy    0x0000000020000118      0x800 load address 0x00000000000018e0
  *(.stack*)
- .stack         0x0000000020000120      0x800 ./usr/startup_gw1ns4c.o
+ .stack         0x0000000020000118      0x800 ./usr/startup_gw1ns4c.o
                 0x0000000020004000                __StackTop = (ORIGIN (RAM) + LENGTH (RAM))
                 0x0000000020003800                __StackLimit = (__StackTop - SIZEOF (.stack_dummy))
                 0x0000000020004000                PROVIDE (__stack = __StackTop)
@@ -1831,29 +1919,33 @@ LOAD linker stubs
  .ARM.attributes
                 0x00000000000000a4       0x2d ./drivers/peripheral/gw1ns4c_uart.o
  .ARM.attributes
-                0x00000000000000d1       0x2d ./usr/src/gw1ns4c_it.o
+                0x00000000000000d1       0x2d ./usr/src/delay.o
  .ARM.attributes
-                0x00000000000000fe       0x2d ./usr/src/main.o
+                0x00000000000000fe       0x2d ./usr/src/gw1ns4c_it.o
  .ARM.attributes
-                0x000000000000012b       0x2d ./usr/src/scd.o
+                0x000000000000012b       0x2d ./usr/src/main.o
  .ARM.attributes
-                0x0000000000000158       0x2d ./usr/src/scd_reg.o
+                0x0000000000000158       0x2d ./usr/src/scd.o
  .ARM.attributes
-                0x0000000000000185       0x1b ./usr/startup_gw1ns4c.o
+                0x0000000000000185       0x2d ./usr/src/scd_reg.o
  .ARM.attributes
-                0x00000000000001a0       0x2d ./usr/sys/system_gw1ns4c.o
+                0x00000000000001b2       0x1b ./usr/startup_gw1ns4c.o
  .ARM.attributes
-                0x00000000000001cd       0x2d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-exit.o)
+                0x00000000000001cd       0x2d ./usr/sys/system_gw1ns4c.o
  .ARM.attributes
-                0x00000000000001fa       0x2d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o)
+                0x00000000000001fa       0x2d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-exit.o)
  .ARM.attributes
-                0x0000000000000227       0x1d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_mulsf3.o)
+                0x0000000000000227       0x2d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o)
  .ARM.attributes
-                0x0000000000000244       0x1d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+                0x0000000000000254       0x2d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-memcpy-stub.o)
  .ARM.attributes
-                0x0000000000000261       0x1d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunssfsi.o)
+                0x0000000000000281       0x1d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_mulsf3.o)
  .ARM.attributes
-                0x000000000000027e       0x2d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libnosys.a(_exit.o)
+                0x000000000000029e       0x1d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+ .ARM.attributes
+                0x00000000000002bb       0x1d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunssfsi.o)
+ .ARM.attributes
+                0x00000000000002d8       0x2d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libnosys.a(_exit.o)
 
 .comment        0x0000000000000000       0x43
  .comment       0x0000000000000000       0x43 ./drivers/peripheral/gw1ns4c_gpio.o
@@ -1861,38 +1953,41 @@ LOAD linker stubs
  .comment       0x0000000000000043       0x44 ./drivers/peripheral/gw1ns4c_misc.o
  .comment       0x0000000000000043       0x44 ./drivers/peripheral/gw1ns4c_spi.o
  .comment       0x0000000000000043       0x44 ./drivers/peripheral/gw1ns4c_uart.o
+ .comment       0x0000000000000043       0x44 ./usr/src/delay.o
  .comment       0x0000000000000043       0x44 ./usr/src/gw1ns4c_it.o
  .comment       0x0000000000000043       0x44 ./usr/src/main.o
  .comment       0x0000000000000043       0x44 ./usr/src/scd.o
  .comment       0x0000000000000043       0x44 ./usr/src/scd_reg.o
  .comment       0x0000000000000043       0x44 ./usr/sys/system_gw1ns4c.o
 
-.debug_info     0x0000000000000000     0x44cb
+.debug_info     0x0000000000000000     0x4689
  .debug_info    0x0000000000000000      0x6a1 ./drivers/peripheral/gw1ns4c_gpio.o
  .debug_info    0x00000000000006a1      0x4c1 ./drivers/peripheral/gw1ns4c_misc.o
  .debug_info    0x0000000000000b62      0x401 ./drivers/peripheral/gw1ns4c_spi.o
  .debug_info    0x0000000000000f63      0x635 ./drivers/peripheral/gw1ns4c_uart.o
- .debug_info    0x0000000000001598      0x8c0 ./usr/src/gw1ns4c_it.o
- .debug_info    0x0000000000001e58      0xf5b ./usr/src/main.o
- .debug_info    0x0000000000002db3     0x1235 ./usr/src/scd.o
- .debug_info    0x0000000000003fe8      0x3c3 ./usr/src/scd_reg.o
- .debug_info    0x00000000000043ab       0x25 ./usr/startup_gw1ns4c.o
- .debug_info    0x00000000000043d0       0xfb ./usr/sys/system_gw1ns4c.o
+ .debug_info    0x0000000000001598      0x1f7 ./usr/src/delay.o
+ .debug_info    0x000000000000178f      0x89d ./usr/src/gw1ns4c_it.o
+ .debug_info    0x000000000000202c      0xf45 ./usr/src/main.o
+ .debug_info    0x0000000000002f71     0x1235 ./usr/src/scd.o
+ .debug_info    0x00000000000041a6      0x3c3 ./usr/src/scd_reg.o
+ .debug_info    0x0000000000004569       0x25 ./usr/startup_gw1ns4c.o
+ .debug_info    0x000000000000458e       0xfb ./usr/sys/system_gw1ns4c.o
 
-.debug_abbrev   0x0000000000000000     0x1152
+.debug_abbrev   0x0000000000000000     0x12aa
  .debug_abbrev  0x0000000000000000      0x1bf ./drivers/peripheral/gw1ns4c_gpio.o
  .debug_abbrev  0x00000000000001bf      0x1a5 ./drivers/peripheral/gw1ns4c_misc.o
  .debug_abbrev  0x0000000000000364      0x1ea ./drivers/peripheral/gw1ns4c_spi.o
  .debug_abbrev  0x000000000000054e      0x1ed ./drivers/peripheral/gw1ns4c_uart.o
- .debug_abbrev  0x000000000000073b      0x1cd ./usr/src/gw1ns4c_it.o
- .debug_abbrev  0x0000000000000908      0x348 ./usr/src/main.o
- .debug_abbrev  0x0000000000000c50      0x36d ./usr/src/scd.o
- .debug_abbrev  0x0000000000000fbd       0xf6 ./usr/src/scd_reg.o
- .debug_abbrev  0x00000000000010b3       0x14 ./usr/startup_gw1ns4c.o
- .debug_abbrev  0x00000000000010c7       0x8b ./usr/sys/system_gw1ns4c.o
+ .debug_abbrev  0x000000000000073b      0x177 ./usr/src/delay.o
+ .debug_abbrev  0x00000000000008b2      0x1bc ./usr/src/gw1ns4c_it.o
+ .debug_abbrev  0x0000000000000a6e      0x33a ./usr/src/main.o
+ .debug_abbrev  0x0000000000000da8      0x36d ./usr/src/scd.o
+ .debug_abbrev  0x0000000000001115       0xf6 ./usr/src/scd_reg.o
+ .debug_abbrev  0x000000000000120b       0x14 ./usr/startup_gw1ns4c.o
+ .debug_abbrev  0x000000000000121f       0x8b ./usr/sys/system_gw1ns4c.o
 
 .debug_loclists
-                0x0000000000000000     0x11ee
+                0x0000000000000000     0x124c
  .debug_loclists
                 0x0000000000000000      0x11c ./drivers/peripheral/gw1ns4c_gpio.o
  .debug_loclists
@@ -1902,11 +1997,13 @@ LOAD linker stubs
  .debug_loclists
                 0x0000000000000272      0x18a ./drivers/peripheral/gw1ns4c_uart.o
  .debug_loclists
-                0x00000000000003fc       0x73 ./usr/src/main.o
+                0x00000000000003fc       0x4f ./usr/src/delay.o
  .debug_loclists
-                0x000000000000046f      0xd7f ./usr/src/scd.o
+                0x000000000000044b       0x82 ./usr/src/main.o
+ .debug_loclists
+                0x00000000000004cd      0xd7f ./usr/src/scd.o
 
-.debug_aranges  0x0000000000000000      0x510
+.debug_aranges  0x0000000000000000      0x530
  .debug_aranges
                 0x0000000000000000       0xb8 ./drivers/peripheral/gw1ns4c_gpio.o
  .debug_aranges
@@ -1916,20 +2013,22 @@ LOAD linker stubs
  .debug_aranges
                 0x00000000000001d0       0xc0 ./drivers/peripheral/gw1ns4c_uart.o
  .debug_aranges
-                0x0000000000000290      0x148 ./usr/src/gw1ns4c_it.o
+                0x0000000000000290       0x30 ./usr/src/delay.o
  .debug_aranges
-                0x00000000000003d8       0x48 ./usr/src/main.o
+                0x00000000000002c0      0x140 ./usr/src/gw1ns4c_it.o
  .debug_aranges
-                0x0000000000000420       0x90 ./usr/src/scd.o
+                0x0000000000000400       0x40 ./usr/src/main.o
  .debug_aranges
-                0x00000000000004b0       0x20 ./usr/src/scd_reg.o
+                0x0000000000000440       0x90 ./usr/src/scd.o
  .debug_aranges
-                0x00000000000004d0       0x20 ./usr/startup_gw1ns4c.o
+                0x00000000000004d0       0x20 ./usr/src/scd_reg.o
  .debug_aranges
-                0x00000000000004f0       0x20 ./usr/sys/system_gw1ns4c.o
+                0x00000000000004f0       0x20 ./usr/startup_gw1ns4c.o
+ .debug_aranges
+                0x0000000000000510       0x20 ./usr/sys/system_gw1ns4c.o
 
 .debug_rnglists
-                0x0000000000000000      0x4c4
+                0x0000000000000000      0x4d4
  .debug_rnglists
                 0x0000000000000000       0x86 ./drivers/peripheral/gw1ns4c_gpio.o
  .debug_rnglists
@@ -1939,17 +2038,19 @@ LOAD linker stubs
  .debug_rnglists
                 0x000000000000014e       0x8b ./drivers/peripheral/gw1ns4c_uart.o
  .debug_rnglists
-                0x00000000000001d9       0xf2 ./usr/src/gw1ns4c_it.o
+                0x00000000000001d9       0x2b ./usr/src/delay.o
  .debug_rnglists
-                0x00000000000002cb       0x68 ./usr/src/main.o
+                0x0000000000000204       0xec ./usr/src/gw1ns4c_it.o
  .debug_rnglists
-                0x0000000000000333      0x16a ./usr/src/scd.o
+                0x00000000000002f0       0x53 ./usr/src/main.o
  .debug_rnglists
-                0x000000000000049d       0x14 ./usr/src/scd_reg.o
+                0x0000000000000343      0x16a ./usr/src/scd.o
  .debug_rnglists
-                0x00000000000004b1       0x13 ./usr/sys/system_gw1ns4c.o
+                0x00000000000004ad       0x14 ./usr/src/scd_reg.o
+ .debug_rnglists
+                0x00000000000004c1       0x13 ./usr/sys/system_gw1ns4c.o
 
-.debug_macro    0x0000000000000000     0x1bc8
+.debug_macro    0x0000000000000000     0x1db4
  .debug_macro   0x0000000000000000      0x100 ./drivers/peripheral/gw1ns4c_gpio.o
  .debug_macro   0x0000000000000100       0x22 ./drivers/peripheral/gw1ns4c_gpio.o
  .debug_macro   0x0000000000000122       0x22 ./drivers/peripheral/gw1ns4c_gpio.o
@@ -1969,31 +2070,34 @@ LOAD linker stubs
  .debug_macro   0x00000000000010bb       0x8e ./drivers/peripheral/gw1ns4c_spi.o
  .debug_macro   0x0000000000001149      0x100 ./drivers/peripheral/gw1ns4c_uart.o
  .debug_macro   0x0000000000001249       0x76 ./drivers/peripheral/gw1ns4c_uart.o
- .debug_macro   0x00000000000012bf      0x122 ./usr/src/gw1ns4c_it.o
- .debug_macro   0x00000000000013e1       0x46 ./usr/src/gw1ns4c_it.o
- .debug_macro   0x0000000000001427       0x46 ./usr/src/gw1ns4c_it.o
- .debug_macro   0x000000000000146d      0x118 ./usr/src/main.o
- .debug_macro   0x0000000000001585      0x178 ./usr/src/scd.o
- .debug_macro   0x00000000000016fd       0x40 ./usr/src/scd.o
- .debug_macro   0x000000000000173d       0x4c ./usr/src/scd.o
- .debug_macro   0x0000000000001789      0x147 ./usr/src/scd_reg.o
- .debug_macro   0x00000000000018d0       0x61 ./usr/src/scd_reg.o
- .debug_macro   0x0000000000001931      0x19b ./usr/src/scd_reg.o
- .debug_macro   0x0000000000001acc       0xfc ./usr/sys/system_gw1ns4c.o
+ .debug_macro   0x00000000000012bf      0x1cc ./usr/src/delay.o
+ .debug_macro   0x000000000000148b       0x61 ./usr/src/delay.o
+ .debug_macro   0x00000000000014ec       0x10 ./usr/src/delay.o
+ .debug_macro   0x00000000000014fc      0x12a ./usr/src/gw1ns4c_it.o
+ .debug_macro   0x0000000000001626       0x46 ./usr/src/gw1ns4c_it.o
+ .debug_macro   0x000000000000166c       0x46 ./usr/src/gw1ns4c_it.o
+ .debug_macro   0x00000000000016b2      0x120 ./usr/src/main.o
+ .debug_macro   0x00000000000017d2      0x178 ./usr/src/scd.o
+ .debug_macro   0x000000000000194a       0x40 ./usr/src/scd.o
+ .debug_macro   0x000000000000198a       0x4c ./usr/src/scd.o
+ .debug_macro   0x00000000000019d6      0x147 ./usr/src/scd_reg.o
+ .debug_macro   0x0000000000001b1d      0x19b ./usr/src/scd_reg.o
+ .debug_macro   0x0000000000001cb8       0xfc ./usr/sys/system_gw1ns4c.o
 
-.debug_line     0x0000000000000000     0x53d6
+.debug_line     0x0000000000000000     0x5b1d
  .debug_line    0x0000000000000000      0x99c ./drivers/peripheral/gw1ns4c_gpio.o
  .debug_line    0x000000000000099c      0x685 ./drivers/peripheral/gw1ns4c_misc.o
  .debug_line    0x0000000000001021      0x8d4 ./drivers/peripheral/gw1ns4c_spi.o
  .debug_line    0x00000000000018f5      0x8d3 ./drivers/peripheral/gw1ns4c_uart.o
- .debug_line    0x00000000000021c8      0xb79 ./usr/src/gw1ns4c_it.o
- .debug_line    0x0000000000002d41      0x7be ./usr/src/main.o
- .debug_line    0x00000000000034ff     0x130b ./usr/src/scd.o
- .debug_line    0x000000000000480a      0x593 ./usr/src/scd_reg.o
- .debug_line    0x0000000000004d9d       0x8a ./usr/startup_gw1ns4c.o
- .debug_line    0x0000000000004e27      0x5af ./usr/sys/system_gw1ns4c.o
+ .debug_line    0x00000000000021c8      0x791 ./usr/src/delay.o
+ .debug_line    0x0000000000002959      0xb61 ./usr/src/gw1ns4c_it.o
+ .debug_line    0x00000000000034ba      0x784 ./usr/src/main.o
+ .debug_line    0x0000000000003c3e     0x130b ./usr/src/scd.o
+ .debug_line    0x0000000000004f49      0x593 ./usr/src/scd_reg.o
+ .debug_line    0x00000000000054dc       0x92 ./usr/startup_gw1ns4c.o
+ .debug_line    0x000000000000556e      0x5af ./usr/sys/system_gw1ns4c.o
 
-.debug_str      0x0000000000000000     0xe595
+.debug_str      0x0000000000000000     0xe686
  .debug_str     0x0000000000000000     0x89d2 ./drivers/peripheral/gw1ns4c_gpio.o
                                        0x8b46 (size before relaxing)
  .debug_str     0x00000000000089d2      0x25e ./drivers/peripheral/gw1ns4c_misc.o
@@ -2002,35 +2106,39 @@ LOAD linker stubs
                                        0x8a82 (size before relaxing)
  .debug_str     0x0000000000008e78      0x2fa ./drivers/peripheral/gw1ns4c_uart.o
                                        0x8b6d (size before relaxing)
- .debug_str     0x0000000000009172      0x6a6 ./usr/src/gw1ns4c_it.o
-                                       0x9019 (size before relaxing)
- .debug_str     0x0000000000009818      0x31b ./usr/src/main.o
-                                       0x93c0 (size before relaxing)
- .debug_str     0x0000000000009b33      0x6a7 ./usr/src/scd.o
+ .debug_str     0x0000000000009172     0x3485 ./usr/src/delay.o
+                                       0xbd5b (size before relaxing)
+ .debug_str     0x000000000000c5f7      0x697 ./usr/src/gw1ns4c_it.o
+                                       0x900a (size before relaxing)
+ .debug_str     0x000000000000cc8e      0x311 ./usr/src/main.o
+                                       0x93d2 (size before relaxing)
+ .debug_str     0x000000000000cf9f      0x696 ./usr/src/scd.o
                                        0x471b (size before relaxing)
- .debug_str     0x000000000000a1da     0x432d ./usr/src/scd_reg.o
+ .debug_str     0x000000000000d635      0xfc8 ./usr/src/scd_reg.o
                                        0x8434 (size before relaxing)
- .debug_str     0x000000000000e507       0x25 ./usr/startup_gw1ns4c.o
+ .debug_str     0x000000000000e5fd       0x25 ./usr/startup_gw1ns4c.o
                                          0x4b (size before relaxing)
- .debug_str     0x000000000000e52c       0x69 ./usr/sys/system_gw1ns4c.o
+ .debug_str     0x000000000000e622       0x64 ./usr/sys/system_gw1ns4c.o
                                        0x8891 (size before relaxing)
 
-.debug_frame    0x0000000000000000      0xc30
+.debug_frame    0x0000000000000000      0xc70
  .debug_frame   0x0000000000000000      0x15c ./drivers/peripheral/gw1ns4c_gpio.o
  .debug_frame   0x000000000000015c       0x5c ./drivers/peripheral/gw1ns4c_misc.o
  .debug_frame   0x00000000000001b8      0x1a0 ./drivers/peripheral/gw1ns4c_spi.o
  .debug_frame   0x0000000000000358      0x168 ./drivers/peripheral/gw1ns4c_uart.o
- .debug_frame   0x00000000000004c0      0x294 ./usr/src/gw1ns4c_it.o
- .debug_frame   0x0000000000000754       0x9c ./usr/src/main.o
- .debug_frame   0x00000000000007f0      0x1d0 ./usr/src/scd.o
- .debug_frame   0x00000000000009c0       0x20 ./usr/src/scd_reg.o
- .debug_frame   0x00000000000009e0       0x30 ./usr/sys/system_gw1ns4c.o
- .debug_frame   0x0000000000000a10       0x28 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-exit.o)
- .debug_frame   0x0000000000000a38      0x144 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o)
- .debug_frame   0x0000000000000b7c       0x24 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_mulsf3.o)
- .debug_frame   0x0000000000000ba0       0x4c C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
- .debug_frame   0x0000000000000bec       0x24 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunssfsi.o)
- .debug_frame   0x0000000000000c10       0x20 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libnosys.a(_exit.o)
+ .debug_frame   0x00000000000004c0       0x40 ./usr/src/delay.o
+ .debug_frame   0x0000000000000500      0x27c ./usr/src/gw1ns4c_it.o
+ .debug_frame   0x000000000000077c       0x8c ./usr/src/main.o
+ .debug_frame   0x0000000000000808      0x1d0 ./usr/src/scd.o
+ .debug_frame   0x00000000000009d8       0x20 ./usr/src/scd_reg.o
+ .debug_frame   0x00000000000009f8       0x30 ./usr/sys/system_gw1ns4c.o
+ .debug_frame   0x0000000000000a28       0x28 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-exit.o)
+ .debug_frame   0x0000000000000a50      0x144 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .debug_frame   0x0000000000000b94       0x28 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-memcpy-stub.o)
+ .debug_frame   0x0000000000000bbc       0x24 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_mulsf3.o)
+ .debug_frame   0x0000000000000be0       0x4c C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+ .debug_frame   0x0000000000000c2c       0x24 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunssfsi.o)
+ .debug_frame   0x0000000000000c50       0x20 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libnosys.a(_exit.o)
 
 .debug_line_str
                 0x0000000000000000       0x3f

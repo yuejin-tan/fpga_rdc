@@ -153,7 +153,9 @@ Reset_Handler:
     bgt    .LC0
 .LC1:
 
-#ifdef __STARTUP_CLEAR_BSS
+#if 1
+// same as ti
+
 //    This part of work usually is done in C library startup code. Otherwise,
 //      define this macro to enable it in this startup.
 // 
@@ -171,13 +173,14 @@ Reset_Handler:
     itt    lt
     strlt   r0, [r1], #4
     blt    .LC2
-#endif //__STARTUP_CLEAR_BSS
 
-#ifndef __NO_SYSTEM_INIT
-    // bl    SystemInit
-    ldr     r0,=SystemInit
-    blx     r0
-#endif
+#endif // STARTUP CLEAR BSS
+
+// #ifndef __NO_SYSTEM_INIT
+//     // bl    SystemInit
+//     ldr     r0,=SystemInit
+//     blx     r0
+// #endif
 
     bl    main
     bl    exit
@@ -244,11 +247,6 @@ Reset_Handler:
     def_default_handler    PORT0_13_Handler
     def_default_handler    PORT0_14_Handler
     def_default_handler    PORT0_15_Handler
-
-    //
-    // def_default_handler    Default_Handler
-    //.weak    DEF_IRQHandler
-    //.set    DEF_IRQHandler, Default_Handler
 
     .end
 

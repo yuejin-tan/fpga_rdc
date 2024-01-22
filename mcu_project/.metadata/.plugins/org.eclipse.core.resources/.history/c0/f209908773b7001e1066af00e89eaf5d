@@ -1,4 +1,0 @@
-../drivers/peripheral/gw1ns4c_misc.c:74:6:NVIC_PriorityGroupConfig	0	static
-../drivers/peripheral/gw1ns4c_misc.c:85:6:NVIC_Init	0	static
-../drivers/peripheral/gw1ns4c_misc.c:122:6:NVIC_SetVectorTable	0	static
-../drivers/peripheral/gw1ns4c_misc.c:132:6:SysTick_CLKSourceConfig	0	static

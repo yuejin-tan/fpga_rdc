@@ -22,7 +22,12 @@
         "stm32f4xx_hal.h": "c",
         "stdio.h": "c",
         "beep.h": "c",
-        "math.h": "c"
+        "math.h": "c",
+        "gw1ns4c.h": "c",
+        "string.h": "c",
+        "delay.h": "c",
+        "stdint.h": "c",
+        "system_gw1ns4c.h": "c"
     },
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#1073cf2d",

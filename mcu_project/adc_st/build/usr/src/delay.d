@@ -1,4 +1,5 @@
-usr/src/main.o: ../usr/src/main.c \
+usr/src/delay.o: ../usr/src/delay.c ../usr/src/delay.h \
+ D:/fpga/proj/mcu_project/adc_st/usr/sys/system_gw1ns4c.h \
  D:/fpga/proj/mcu_project/adc_st/usr/sys/gw1ns4c.h \
  D:/fpga/proj/mcu_project/adc_st/drivers/core/core_cm3.h \
  D:/fpga/proj/mcu_project/adc_st/usr/sys/system_gw1ns4c.h \
@@ -11,10 +12,9 @@ usr/src/main.o: ../usr/src/main.c \
  D:/fpga/proj/mcu_project/adc_st/drivers/peripheral/gw1ns4c_i2c.h \
  D:/fpga/proj/mcu_project/adc_st/drivers/peripheral/gw1ns4c_misc.h \
  D:/fpga/proj/mcu_project/adc_st/drivers/peripheral/gw1ns4c_syscon.h \
- D:/fpga/proj/mcu_project/adc_st/drivers/peripheral/gw1ns4c_rtc.h \
- ../usr/src/main.h ../usr/src/scd_inc.h ../usr/src/scd_cfg.h \
- ../usr/src/delay.h \
- D:/fpga/proj/mcu_project/adc_st/usr/sys/system_gw1ns4c.h
+ D:/fpga/proj/mcu_project/adc_st/drivers/peripheral/gw1ns4c_rtc.h
+../usr/src/delay.h:
+D:/fpga/proj/mcu_project/adc_st/usr/sys/system_gw1ns4c.h:
 D:/fpga/proj/mcu_project/adc_st/usr/sys/gw1ns4c.h:
 D:/fpga/proj/mcu_project/adc_st/drivers/core/core_cm3.h:
 D:/fpga/proj/mcu_project/adc_st/usr/sys/system_gw1ns4c.h:
@@ -28,8 +28,3 @@ D:/fpga/proj/mcu_project/adc_st/drivers/peripheral/gw1ns4c_i2c.h:
 D:/fpga/proj/mcu_project/adc_st/drivers/peripheral/gw1ns4c_misc.h:
 D:/fpga/proj/mcu_project/adc_st/drivers/peripheral/gw1ns4c_syscon.h:
 D:/fpga/proj/mcu_project/adc_st/drivers/peripheral/gw1ns4c_rtc.h:
-../usr/src/main.h:
-../usr/src/scd_inc.h:
-../usr/src/scd_cfg.h:
-../usr/src/delay.h:
-D:/fpga/proj/mcu_project/adc_st/usr/sys/system_gw1ns4c.h:

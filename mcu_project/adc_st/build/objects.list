@@ -9,6 +9,7 @@
 "./drivers/peripheral/gw1ns4c_timer.o"
 "./drivers/peripheral/gw1ns4c_uart.o"
 "./drivers/peripheral/gw1ns4c_wdog.o"
+"./usr/src/delay.o"
 "./usr/src/gw1ns4c_it.o"
 "./usr/src/main.o"
 "./usr/src/scd.o"

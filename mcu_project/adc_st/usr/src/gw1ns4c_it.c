@@ -69,6 +69,11 @@ void PendSV_Handler(void)
     }
 }
 
+void delay_c(volatile uint32_t cycles)
+{
+    while (--cycles);
+}
+
 void SysTick_Handler(void)
 {
     ms_cnt++;
@@ -79,6 +84,13 @@ void SysTick_Handler(void)
         adcRawData |= SPI_ReadWriteByte(0);
         SPI_Select_Slave(0);
         voltAns = ((int32_t)adcRawData - (int32_t)0x8000) * 375e-6f;
+
+        GPIO_ResetBit(GPIO0, GPIO_Pin_1);
+        dacRawData = voltTar * (1023.0f / 5.0f);
+        dacRawData <<= 2;
+        SPI_ReadWriteByte((dacRawData & 0xff00u) >> 8);
+        SPI_ReadWriteByte((dacRawData & 0xffu));
+        GPIO_SetBit(GPIO0, GPIO_Pin_1);
     }
 }
 

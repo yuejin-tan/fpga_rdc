@@ -25,28 +25,12 @@
  ******************************************************************************************
  */
 
-/** @addtogroup CMSIS
-  * @{
-  */
-
-/** @addtogroup GW1NS4C
-  * @{
-  */
-
 #ifndef __GW1NS4C_H
 #define __GW1NS4C_H
 
 #ifdef __cplusplus
 	extern "C" {
 #endif
-
-/**
-  * @}
-  */
-
-/** @addtogroup Configuration_section_for_CMSIS
-  * @{
-  */
 
 /* 
  * Configuration of the Cortex-M3 Processor and Core Peripherals
@@ -109,16 +93,8 @@ typedef enum IRQn
   PORT0_15_IRQn                 = 31       /*! PORT0_15 Interrupt                   */
 }IRQn_Type;
 
-/**
-  * @}
-  */
-
 #include "core_cm3.h"               /* Cortex-M3 processor and core peripherals         */
 #include "system_gw1ns4c.h"         /* GW1NS-4C System include file                      */
-
-/** @addtogroup Exported_types
-  * @{
-  */
 
 typedef enum
 {
@@ -137,14 +113,6 @@ typedef enum
   ERROR = 0,
   SUCCESS = !ERROR
 }ErrorStatus;
-
-/**
-  * @}
-  */
-
-/** @addtogroup Peripheral_registers_structures
-  * @{
-  */
 
 /* --------------------  Begin of section using anonymous unions  ------------------- */
 #if defined ( __CC_ARM   )
@@ -301,14 +269,6 @@ typedef struct
   #warning Not supported compiler type
 #endif
 
-/**
-  * @}
-  */
-
-/** @addtogroup Peripheral_memory_map
-  * @{
-  */
-
 /* Peripheral and SRAM base address */
 #define FLASH_BASE        ((uint32_t)0x00000000)   /*!< (FLASH     ) Base Address */
 #define SRAM_BASE         ((uint32_t)0x20000000)   /*!< (SRAM      ) Base Address */
@@ -349,14 +309,6 @@ typedef struct
 #define APB2MASTER11_BASE  (APB2PERIPH_BASE + 0xE00)	/* !< APB2 Master 11 Base Address */
 #define APB2MASTER12_BASE  (APB2PERIPH_BASE + 0xF00)	/* !< APB2 Master 12 Base Address */
 
-/**
-  * @}
-  */
-  
-/** @addtogroup Peripheral_declaration
-  * @{
-  */
-
 /******************************************************************************/
 /*                         Peripheral declaration                             */
 /******************************************************************************/
@@ -373,14 +325,6 @@ typedef struct
 #define I2C               ((I2C_TypeDef    *) I2C_BASE)           //Soft-Core Extended           
 #define SPI               ((SPI_TypeDef    *) SPI_BASE)           //Soft-Core Extended
 
-/**
-  * @}
-  */
-
-/** @addtogroup Peripheral_Registers_Bits_Definition
-  * @{
-  */
- 
 /******************************************************************************/
 /*                         Peripheral Registers_Bits_Definition               */
 /******************************************************************************/
@@ -564,10 +508,6 @@ typedef struct
 #define SPI_STATUS_RRDY            ((uint32_t) 0x00000040)    /* Receive Ready          */
 #define SPI_STATUS_ERR             ((uint32_t) 0x00000080)    /* Error                  */
 
-/**
-  * @}
-  */
-
 /*-------------------------------Include peripherals---------------------------------*/
 #include "gw1ns4c_conf.h"
 
@@ -576,13 +516,5 @@ typedef struct
 #endif
 
 #endif /* __GW1NS4C_H */
-
-/**
-  * @}
-  */
-
-  /**
-  * @}
-  */
 
 /************************GowinSemiconductor******END OF FILE*******************/

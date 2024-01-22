@@ -23,6 +23,8 @@ module top_hdl(
     input adcSdo1,
     input adcRvs,
 
+    input dacDout,
+
     //Outputs
     output reg outLed,
 
@@ -30,6 +32,10 @@ module top_hdl(
     output wire adcCs,
     output wire adcSclk,
     output wire adcSdi,
+
+    output wire dacDin,
+    output wire dacSclk,
+    output reg dacCs,
 
     output wire uart0txd
 );
@@ -44,8 +50,6 @@ localparam LED_OFF     = !LED_ON;
 
 localparam LED_PERIOD1 = 27_000_000 / 2 ;      //500ms=27_000_000/2
 localparam LED_PERIOD2 = 27_000_000 / 10;      //100ms=27_000_000/10
-//localparam LED_PERIOD1 = 100;      //simulation
-//localparam LED_PERIOD2 = 200;      //simulation
 
 //3.reg
 reg [31:0] cnt;
@@ -55,21 +59,22 @@ reg out2;
 wire [31:0] CNT_MAX = (in2 == KEY_PRESS) ? LED_PERIOD2 : LED_PERIOD1;
 wire clk_72M;
 
-wire uart0txd;
-
 wire [15:0] gpioout_o;
 wire [15:0] gpioouten_o;
 
-wire nvic_int0 = 0'b0;
+wire nvic_int0 = 1'b0;
 
 initial begin
 
 cnt = 32'b0;
-adcReset = 0'b0;
+adcReset = 1'b0;
+dacCs = 1'b0;
 
 end
 
 //5.assign
+assign dacDin = adcSdi;
+assign dacSclk = adcSclk;
 
 //6.always
 always @ (posedge clk) begin
@@ -95,6 +100,7 @@ always @ (posedge clk) begin
 //    outLed <= gpioout_o[0];
     outLed <= out2;
     adcReset <= gpioout_o[0];
+    dacCs <= gpioout_o[1];
 end
 
 //7.instance
@@ -105,6 +111,7 @@ Gowin_PLLVR PLL1_72M(
 
 Gowin_EMPU_Top CortexM3_8K_32K(
     .sys_clk(clk_72M), //input sys_clk
+//    .sys_clk(clk), //input sys_clk
     .gpioin({15'h0000,in2}), //input [15:0] gpioin
     .gpioout(gpioout_o), //output [15:0] gpioout
     .gpioouten(gpioouten_o), //output [15:0] gpioouten

@@ -9,7 +9,7 @@
   "SubInsts" : [
    {
     "InstFile" : "D:/fpga/proj/fpga_project/src/top.v",
-    "InstLine" : 106,
+    "InstLine" : 112,
     "InstName" : "CortexM3_8K_32K",
     "ModuleFile" : "D:/fpga/proj/fpga_project/src/gowin_empu/gowin_empu.v",
     "ModuleLine" : 1,
@@ -17,7 +17,7 @@
    },
    {
     "InstFile" : "D:/fpga/proj/fpga_project/src/top.v",
-    "InstLine" : 101,
+    "InstLine" : 107,
     "InstName" : "PLL1_72M",
     "ModuleFile" : "D:/fpga/proj/fpga_project/src/gowin_pllvr/gowin_pllvr.v",
     "ModuleLine" : 9,

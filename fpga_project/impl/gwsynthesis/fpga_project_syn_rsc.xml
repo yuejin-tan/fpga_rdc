@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="top_hdl" Register="173" Alu="31" Lut="202" Bsram="8">
+<Module name="top_hdl" Register="174" Alu="31" Lut="202" Bsram="8">
  <SubModule name="PLL1_72M"/>
 </Module>

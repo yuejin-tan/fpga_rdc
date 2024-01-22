@@ -8,20 +8,23 @@ void GPIOInit(void)
 {
     GPIO_InitTypeDef GPIO_InitType;
 
-    GPIO_InitType.GPIO_Pin = GPIO_Pin_0;
+    GPIO_InitType.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
     GPIO_InitType.GPIO_Mode = GPIO_Mode_OUT;
     GPIO_InitType.GPIO_Int = GPIO_Int_Disable;
 
     GPIO_Init(GPIO0, &GPIO_InitType);
 
+    // pin0 adcReset
     GPIO_ResetBit(GPIO0, GPIO_Pin_0);
+    // pin1 dacCs
+    GPIO_SetBit(GPIO0, GPIO_Pin_1);
 
 }
 
 //delay ms
 void delay_ms(uint32_t delay_ms)
 {
-    delay_ms *= 10;
+    // delay_ms *= 10;
     for (uint32_t i = 0;i < delay_ms;i++)
     {
         while ((SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk) == 0)
@@ -87,13 +90,16 @@ uint16_t adcRawData;
 uint32_t ms_cnt;
 uint16_t initOk = 0;
 
+float voltTar = 2.5f;
+uint16_t dacRawData;
+
 
 int main(void)
 {
     SystemInit();
     nvicInit();
     UartInit();
-    SysTick_Config(7200ul - 1ul);
+    SysTick_Config(72000ul - 1ul);
     GPIOInit();
     SPIInit();
 

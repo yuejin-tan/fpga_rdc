@@ -2,7 +2,7 @@
 //All rights reserved.
 //File Title: Post-PnR Simulation Model file
 //GOWIN Version: V1.9.9 Beta-4 Education
-//Created Time: Sat Jan 20 21:16:06 2024
+//Created Time: Mon Jan 22 15:01:21 2024
 
 `timescale 100 ps/100 ps
 module Gowin_EMPU_Top(
@@ -10,11 +10,6 @@ module Gowin_EMPU_Top(
 	gpioin,
 	uart0_rxd,
 	miso,
-	master_hrdata,
-	master_hreadyout,
-	master_hresp,
-	master_hexresp,
-	master_hruser,
 	user_int_0,
 	reset_n,
 	gpioout,
@@ -22,34 +17,12 @@ module Gowin_EMPU_Top(
 	uart0_txd,
 	mosi,
 	sclk,
-	nss,
-	master_hclk,
-	master_hrst,
-	master_hsel,
-	master_haddr,
-	master_htrans,
-	master_hwrite,
-	master_hsize,
-	master_hburst,
-	master_hprot,
-	master_hmemattr,
-	master_hexreq,
-	master_hmaster,
-	master_hwdata,
-	master_hmastlock,
-	master_hreadymux,
-	master_hauser,
-	master_hwuser
+	nss
 );
 input sys_clk;
 input [15:0] gpioin;
 input uart0_rxd;
 input miso;
-input [31:0] master_hrdata;
-input master_hreadyout;
-input master_hresp;
-input master_hexresp;
-input [2:0] master_hruser;
 input user_int_0;
 input reset_n;
 output [15:0] gpioout;
@@ -58,50 +31,11 @@ output uart0_txd;
 output mosi;
 output sclk;
 output nss;
-output master_hclk;
-output master_hrst;
-output master_hsel;
-output [31:0] master_haddr;
-output [1:0] master_htrans;
-output master_hwrite;
-output [2:0] master_hsize;
-output [2:0] master_hburst;
-output [3:0] master_hprot;
-output [1:0] master_hmemattr;
-output master_hexreq;
-output [3:0] master_hmaster;
-output [31:0] master_hwdata;
-output master_hmastlock;
-output master_hreadymux;
-output master_hauser;
-output [3:0] master_hwuser;
 wire GND;
 wire VCC;
 wire [15:0] gpioin;
 wire [15:0] gpioout;
 wire [15:0] gpioouten;
-wire [31:0] master_haddr;
-wire master_hauser;
-wire [2:0] master_hburst;
-wire master_hclk;
-wire master_hexreq;
-wire master_hexresp;
-wire [3:0] master_hmaster;
-wire master_hmastlock;
-wire [1:0] master_hmemattr;
-wire [3:0] master_hprot;
-wire [31:0] master_hrdata;
-wire master_hreadymux;
-wire master_hreadyout;
-wire master_hresp;
-wire master_hrst;
-wire [2:0] master_hruser;
-wire master_hsel;
-wire [2:0] master_hsize;
-wire [1:0] master_htrans;
-wire [31:0] master_hwdata;
-wire master_hwrite;
-wire [3:0] master_hwuser;
 wire miso;
 wire mosi;
 wire nss;
@@ -115,9 +49,16 @@ wire \Gowin_EMPU_inst/uart1_txd ;
 wire \Gowin_EMPU_inst/u_emcu_top_310_UART0BAUDTICK ;
 wire \Gowin_EMPU_inst/u_emcu_top_310_UART1BAUDTICK ;
 wire \Gowin_EMPU_inst/u_emcu_top_310_INTMONITOR ;
+wire \Gowin_EMPU_inst/ye ;
 wire \Gowin_EMPU_inst/sram0_cs ;
 wire \Gowin_EMPU_inst/targflash0_hsel ;
 wire \Gowin_EMPU_inst/targflash0_hreadymux ;
+wire \Gowin_EMPU_inst/targexp0_hsel ;
+wire \Gowin_EMPU_inst/targexp0_hwrite ;
+wire \Gowin_EMPU_inst/targexp0_exreq ;
+wire \Gowin_EMPU_inst/targexp0_hmastlock ;
+wire \Gowin_EMPU_inst/targexp0_hreadymux ;
+wire \Gowin_EMPU_inst/targexp0_hauser ;
 wire \Gowin_EMPU_inst/initexp0_hready ;
 wire \Gowin_EMPU_inst/initexp0_hresp ;
 wire \Gowin_EMPU_inst/initexp0_exresp ;
@@ -147,6 +88,15 @@ wire [28:0] \Gowin_EMPU_inst/TARGFLASH0HADDR ;
 wire [0:0] \Gowin_EMPU_inst/TARGFLASH0HTRANS ;
 wire [2:0] \Gowin_EMPU_inst/TARGFLASH0HSIZE ;
 wire [2:0] \Gowin_EMPU_inst/TARGFLASH0HBURST ;
+wire [31:0] \Gowin_EMPU_inst/TARGEXP0HADDR ;
+wire [1:0] \Gowin_EMPU_inst/TARGEXP0HTRANS ;
+wire [2:0] \Gowin_EMPU_inst/TARGEXP0HSIZE ;
+wire [2:0] \Gowin_EMPU_inst/TARGEXP0HBURST ;
+wire [3:0] \Gowin_EMPU_inst/TARGEXP0HPROT ;
+wire [1:0] \Gowin_EMPU_inst/TARGEXP0MEMATTR ;
+wire [3:0] \Gowin_EMPU_inst/TARGEXP0HMASTER ;
+wire [31:0] \Gowin_EMPU_inst/TARGEXP0HWDATA ;
+wire [3:0] \Gowin_EMPU_inst/TARGEXP0HWUSER ;
 wire [31:0] \Gowin_EMPU_inst/INITEXP0HRDATA ;
 wire [2:0] \Gowin_EMPU_inst/INITEXP0HRUSER ;
 wire [3:0] \Gowin_EMPU_inst/APBTARGEXP2PSTRB ;
@@ -382,10 +332,6 @@ GND GND_cZ (
 GSR \Gowin_EMPU_inst/sys_reset  (
 	.GSRI(reset_n)
 );
-OBUF gowin_buf_0 (
-	.I(sys_clk),
-	.O(master_hclk)
-);
 EMCU \Gowin_EMPU_inst/u_emcu_top  (
 	.FCLK(sys_clk),
 	.PORESETN(reset_n),
@@ -396,9 +342,9 @@ EMCU \Gowin_EMPU_inst/u_emcu_top  (
 	.TARGFLASH0HRESP(GND),
 	.TARGFLASH0EXRESP(GND),
 	.TARGFLASH0HREADYOUT(\Gowin_EMPU_inst/targflash0_readyout ),
-	.TARGEXP0HREADYOUT(master_hreadyout),
-	.TARGEXP0HRESP(master_hresp),
-	.TARGEXP0EXRESP(master_hexresp),
+	.TARGEXP0HREADYOUT(GND),
+	.TARGEXP0HRESP(VCC),
+	.TARGEXP0EXRESP(GND),
 	.INITEXP0HSEL(GND),
 	.INITEXP0HWRITE(GND),
 	.INITEXP0EXREQ(GND),
@@ -417,8 +363,8 @@ EMCU \Gowin_EMPU_inst/u_emcu_top  (
 	.SRAM0RDATA({\Gowin_EMPU_inst/sram0_rdata [31:0]}),
 	.TARGFLASH0HRDATA({\Gowin_EMPU_inst/targflash0_hrdata [31:0]}),
 	.TARGFLASH0HRUSER({GND, GND, GND}),
-	.TARGEXP0HRDATA({master_hrdata[31:0]}),
-	.TARGEXP0HRUSER({master_hruser[2:0]}),
+	.TARGEXP0HRDATA({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND}),
+	.TARGEXP0HRUSER({GND, GND, GND}),
 	.INITEXP0HADDR({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND}),
 	.INITEXP0HSIZE({GND, GND, GND}),
 	.INITEXP0HBURST({GND, GND, GND}),
@@ -436,15 +382,15 @@ EMCU \Gowin_EMPU_inst/u_emcu_top  (
 	.UART1BAUDTICK(\Gowin_EMPU_inst/u_emcu_top_310_UART1BAUDTICK ),
 	.INTMONITOR(\Gowin_EMPU_inst/u_emcu_top_310_INTMONITOR ),
 	.SRAM0CS(\Gowin_EMPU_inst/sram0_cs ),
-	.MTXHRESETN(master_hrst),
+	.MTXHRESETN(\Gowin_EMPU_inst/ye ),
 	.TARGFLASH0HSEL(\Gowin_EMPU_inst/targflash0_hsel ),
 	.TARGFLASH0HREADYMUX(\Gowin_EMPU_inst/targflash0_hreadymux ),
-	.TARGEXP0HSEL(master_hsel),
-	.TARGEXP0HWRITE(master_hwrite),
-	.TARGEXP0EXREQ(master_hexreq),
-	.TARGEXP0HMASTLOCK(master_hmastlock),
-	.TARGEXP0HREADYMUX(master_hreadymux),
-	.TARGEXP0HAUSER(master_hauser),
+	.TARGEXP0HSEL(\Gowin_EMPU_inst/targexp0_hsel ),
+	.TARGEXP0HWRITE(\Gowin_EMPU_inst/targexp0_hwrite ),
+	.TARGEXP0EXREQ(\Gowin_EMPU_inst/targexp0_exreq ),
+	.TARGEXP0HMASTLOCK(\Gowin_EMPU_inst/targexp0_hmastlock ),
+	.TARGEXP0HREADYMUX(\Gowin_EMPU_inst/targexp0_hreadymux ),
+	.TARGEXP0HAUSER(\Gowin_EMPU_inst/targexp0_hauser ),
 	.INITEXP0HREADY(\Gowin_EMPU_inst/initexp0_hready ),
 	.INITEXP0HRESP(\Gowin_EMPU_inst/initexp0_hresp ),
 	.INITEXP0EXRESP(\Gowin_EMPU_inst/initexp0_exresp ),
@@ -464,14 +410,14 @@ EMCU \Gowin_EMPU_inst/u_emcu_top  (
 	.TARGFLASH0HTRANS({\Gowin_EMPU_inst/targflash0_htrans [1], \Gowin_EMPU_inst/TARGFLASH0HTRANS [0]}),
 	.TARGFLASH0HSIZE({\Gowin_EMPU_inst/TARGFLASH0HSIZE [2:0]}),
 	.TARGFLASH0HBURST({\Gowin_EMPU_inst/TARGFLASH0HBURST [2:0]}),
-	.TARGEXP0HADDR({master_haddr[31:0]}),
-	.TARGEXP0HTRANS({master_htrans[1:0]}),
-	.TARGEXP0MEMATTR({master_hmemattr[1:0]}),
-	.TARGEXP0HSIZE({master_hsize[2:0]}),
-	.TARGEXP0HPROT({master_hprot[3:0]}),
-	.TARGEXP0HMASTER({master_hmaster[3:0]}),
-	.TARGEXP0HWDATA({master_hwdata[31:0]}),
-	.TARGEXP0HWUSER({master_hwuser[3:0]}),
+	.TARGEXP0HADDR({\Gowin_EMPU_inst/TARGEXP0HADDR [31:0]}),
+	.TARGEXP0HTRANS({\Gowin_EMPU_inst/TARGEXP0HTRANS [1:0]}),
+	.TARGEXP0MEMATTR({\Gowin_EMPU_inst/TARGEXP0MEMATTR [1:0]}),
+	.TARGEXP0HSIZE({\Gowin_EMPU_inst/TARGEXP0HSIZE [2:0]}),
+	.TARGEXP0HPROT({\Gowin_EMPU_inst/TARGEXP0HPROT [3:0]}),
+	.TARGEXP0HMASTER({\Gowin_EMPU_inst/TARGEXP0HMASTER [3:0]}),
+	.TARGEXP0HWDATA({\Gowin_EMPU_inst/TARGEXP0HWDATA [31:0]}),
+	.TARGEXP0HWUSER({\Gowin_EMPU_inst/TARGEXP0HWUSER [3:0]}),
 	.INITEXP0HRDATA({\Gowin_EMPU_inst/INITEXP0HRDATA [31:0]}),
 	.INITEXP0HRUSER({\Gowin_EMPU_inst/INITEXP0HRUSER [2:0]}),
 	.APBTARGEXP2PSTRB({\Gowin_EMPU_inst/APBTARGEXP2PSTRB [3:0]}),
@@ -479,7 +425,7 @@ EMCU \Gowin_EMPU_inst/u_emcu_top  (
 	.APBTARGEXP2PADDR({\Gowin_EMPU_inst/apbtargexp2_paddr [11:2], \Gowin_EMPU_inst/APBTARGEXP2PADDR [1:0]}),
 	.APBTARGEXP2PWDATA({\Gowin_EMPU_inst/APBTARGEXP2PWDATA [31:13], \Gowin_EMPU_inst/apbtargexp2_pwdata [12], \Gowin_EMPU_inst/APBTARGEXP2PWDATA [11], \Gowin_EMPU_inst/apbtargexp2_pwdata [10:0]}),
 	.TPIUTRACEDATA({\Gowin_EMPU_inst/TPIUTRACEDATA [3:0]}),
-	.TARGEXP0HBURST({master_hburst[2:0]})
+	.TARGEXP0HBURST({\Gowin_EMPU_inst/TARGEXP0HBURST [2:0]})
 );
 LUT3 \Gowin_EMPU_inst/u_flash_wrap/n61_s1  (
 	.I0(\Gowin_EMPU_inst/targflash0_readyout ),
@@ -880,12 +826,12 @@ INV \Gowin_EMPU_inst/u_flash_wrap/clk_inv_s2  (
 	.O(\Gowin_EMPU_inst/clk_inv_6 )
 );
 INV \Gowin_EMPU_inst/u_flash_wrap/n84_s2  (
-	.I(master_hrst),
+	.I(\Gowin_EMPU_inst/ye ),
 	.O(\Gowin_EMPU_inst/n84_6 )
 );
 FLASH256K \Gowin_EMPU_inst/u_flash_wrap/u_flash/flash_inst  (
-	.XE(master_hrst),
-	.YE(master_hrst),
+	.XE(\Gowin_EMPU_inst/ye ),
+	.YE(\Gowin_EMPU_inst/ye ),
 	.SE(\Gowin_EMPU_inst/u_flash_wrap/se_out ),
 	.PROG(GND),
 	.ERASE(GND),

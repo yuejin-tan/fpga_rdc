@@ -12,6 +12,9 @@ extern "C" {
     extern uint16_t adcRawData;
     extern uint32_t ms_cnt;
 
+    extern float voltTar;
+    extern uint16_t dacRawData;
+
     extern uint16_t initOk;
 
 #ifdef __cplusplus

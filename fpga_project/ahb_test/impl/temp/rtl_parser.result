@@ -1,0 +1,36 @@
+[
+ {
+  "InstFile" : "D:/fpga/tang_4k/proj/fpga_project/ahb_test/src/top.v",
+  "InstLine" : 1,
+  "InstName" : "top_hdl",
+  "ModuleFile" : "D:/fpga/tang_4k/proj/fpga_project/ahb_test/src/top.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "top_hdl",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/fpga/tang_4k/proj/fpga_project/ahb_test/src/top.v",
+    "InstLine" : 139,
+    "InstName" : "CortexM3_8K_32K",
+    "ModuleFile" : "D:/fpga/tang_4k/proj/fpga_project/ahb_test/src/gowin_empu/gowin_empu.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "Gowin_EMPU_Top"
+   },
+   {
+    "InstFile" : "D:/fpga/tang_4k/proj/fpga_project/ahb_test/src/top.v",
+    "InstLine" : 101,
+    "InstName" : "PLL1_72M",
+    "ModuleFile" : "D:/fpga/tang_4k/proj/fpga_project/ahb_test/src/gowin_pllvr/gowin_pllvr.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "Gowin_PLLVR"
+   },
+   {
+    "InstFile" : "D:/fpga/tang_4k/proj/fpga_project/ahb_test/src/top.v",
+    "InstLine" : 183,
+    "InstName" : "ahb_uart1",
+    "ModuleFile" : "D:/fpga/tang_4k/proj/fpga_project/ahb_test/src/ahb_uart.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "ahb_uart"
+   }
+  ]
+ }
+]

@@ -1,0 +1,13 @@
+-d D:\fpga\tang_4k\proj\fpga_project\ahb_test\impl\gwsynthesis\fpga_project.vg
+-p GW1NSR-4C-QFN48P-6
+-pn GW1NSR-LV4CQN48PC6/I5
+-cst D:\fpga\tang_4k\proj\fpga_project\ahb_test\src\fpga_project.cst
+-cfg D:\fpga\tang_4k\proj\fpga_project\ahb_test\impl\pnr\device.cfg
+-sdc D:\fpga\tang_4k\proj\fpga_project\ahb_test\src\fpga_project.sdc
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-correct_hold 1
+-route_maxfan 23
